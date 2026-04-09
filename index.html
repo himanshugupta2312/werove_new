@@ -1953,9 +1953,9 @@
     <h2>Contact <em>Us</em></h2>
     <p>Tell us who you are, what kind of trip you want, and we’ll respond with a tailored travel plan.</p>
     <form class="newsletter-form" id="contactForm">
-      <input type="text" name="user_name" placeholder="Name" required>
-      <input type="email" name="user_email" placeholder="Email" required>
-      <input type="text" name="user_trips" placeholder="Trips interested in…" required>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="trips" placeholder="Trips interested in…" required>
       <button type="submit">Send message</button>
     </form>
   </div>
@@ -2016,6 +2016,15 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="successModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <button class="modal-close" id="successModalClose" aria-label="Close confirmation message">×</button>
+    <h2>Message Sent</h2>
+    <p>Your inquiry has been received. We will respond within 48 hours.</p>
+    <p>You may also reach out to us via Instagram or Facebook for additional assistance.</p>
+  </div>
+</div>
+
 <script>
   // Custom cursor
   const cursor = document.getElementById('cursor');
@@ -2073,6 +2082,18 @@
     if (e.target === termsModal) toggleModal(false);
   });
 
+  const successModal = document.getElementById('successModal');
+  const successModalClose = document.getElementById('successModalClose');
+  const toggleSuccessModal = (open) => {
+    successModal.classList.toggle('active', open);
+    document.body.classList.toggle('modal-open', open);
+    successModal.setAttribute('aria-hidden', String(!open));
+  };
+  successModalClose?.addEventListener('click', () => toggleSuccessModal(false));
+  successModal?.addEventListener('click', (e) => {
+    if (e.target === successModal) toggleSuccessModal(false);
+  });
+
   // EmailJS Configuration
   emailjs.init('RPzf5IwdbqJqernDJ'); // Replace with your EmailJS public key
 
@@ -2081,15 +2102,17 @@
   contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    const timeString = new Date().toLocaleString();
+    const messageBody = `Email: ${this.email.value}\nTrips interested in: ${this.trips.value}`;
+
     // Send email using EmailJS
     emailjs.send('service_52wldrq', 'template_iwuk3pp', {
-      user_name: this.user_name.value,
-      user_email: this.user_email.value,
-      user_trips: this.user_trips.value,
-      to_email: 'info@werove.in'
+      name: this.name.value,
+      time: timeString,
+      message: messageBody
     })
     .then(function(response) {
-      alert('Message sent successfully!');
+      toggleSuccessModal(true);
       contactForm.reset();
     }, function(error) {
       alert('Failed to send message. Please try again.');
