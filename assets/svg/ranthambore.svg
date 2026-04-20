@@ -1,0 +1,25 @@
+<svg viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1a10"/>
+      <stop offset="60%" stop-color="#1a2e1a"/>
+      <stop offset="100%" stop-color="#2d4a20"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="700" fill="url(#skyGrad)"/>
+  <rect width="500" height="700" fill="none"/>
+  <rect x="150" y="120" width="200" height="280" fill="#0d1408" opacity="0.6"/>
+  <rect x="160" y="100" width="30" height="120" fill="#0d1408" opacity="0.6"/>
+  <rect x="220" y="80" width="40" height="140" fill="#0d1408" opacity="0.6"/>
+  <rect x="310" y="110" width="30" height="110" fill="#0d1408" opacity="0.6"/>
+  <rect x="175" y="180" width="20" height="25" fill="#1a2e1a" opacity="0.8"/>
+  <rect x="215" y="160" width="20" height="25" fill="#1a2e1a" opacity="0.8"/>
+  <rect x="270" y="170" width="20" height="25" fill="#1a2e1a" opacity="0.8"/>
+  <rect x="315" y="175" width="20" height="25" fill="#1a2e1a" opacity="0.8"/>
+  <path d="M0 700 L60 350 L120 700Z" fill="#1a2e1a"/>
+  <path d="M80 700 L130 400 L180 700Z" fill="#1a2e1a"/>
+  <path d="M350 700 L400 380 L450 700Z" fill="#1a2e1a"/>
+  <path d="M420 700 L470 360 L520 700Z" fill="#1a2e1a"/>
+  <path d="M50 650 Q150 630 250 660 Q350 680 450 640" stroke="rgba(200,133,58,0.4)" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M60 670 Q160 650 260 675" stroke="rgba(200,133,58,0.25)" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>

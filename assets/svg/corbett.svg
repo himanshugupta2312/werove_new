@@ -1,0 +1,16 @@
+<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#1e2d1a"/>
+  <path d="M0 300 L40 120 L80 300Z" fill="#0d1408"/>
+  <path d="M60 300 L100 140 L140 300Z" fill="#0d1408"/>
+  <path d="M120 300 L160 110 L200 300Z" fill="#0d1408"/>
+  <path d="M180 300 L220 130 L260 300Z" fill="#0d1408"/>
+  <path d="M240 300 L280 150 L320 300Z" fill="#0d1408"/>
+  <circle cx="220" cy="60" r="35" fill="#e8dfc4" opacity="0.7"/>
+  <circle cx="230" cy="52" r="28" fill="#1e2d1a"/>
+  <ellipse cx="80" cy="265" rx="50" ry="18" fill="#0d1408" opacity="0.8"/>
+  <rect x="56" y="248" width="12" height="30" rx="5" fill="#0d1408" opacity="0.8"/>
+  <rect x="72" y="250" width="12" height="30" rx="5" fill="#0d1408" opacity="0.8"/>
+  <ellipse cx="80" cy="248" rx="28" ry="18" fill="#0d1408" opacity="0.8"/>
+  <ellipse cx="60" cy="242" rx="14" ry="10" fill="#0d1408" opacity="0.8"/>
+  <path d="M50 242 Q40 252 42 265" stroke="#0d1408" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#1a2a2e"/>
+  <g stroke="#0d1a1e" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M30 300 Q25 260 40 240 Q50 220 30 200"/>
+    <path d="M50 300 Q60 270 55 250 Q45 230 60 210"/>
+    <path d="M240 300 Q250 265 245 245 Q235 225 250 205"/>
+    <path d="M265 300 Q260 270 270 250 Q280 230 265 210"/>
+  </g>
+  <ellipse cx="40" cy="200" rx="55" ry="30" fill="#0d1a1e" opacity="0.9"/>
+  <ellipse cx="255" cy="205" rx="55" ry="30" fill="#0d1a1e" opacity="0.9"/>
+  <path d="M0 280 Q75 270 150 278 Q225 286 300 272 L300 300 L0 300Z" fill="#0d1e24" opacity="0.9"/>
+  <ellipse cx="150" cy="285" rx="60" ry="5" stroke="rgba(100,160,180,0.3)" stroke-width="1" fill="none"/>
+  <ellipse cx="150" cy="285" rx="90" ry="8" stroke="rgba(100,160,180,0.2)" stroke-width="1" fill="none"/>
+  <g fill="rgba(200,133,58,0.3)">
+    <circle cx="145" cy="275" r="5"/>
+    <circle cx="139" cy="268" r="3"/>
+    <circle cx="147" cy="266" r="3"/>
+    <circle cx="153" cy="268" r="3"/>
+  </g>
+</svg>

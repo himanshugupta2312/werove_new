@@ -1,0 +1,14 @@
+<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#2a2d1a"/>
+  <path d="M0 300 L50 150 L100 300Z" fill="#1a1d0d"/>
+  <path d="M70 300 L120 130 L170 300Z" fill="#1a1d0d"/>
+  <path d="M140 300 L190 145 L240 300Z" fill="#1a1d0d"/>
+  <path d="M210 300 L260 160 L310 300Z" fill="#1a1d0d"/>
+  <circle cx="80" cy="200" r="15" fill="rgba(200,165,60,0.12)"/>
+  <circle cx="180" cy="230" r="20" fill="rgba(200,165,60,0.1)"/>
+  <circle cx="250" cy="200" r="12" fill="rgba(200,165,60,0.12)"/>
+  <circle cx="200" cy="210" r="8" fill="#1a1d0d"/>
+  <path d="M200 202 Q210 185 220 178 Q215 192 205 200" fill="rgba(60,100,80,0.5)"/>
+  <path d="M200 202 Q215 185 230 182 Q222 196 208 202" fill="rgba(60,100,80,0.4)"/>
+  <path d="M200 202 Q188 185 178 180 Q185 194 196 201" fill="rgba(60,100,80,0.5)"/>
+</svg>

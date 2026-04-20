@@ -1,0 +1,20 @@
+<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#1a2e24"/>
+  <path d="M0 300 Q75 240 150 260 Q225 280 300 240 L300 300Z" fill="#1a3020" opacity="0.8"/>
+  <path d="M0 280 Q75 250 150 265 Q225 278 300 255 L300 300 L0 300Z" fill="#0d1a14" opacity="0.9"/>
+  <ellipse cx="160" cy="258" rx="55" ry="18" fill="#0a1410"/>
+  <rect x="118" y="250" width="11" height="22" rx="3" fill="#0a1410"/>
+  <rect x="138" y="252" width="11" height="22" rx="3" fill="#0a1410"/>
+  <rect x="165" y="252" width="11" height="22" rx="3" fill="#0a1410"/>
+  <rect x="185" y="250" width="11" height="22" rx="3" fill="#0a1410"/>
+  <ellipse cx="158" cy="248" rx="38" ry="14" fill="#0a1410"/>
+  <ellipse cx="128" cy="245" rx="18" ry="11" fill="#0a1410"/>
+  <path d="M118 241 L112 234" stroke="#0a1410" stroke-width="5" stroke-linecap="round"/>
+  <path d="M0 290 Q75 275 150 285 Q225 295 300 275 L300 300 L0 300Z" fill="rgba(30,70,60,0.4)"/>
+  <g stroke="#3d5a3e" stroke-width="2" fill="none">
+    <line x1="20" y1="300" x2="28" y2="240"/>
+    <line x1="35" y1="300" x2="30" y2="235"/>
+    <line x1="250" y1="300" x2="258" y2="238"/>
+    <line x1="265" y1="300" x2="260" y2="232"/>
+  </g>
+</svg>
