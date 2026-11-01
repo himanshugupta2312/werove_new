@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup A · Field Journal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ambient:#3f5f36; --paper:#f4eee2; --paper-2:#ebe3d2; --ink:#1f2a22; --muted:#5d6458;
+    --moss:#3f5f36; --rust:#b0532a; --line:#d6cbb4;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .eyebrow{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--rust)}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1}
+  h2{font-size:clamp(32px,4vw,48px);margin:12px 0 16px}
+  h2 em,h1 em{color:var(--moss)}
+  section{padding:96px 0;border-top:1px solid var(--line)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:2px;font:600 14px var(--sans);text-decoration:none;border:1px solid var(--ink)}
+  .btn.solid{background:var(--ink);color:var(--paper)}
+  .btn.wa{background:#1f6f43;border-color:#1f6f43;color:#fff}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(244,238,226,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font:600 24px var(--serif);text-decoration:none;letter-spacing:-.01em}
+  .logo span{color:var(--rust)}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:500}
+  nav ul a{text-decoration:none}
+  nav ul a:hover{color:var(--rust)}
+
+  /* hero */
+  .hero{padding:64px 0 88px;border:0}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(44px,6vw,80px);margin:18px 0 22px;letter-spacing:-.02em}
+  .hero p.lead{font-size:19px;color:var(--muted);max-width:520px;margin-bottom:32px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .plate{position:relative;background:#fff;padding:14px 14px 48px;box-shadow:0 1px 0 var(--line),0 20px 40px -24px rgba(31,42,34,.45);transform:rotate(1.2deg)}
+  .plate img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .plate figcaption{position:absolute;bottom:14px;left:16px;font:italic 15px var(--serif);color:var(--muted)}
+  .plate.small{position:absolute;width:44%;left:-14%;bottom:-48px;transform:rotate(-4deg);padding:10px 10px 36px}
+  .plate.small figcaption{bottom:10px;font-size:13px}
+  .hero-art{position:relative}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line)}
+  .pillar{background:var(--paper);padding:44px;display:grid;grid-template-columns:150px 1fr;gap:28px}
+  .pillar img{width:150px;height:190px;object-fit:cover}
+  .pillar h3{font-size:34px;margin:6px 0 10px}
+  .pillar ul{list-style:none;margin:14px 0 20px;font-size:14px;color:var(--muted)}
+  .pillar li::before{content:"— ";color:var(--rust)}
+  .pillar a.more{font-weight:600;font-size:14px;color:var(--rust)}
+
+  /* destinations as specimen cards */
+  .dests{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .card{background:#fbf8f1;border:1px solid var(--line);display:flex;flex-direction:column}
+  .card img{aspect-ratio:3/2;object-fit:cover;width:100%;filter:saturate(.9)}
+  .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .card .no{font:italic 14px var(--serif);color:var(--rust)}
+  .card h3{font-size:25px;margin:4px 0 2px}
+  .card .where{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .tag{font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border:1px solid currentColor}
+  .tag.s{color:var(--rust)} .tag.b{color:var(--moss)}
+  .card p{font-size:15px;color:var(--muted)}
+  .card dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;margin:16px 0 18px;padding-top:14px;border-top:1px dashed var(--line)}
+  .card dt{font-weight:600}
+  .card .go{margin-top:auto;font-weight:600;font-size:14px;color:var(--ink)}
+  .card.ask{background:var(--moss);color:var(--paper);border-color:var(--moss);justify-content:center;padding:36px}
+  .card.ask h3{font-size:32px;margin-bottom:12px}
+  .card.ask p{color:#d9e2cf;margin-bottom:22px}
+  .card.ask .btn{border-color:var(--paper);color:var(--paper);align-self:flex-start}
+
+  /* calendar */
+  .cal{width:100%;border-collapse:collapse;margin-top:36px;font-size:14px}
+  .cal th,.cal td{padding:12px 6px;text-align:center;border-bottom:1px solid var(--line)}
+  .cal th:first-child,.cal td:first-child{text-align:left;font-family:var(--serif);font-size:17px;white-space:nowrap;padding-right:20px}
+  .cal thead th{font:600 11px var(--sans);letter-spacing:.12em;color:var(--muted)}
+  .dot{display:inline-block;width:14px;height:14px;border-radius:50%}
+  .d2{background:var(--moss)} .d1{background:transparent;border:2px solid var(--moss)} .d0{background:transparent;border:1px dashed #b9ae97}
+  .legend{display:flex;gap:22px;font-size:13px;color:var(--muted);margin-top:16px;align-items:center}
+  .legend span{display:inline-flex;gap:8px;align-items:center}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px;counter-reset:s}
+  .step{counter-increment:s}
+  .step::before{content:counter(s,decimal-leading-zero);font:400 56px var(--serif);color:var(--rust);display:block;line-height:1;margin-bottom:12px}
+  .step h3{font-size:24px;margin-bottom:8px}
+  .step p{color:var(--muted)}
+
+  /* ethics */
+  .ethics{background:var(--ink);color:var(--paper);border:0}
+  .ethics .eyebrow{color:#e09a6f}
+  .ethics h2 em{color:#a8c49a}
+  .ethics .grid{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
+  .ethics p.intro{color:#c9c6b8;font-size:17px}
+  .rules{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:28px 36px}
+  .rules li{border-top:1px solid #3b473d;padding-top:16px}
+  .rules b{display:block;font:400 21px var(--serif);margin-bottom:6px}
+  .rules span{color:#b5b4a6;font-size:14px}
+
+  /* about */
+  .about .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .about blockquote{font:italic 26px/1.4 var(--serif);border-left:3px solid var(--rust);padding-left:24px;margin:20px 0}
+  .people{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .person .ph{aspect-ratio:1;background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 10px,#e4dac5 10px,#e4dac5 20px);display:grid;place-items:center;font-size:12px;color:var(--muted);text-align:center;padding:12px}
+  .people{grid-template-columns:1fr!important}.person{border-top:1px solid var(--line);padding-top:14px}.person b{display:block;font:400 22px var(--serif)}
+  .person span{font-size:13px;color:var(--muted)}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px;margin-top:36px}
+  .gallery figure{position:relative;overflow:hidden}
+  .gallery figure:nth-child(1){grid-row:span 2}
+  .gallery figure:nth-child(4){grid-column:span 2}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .gallery figure:hover img{transform:scale(1.04)}
+  .gallery figcaption{position:absolute;left:0;bottom:0;right:0;padding:24px 12px 10px;color:#fff;font:italic 14px var(--serif);background:linear-gradient(transparent,rgba(0,0,0,.6))}
+
+  /* reviews */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  .review{border:1px dashed #b9ae97;padding:28px}
+  .review p{font:italic 18px/1.5 var(--serif);margin-bottom:16px}
+  .review span{font-size:13px;color:var(--muted)}
+
+  /* contact */
+  .contact .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+  .direct{list-style:none;margin:28px 0;display:grid;gap:14px}
+  .direct li{display:flex;gap:14px;align-items:baseline}
+  .direct b{min-width:96px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  form{background:#fbf8f1;border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{font-size:13px;font-weight:600;display:grid;gap:6px}
+  input,select,textarea{font:15px var(--sans);padding:11px 12px;border:1px solid var(--line);background:#fff;border-radius:2px;color:var(--ink)}
+  .full{grid-column:1/-1}
+  .seg{display:flex;gap:8px}
+  .seg label{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);padding:10px;font-weight:500;background:#fff;cursor:pointer}
+
+  footer{background:var(--paper-2);padding:48px 0;font-size:14px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  .mock-note{background:#fff3c4;border:1px solid #e6cf7a;color:#5c4a0b;font-size:12px;padding:2px 6px;border-radius:3px}
+
+  @media (max-width:900px){
+    nav ul{display:none}
+    .hero .wrap,.pillars,.ethics .grid,.about .grid,.contact .grid{grid-template-columns:1fr}
+    .dests,.steps,.reviews{grid-template-columns:1fr}
+    .pillar{grid-template-columns:1fr}
+    .rules{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+    .plate.small{display:none}
+    .cal{display:block;overflow-x:auto}
+    form{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#">We <span>Rove</span></a>
+  <ul>
+    <li><a href="#safari">Safaris</a></li>
+    <li><a href="#birding">Birding</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#when">When to go</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <span><a data-tel style="font-weight:600;font-size:14px;margin-right:16px;text-decoration:none">☎ <span data-site="phone"></span></a><a class="btn wa" data-wa>WhatsApp</a></span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow">Safari & birding trips · India</div>
+    <h1>Go slow.<br>Look <em>closer.</em></h1>
+    <p class="lead">Small-group tiger safaris and birding trips in central India and the Himalayan foothills, planned and led by people who keep going back.</p>
+    <div class="ctas">
+      <a class="btn solid" href="#destinations">See destinations</a>
+      <a class="btn wa" data-wa>WhatsApp us</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <figure class="plate"><img src="img/bengal-tiger.webp" alt="Bengal tiger"><figcaption>Panthera tigris — central India</figcaption></figure>
+    <figure class="plate small"><img src="img/verditer-flycatcher.webp" alt="Verditer flycatcher"><figcaption>Verditer Flycatcher</figcaption></figure>
+  </div>
+</div></header>
+
+<section id="safari" style="padding-top:72px"><div class="wrap">
+  <div class="eyebrow">What we do</div>
+  <h2>Two kinds of trip, <em>done properly</em></h2>
+  <div class="pillars" style="margin-top:36px">
+    <div class="pillar">
+      <img src="img/bengal-tiger.webp" alt="">
+      <div>
+        <div class="eyebrow">01 · Safari trips</div>
+        <h3>Tiger country</h3>
+        <p>Tadoba, Pench, Ranthambore and Corbett. We book the zones and time the season; our naturalists know the forest and get you into position.</p>
+        <ul><li>Safari permits & zone planning handled</li><li>Morning + evening drives</li><li>Small groups, private jeeps on request</li></ul>
+        <a class="more" href="#destinations">Safari destinations →</a>
+      </div>
+    </div>
+    <div class="pillar" id="birding">
+      <img src="img/pink-browed-rosefinch.webp" alt="">
+      <div>
+        <div class="eyebrow">02 · Birding trips</div>
+        <h3>The foothills</h3>
+        <p>Sattal, Corbett and Dharamshala, led by birders who find birds by ear first. Good for beginners and for people chasing a lifer.</p>
+        <ul><li>Dawn starts, slow walks, no playback</li><li>Photography-friendly pacing</li><li>Trip checklist shared after the trip</li></ul>
+        <a class="more" href="#destinations">Birding destinations →</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="destinations"><div class="wrap">
+  <div class="eyebrow">Destinations</div>
+  <h2>Where people <em>ask us to go</em></h2>
+  <p style="color:var(--muted);max-width:620px">The places travellers ask us about most. Every trip is planned around your dates and group, and if it's wild and in India, ask us.</p>
+  <div class="dests">
+    <article class="card"><img src="img/tadoba.webp" alt=""><div class="body">
+      <span class="no">No. 01</span><h3>Tadoba-Andhari</h3><div class="where">Chandrapur, Maharashtra</div>
+      <div class="tags"><span class="tag s">Safari</span></div>
+      <p>Maharashtra's oldest and largest tiger reserve: teak forest, lakes, and some of the most reliable tiger sightings in India.</p>
+      <dl><dt>See</dt><dd>Tiger, leopard, sloth bear, dhole, gaur</dd><dt>Best</dt><dd>March – May</dd><dt>Reach</dt><dd>Nagpur airport, ~3 hrs</dd></dl>
+      <a class="go" href="#">Explore Tadoba →</a></div></article>
+    <article class="card"><img src="img/pench.webp" alt=""><div class="body">
+      <span class="no">No. 02</span><h3>Pench</h3><div class="where">Seoni, Madhya Pradesh</div>
+      <div class="tags"><span class="tag s">Safari</span></div>
+      <p>The teak-and-bamboo forest behind <i>The Jungle Book</i>, cut through by the Pench river. Quieter than the big-name parks.</p>
+      <dl><dt>See</dt><dd>Tiger, leopard, dhole, gaur</dd><dt>Best</dt><dd>February – May</dd><dt>Reach</dt><dd>Nagpur airport, ~2.5 hrs</dd></dl>
+      <a class="go" href="#">Explore Pench →</a></div></article>
+    <article class="card"><img src="img/corbett.webp" alt=""><div class="body">
+      <span class="no">No. 03</span><h3>Jim Corbett</h3><div class="where">Ramnagar, Uttarakhand</div>
+      <div class="tags"><span class="tag s">Safari</span><span class="tag b">Birding</span></div>
+      <p>India's first national park. Tigers and elephants in the grasslands, and 550+ bird species along the Ramganga and Kosi.</p>
+      <dl><dt>See</dt><dd>Tiger, elephant, great hornbill, ibisbill</dd><dt>Best</dt><dd>November – May</dd><dt>Reach</dt><dd>Delhi, ~6 hrs by road</dd></dl>
+      <a class="go" href="#">Explore Corbett →</a></div></article>
+    <article class="card"><img src="img/sattal.webp" alt=""><div class="body">
+      <span class="no">No. 04</span><h3>Sattal</h3><div class="where">Nainital, Uttarakhand</div>
+      <div class="tags"><span class="tag b">Birding</span></div>
+      <p>Seven connected lakes in oak and pine forest. One of north India's classic birding sites, and easy to reach from Delhi.</p>
+      <dl><dt>See</dt><dd>Red-billed blue magpie, scimitar babblers, kalij pheasant</dd><dt>Best</dt><dd>October – April</dd><dt>Reach</dt><dd>Kathgodam rail, ~1.5 hrs</dd></dl>
+      <a class="go" href="#">Explore Sattal →</a></div></article>
+    <article class="card"><img src="img/ranthambore.webp" alt=""><div class="body">
+      <span class="no">No. 05</span><h3>Ranthambore</h3><div class="where">Sawai Madhopur, Rajasthan</div>
+      <div class="tags"><span class="tag s">Safari</span></div>
+      <p>Tigers among the ruins of a 10th-century fort, with lakes, crocodiles and dry deciduous forest.</p>
+      <dl><dt>See</dt><dd>Tiger, leopard, sloth bear, mugger crocodile</dd><dt>Best</dt><dd>March – May</dd><dt>Reach</dt><dd>Sawai Madhopur rail, 20 min</dd></dl>
+      <a class="go" href="#">Explore Ranthambore →</a></div></article>
+    <article class="card"><img src="img/dharamshala.webp" alt=""><div class="body">
+      <span class="no">No. 06</span><h3>Dharamshala & around</h3><div class="where">Kangra, Himachal Pradesh</div>
+      <div class="tags"><span class="tag b">Birding</span></div>
+      <p>The Dhauladhar foothills, with 300+ species within reach, from the Kangra valley floor up to Kareri lake.</p>
+      <dl><dt>See</dt><dd>Lammergeier, Himalayan griffon, white-capped redstart</dd><dt>Best</dt><dd>October – April</dd><dt>Reach</dt><dd>Gaggal airport, ~30 min</dd></dl>
+      <a class="go" href="#">Explore Dharamshala →</a></div></article>
+  </div>
+  <div class="card ask" style="margin-top:24px;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div><h3 style="margin-bottom:6px">Somewhere else in mind?</h3><p style="margin:0">Kaziranga, Sundarbans, Latpanchar, the Western Ghats... tell us where and we'll plan it.</p></div>
+    <a class="btn" href="#contact">Ask us →</a>
+  </div>
+</div></section>
+
+<section id="when"><div class="wrap">
+  <div class="eyebrow">Plan ahead</div>
+  <h2>When to <em>go</em></h2>
+  <p style="color:var(--muted);max-width:620px">Parks close for the monsoon, and the best months differ for tigers and for birds. Here's the short version.</p>
+  <table class="cal">
+    <thead><tr><th></th><th>JAN</th><th>FEB</th><th>MAR</th><th>APR</th><th>MAY</th><th>JUN</th><th>JUL</th><th>AUG</th><th>SEP</th><th>OCT</th><th>NOV</th><th>DEC</th></tr></thead>
+    <tbody id="calbody"></tbody>
+  </table>
+  <div class="legend"><span><i class="dot d2"></i>Best</span><span><i class="dot d1"></i>Good / open</span><span><i class="dot d0"></i>Closed or off-season</span><span style="margin-left:auto">Approximate. Zone opening dates vary year to year.</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">How it works</div>
+  <h2>From first message to <em>first light</em></h2>
+  <div class="steps">
+    <div class="step"><h3>Tell us what you want to see</h3><p>Tigers, a specific bird, or just a quiet week in the forest. Add your dates, group size and comfort level.</p></div>
+    <div class="step"><h3>We send an itinerary</h3><p>Within 48 hours you'll get a day-by-day plan with stays, safari zones, inclusions and a clear price.</p></div>
+    <div class="step"><h3>We handle the rest</h3><p>Permits, transfers, stays and naturalists. You show up with binoculars.</p></div>
+  </div>
+</div></section>
+
+<section class="ethics"><div class="wrap grid">
+  <div>
+    <div class="eyebrow">How we travel</div>
+    <h2>The animal comes <em>first.</em><br>The photo second.</h2>
+    <p class="intro">Our one rule: leave life alone and undisturbed. In the field, that means a few things we don't bend on, even if it costs us a sighting.</p>
+  </div>
+  <ul class="rules">
+    <li><b>No playback. Ever.</b><span>We don't play bird calls to pull birds out. It stresses them, especially in breeding season.</span></li>
+    <li><b>Distance over closeness</b><span>We keep back from nests, roosts and animals, and we don't chase anything that moves off.</span></li>
+    <li><b>No baiting, no flash</b><span>We don't feed wildlife for photographs, and we don't use flash on birds or at night.</span></li>
+    <li><b>Small groups, local people</b><span>Small groups only. We work with local naturalists, drivers and homestays.</span></li>
+    <li><b>We carry it out</b><span>Every wrapper and bottle comes back with us.</span></li>
+    <li><b>Season-aware</b><span>We don't push into forests during closures or into sensitive areas off-route.</span></li>
+  </ul>
+</div></section>
+
+<section id="about" class="about"><div class="wrap grid">
+  <div>
+    <div class="eyebrow">About us</div>
+    <h2>For the travellers, <em>by the travellers</em></h2>
+    <p>We Rove started on a Republic Day in the jungles of Corbett, between a mountaineer-turned-naturalist, a lifelong bird lover and a few friends who wanted more from their weekends than a desk job gave them.</p>
+    <blockquote>"If you're looking for adventure, it's not at home."</blockquote>
+    <p>We're still that small group. We plan every trip ourselves and go on most of them. No names here, just who does what.</p>
+  </div>
+  <div class="people crew-list"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">From the field</div>
+  <h2>Seen on <em>our trips</em></h2>
+  <div class="gallery">
+    <figure><img src="img/indian-pitta.webp" alt=""><figcaption>Indian Pitta</figcaption></figure>
+    <figure><img src="img/eurasian-wren.webp" alt=""><figcaption>Eurasian Wren</figcaption></figure>
+    <figure><img src="img/indian-silverbill.webp" alt=""><figcaption>Indian Silverbill</figcaption></figure>
+    <figure><img src="img/pied-kingfisher.webp" alt=""><figcaption>Pied Kingfisher</figcaption></figure>
+    <figure><img src="img/lesser-florican.webp" alt=""><figcaption>Lesser Florican</figcaption></figure>
+    <figure><img src="img/pink-browed-rosefinch.webp" alt=""><figcaption>Pink-browed Rosefinch</figcaption></figure>
+  </div>
+  <p style="margin-top:20px;font-size:14px;color:var(--muted)">More on <a href="https://www.instagram.com/werove.in/">Instagram</a> and our <a href="#">YouTube trip videos</a>.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Travellers</div>
+  <h2>What people <em>say</em></h2>
+  <div class="reviews">
+    <div class="review"><p>"Real quote from a past traveller goes here. Keep it to two or three lines."</p><span>[Name], Corbett birding · [Month Year]</span></div>
+    <div class="review"><p>"Ask 5–6 past guests for one line each, or pull from Google reviews."</p><span>[Name], Tadoba safari</span></div>
+    <div class="review"><p>"If there are none yet, leave this section out. Fake reviews do more harm than none."</p><span><span class="mock-note">mockup note</span></span></div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap grid">
+  <div>
+    <div class="eyebrow">Plan a trip</div>
+    <h2>Tell us where. <em>We'll do the rest.</em></h2>
+    <p style="color:var(--muted)">Most trips are planned over one call or a few WhatsApp messages. You can also fill in the form; it opens WhatsApp with your details filled in.</p>
+    <ul class="direct">
+      <li><b>WhatsApp</b><a data-wa data-site="phone"></a></li>
+      <li><b>Call</b><a data-tel data-site="phone"></a></li>
+      <li><b>Email</b><a data-mail data-site="email"></a></li>
+    </ul>
+    <a class="btn wa" data-wa>Chat on WhatsApp</a> <a class="btn" data-tel>Call us</a>
+  </div>
+  <form data-enquiry>
+    <label class="full">Trip type
+      <div class="seg"><label><input type="radio" name="type" value="Safari" checked> Safari</label><label><input type="radio" name="type" value="Birding"> Birding</label><label><input type="radio" name="type" value="Safari + Birding"> Both</label></div>
+    </label>
+    <label>Name<input name="name" placeholder="Your name"></label>
+    <label>Destination<select name="dest"><option>Not sure yet</option><option>Tadoba-Andhari</option><option>Pench</option><option>Jim Corbett</option><option>Sattal</option><option>Ranthambore</option><option>Dharamshala & around</option><option>Somewhere else</option></select></label>
+    <label>Month<select name="when"><option>Flexible</option><option>Nov 2026</option><option>Dec 2026</option><option>Jan 2027</option><option>Feb 2027</option><option>Mar 2027</option><option>Apr 2027</option><option>May 2027</option></select></label>
+    <label class="full">Travellers<input name="people" type="number" value="2" min="1"></label>
+    <label class="full">Anything else?<textarea name="notes" rows="3" placeholder="Target species, photography, budget, mobility needs..."></textarea></label>
+    <button class="btn solid full" style="justify-content:center;cursor:pointer">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<section data-blog><div class="wrap">
+  <div class="eyebrow">Field notes</div>
+  <h2>From the journal</h2>
+  <div id="notes" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:32px"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><b style="font-family:var(--serif);font-size:20px;color:var(--ink)">We Rove</b><br>Safari & birding trips in India · Since [year]</div>
+  <div>Safaris · Birding · Destinations · About · Terms · Privacy</div>
+  <div><a href="https://www.instagram.com/werove.in/">Instagram</a> · <a href="#">YouTube</a> · <a href="#">Facebook</a></div>
+</div></footer>
+
+<script src="shared.js"></script>
+<script>
+  document.getElementById('notes').innerHTML=NOTES.map(([c,t,img])=>`<a href="#"><img src="img/${img}.webp" alt="" style="aspect-ratio:3/2;object-fit:cover;width:100%;margin-bottom:12px"><small style="text-transform:uppercase;letter-spacing:.12em;font-size:11px;opacity:.7">${c}</small><div style="font-size:20px;line-height:1.25;margin-top:4px">${t}</div></a>`).join('');
+  document.querySelectorAll('.crew-list').forEach(el=>el.innerHTML=CREW.map(([a,b])=>`<div class="person"><b>${a}</b><span>${b}</span></div>`).join(''));
+</script>
+<script>
+  // 2 = best, 1 = open, 0 = closed/off — Jan..Dec
+  const cal={'Tadoba-Andhari':'112221000111','Pench':'122221000111','Jim Corbett':'222211000122','Sattal':'222211000122','Ranthambore':'112221000111','Dharamshala':'222211000122'};
+  document.getElementById('calbody').innerHTML=Object.entries(cal).map(([k,v])=>`<tr><td>${k}</td>${[...v].map(d=>`<td><i class="dot d${d}"></i></td>`).join('')}</tr>`).join('');
+</script>
+<script src="ambient.js"></script>
+</body>
+</html>

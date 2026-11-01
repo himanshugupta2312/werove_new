@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup D · Poster)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--ambient:#1e4d4a;--paper:#f2e6cf;--paper2:#eadbbd;--ink:#22201c;--teal:#1e4d4a;--teal2:#2f6b63;--rust:#c4532d;--mustard:#e3a83b;
+    --head:'Oswald',Impact,sans-serif;--body:'Lora',Georgia,serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font:17px/1.65 var(--body);overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--head);text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+  h2{font-size:clamp(40px,5.5vw,72px);margin:10px 0 18px}
+  .label{font:600 13px var(--head);letter-spacing:.3em;text-transform:uppercase;color:var(--rust)}
+  section{padding:96px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font:600 16px var(--head);letter-spacing:.12em;text-transform:uppercase;border:3px solid var(--ink);background:var(--paper);box-shadow:5px 5px 0 var(--ink);transition:.15s}
+  .btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink)}
+  .btn.r{background:var(--rust);color:var(--paper)}
+  .btn.t{background:var(--teal);color:var(--paper)}
+  .btn.m{background:var(--mustard)}
+
+  nav{border-bottom:3px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:20}
+  nav .wrap{display:flex;align-items:center;gap:28px;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;font:700 26px var(--head);text-transform:uppercase;letter-spacing:.04em}
+  nav ul{display:flex;gap:24px;list-style:none;font:600 14px var(--head);letter-spacing:.16em;text-transform:uppercase;margin-right:auto}
+  nav .call{font:600 15px var(--head);letter-spacing:.06em}
+
+  /* hero poster */
+  .hero{padding:48px 0 80px}
+  .poster{border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);background:var(--paper);position:relative;overflow:hidden}
+  .poster svg.scene{display:block;width:100%;height:auto}
+  .poster .txt{position:absolute;top:44px;left:0;right:0;text-align:center;color:var(--paper)}
+  .poster .txt small{font:600 15px var(--head);letter-spacing:.5em}
+  .poster h1{font-size:clamp(56px,10vw,150px);letter-spacing:.02em;text-shadow:4px 4px 0 rgba(0,0,0,.18)}
+  .poster .bar{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;align-items:center;padding:16px 28px;font:600 16px var(--head);letter-spacing:.2em;text-transform:uppercase;flex-wrap:wrap;gap:12px}
+  .hero-sub{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-top:48px}
+  .hero-sub p{font-size:21px}
+  .hero-sub .ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+  .pillar{border:3px solid var(--ink);padding:0;background:var(--paper2)}
+  .pillar .art{border-bottom:3px solid var(--ink);height:220px;overflow:hidden}
+  .pillar .art img{width:100%;height:100%;object-fit:cover;filter:sepia(.25) contrast(1.05)}
+  .pillar .in{padding:28px}
+  .pillar h3{font-size:44px;margin-bottom:10px}
+  .pillar .where{font:600 14px var(--head);letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin:12px 0 22px}
+
+  /* destination posters */
+  .posters{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+  .dp{border:3px solid var(--ink);background:var(--paper);box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;transition:.2s}
+  .dp:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+  .dp svg{display:block;width:100%;height:auto;border-bottom:3px solid var(--ink)}
+  .dp .in{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .dp h3{font-size:34px}
+  .dp .reg{font:600 13px var(--head);letter-spacing:.22em;text-transform:uppercase;color:var(--rust);margin:4px 0 12px}
+  .dp p{font-size:15px;margin-bottom:14px}
+  .dp .meta{display:flex;justify-content:space-between;border-top:2px dashed var(--ink);padding-top:12px;margin-top:auto;font:600 13px var(--head);letter-spacing:.12em;text-transform:uppercase}
+  .stamp{display:inline-block;border:2px solid currentColor;padding:2px 8px;font:600 11px var(--head);letter-spacing:.2em;margin-right:6px}
+  .stamp.s{color:var(--rust)}.stamp.b{color:var(--teal)}
+  .elsewhere{margin-top:40px;border:3px solid var(--ink);background:var(--mustard);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:6px 6px 0 var(--ink)}
+  .elsewhere h3{font-size:38px}
+
+  /* seasons */
+  .seasons{width:100%;border-collapse:collapse;margin-top:28px;border:3px solid var(--ink);background:var(--paper2)}
+  .seasons th,.seasons td{border:1px solid rgba(34,32,28,.25);text-align:center;padding:10px 4px}
+  .seasons thead th{background:var(--ink);color:var(--paper);font:600 13px var(--head);letter-spacing:.14em}
+  .seasons td:first-child{text-align:left;font:600 17px var(--head);text-transform:uppercase;letter-spacing:.06em;padding-left:14px;white-space:nowrap}
+  .s2{background:var(--rust)}.s1{background:var(--mustard);opacity:.55}.s0{background:transparent}
+
+  /* ethics */
+  .ethics{background:var(--teal);color:var(--paper);border-block:4px solid var(--ink)}
+  .ethics .label{color:var(--mustard)}
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  .rules div{border:2px solid rgba(242,230,207,.5);padding:24px}
+  .rules b{display:block;font:600 24px var(--head);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;color:var(--mustard)}
+
+  /* crew */
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+  .crew div{border-top:6px solid var(--ink);padding-top:18px}
+  .crew svg{width:56px;height:56px;margin-bottom:12px}
+  .crew b{display:block;font:600 24px var(--head);text-transform:uppercase}
+
+  /* field notes */
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px}
+  .note img{border:3px solid var(--ink);aspect-ratio:3/2;object-fit:cover;width:100%}
+  .note small{display:block;font:600 12px var(--head);letter-spacing:.2em;color:var(--rust);margin:14px 0 6px;text-transform:uppercase}
+  .note b{font:600 22px/1.15 var(--head);text-transform:uppercase}
+
+  /* faq */
+  details{border-bottom:2px solid var(--ink);padding:18px 0}
+  summary{font:600 22px var(--head);text-transform:uppercase;letter-spacing:.03em;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+  summary::after{content:"+";color:var(--rust)}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:8px}
+
+  /* contact */
+  .contact{background:var(--ink);color:var(--paper)}
+  .contact .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px}
+  .contact h2{color:var(--mustard)}
+  .big{font:700 clamp(36px,5vw,64px) var(--head);letter-spacing:.02em;display:block;margin:18px 0 6px}
+  .contact .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
+  .contact .btn{border-color:var(--paper);box-shadow:5px 5px 0 var(--rust)}
+  form{border:3px solid var(--paper);padding:28px;display:grid;gap:14px}
+  form label{display:grid;gap:4px;font:600 13px var(--head);letter-spacing:.18em;text-transform:uppercase}
+  form input,form select,form textarea{background:transparent;border:2px solid rgba(242,230,207,.4);color:var(--paper);padding:10px;font:16px var(--body)}
+  form select option{color:var(--ink)}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+  footer{padding:36px 0;border-top:3px solid var(--ink);font:600 13px var(--head);letter-spacing:.16em;text-transform:uppercase}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media(max-width:900px){
+    nav ul{display:none}
+    .hero-sub,.pillars,.posters,.rules,.crew,.notes,.contact .grid{grid-template-columns:1fr}
+    .hero-sub .ctas{justify-content:flex-start}
+    .seasons{display:block;overflow-x:auto}
+    .poster .txt{top:20px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="34" height="34" viewBox="0 0 40 40"><clipPath id="st"><rect width="40" height="26"/></clipPath><circle cx="20" cy="26" r="16" fill="#c4532d" clip-path="url(#st)"/><path d="M0 27.5H40M6 32.5H34M12 37.5H28" stroke="#22201c" stroke-width="3" stroke-linecap="round"/></svg>We Rove</a>
+  <ul><li><a href="#trips">Safaris</a></li><li><a href="#trips">Birding</a></li><li><a href="#dest">Destinations</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="call" data-tel>☎ <span data-site="phone"></span></a>
+  <a class="btn r" data-wa style="padding:10px 18px;box-shadow:3px 3px 0 var(--ink)">WhatsApp</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="poster">
+    <svg class="scene" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice">
+      <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e98a4a"/><stop offset=".55" stop-color="#f2b866"/><stop offset="1" stop-color="#f6d79a"/></linearGradient></defs>
+      <rect width="1200" height="560" fill="url(#sky)"/>
+      <circle cx="600" cy="330" r="120" fill="#fbe3b0"/>
+      <path d="M0 330 Q150 270 300 315 T600 300 T900 290 T1200 310 V560 H0Z" fill="#c9784a"/>
+      <path d="M0 380 Q200 320 420 370 T820 350 T1200 365 V560 H0Z" fill="#2f6b63"/>
+      <path d="M0 430 Q250 390 520 425 T1200 410 V560 H0Z" fill="#1e4d4a"/>
+      <g fill="#14302e" id="trees"></g>
+      <g fill="none" stroke="#22201c" stroke-width="4" stroke-linecap="round">
+        <path d="M760 170q14-14 28 0q14-14 28 0"/><path d="M830 130q9-9 18 0q9-9 18 0"/><path d="M700 210q8-8 16 0q8-8 16 0"/>
+      </g>
+    </svg>
+    <div class="txt"><small>SAFARI · BIRDING · INDIA</small><h1>See India<br>Wild</h1></div>
+    <div class="bar"><span>Tadoba · Pench · Corbett · Sattal · Ranthambore · Dharamshala</span><span>Season 2026–27</span></div>
+  </div>
+  <div class="hero-sub">
+    <p>Small-group tiger safaris and birding trips, planned by people who keep going back. <i>Call or WhatsApp us</i> and we'll plan the whole thing.</p>
+    <div class="ctas"><a class="btn r" data-wa>WhatsApp us</a><a class="btn" data-tel>Call now</a></div>
+  </div>
+</div></header>
+
+<section id="trips" style="padding-top:40px"><div class="wrap">
+  <div class="label">Two ways to rove</div>
+  <h2>Pick your trail</h2>
+  <div class="pillars">
+    <div class="pillar"><div class="art"><img src="img/bengal-tiger.webp" alt=""></div><div class="in">
+      <h3>Safari trips</h3><p>Jeep safaris in India's tiger reserves. We book the zones, time the season and arrange the stays. You bring the binoculars.</p>
+      <div class="where">Tadoba · Pench · Ranthambore · Corbett</div><a class="btn t" href="#dest">Safari destinations</a></div></div>
+    <div class="pillar"><div class="art"><img src="img/verditer-flycatcher.webp" alt=""></div><div class="in">
+      <h3>Birding trips</h3><p>Slow dawn walks in the Himalayan foothills with birders who find birds by ear. Beginners welcome, listers too.</p>
+      <div class="where">Sattal · Corbett · Dharamshala</div><a class="btn t" href="#dest">Birding destinations</a></div></div>
+  </div>
+</div></section>
+
+<section id="dest" style="padding-top:40px"><div class="wrap">
+  <div class="label">Popular destinations</div>
+  <h2>Where people ask us to go</h2>
+  <div class="posters" id="posters"></div>
+  <div class="elsewhere"><div><div class="label" style="color:var(--ink)">Not on the list?</div><h3>Kaziranga, Sundarbans, Latpanchar...</h3></div><a class="btn" data-wa="Hi We Rove, I'd like a trip somewhere not on your list:">Ask on WhatsApp</a></div>
+</div></section>
+
+<section id="seasons" style="padding-top:40px"><div class="wrap">
+  <div class="label">Seasons</div>
+  <h2>When to go</h2>
+  <p>Most parks close for the monsoon. Tigers show best in the dry heat of March to May; foothill birding peaks in winter.</p>
+  <table class="seasons"><thead><tr><th></th></tr></thead><tbody></tbody></table>
+  <p style="margin-top:12px;font-size:14px"><span class="stamp s" style="background:var(--rust);color:var(--paper)">Best</span><span class="stamp" style="background:var(--mustard)">Open</span> Approximate. Zone dates change year to year.</p>
+</div></section>
+
+<section class="ethics"><div class="wrap">
+  <div class="label">How we travel</div>
+  <h2>Leave life alone.<br>It will flourish.</h2>
+  <div class="rules" id="rules"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="label">Who guides you</div>
+  <h2>A small crew</h2>
+  <p style="max-width:640px">We Rove started on a Republic Day in Corbett, among friends who wanted more from life than a desk job. We're still small: the same few people plan every trip and go on most of them.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section data-blog style="padding-top:40px"><div class="wrap">
+  <div class="label">Field notes</div>
+  <h2>From the journal</h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" style="padding-top:40px"><div class="wrap">
+  <div class="label">FAQ</div>
+  <h2>Before you ask</h2>
+  <div id="faqs"></div>
+</div></section>
+
+<section class="contact"><div class="wrap grid">
+  <div>
+    <div class="label" style="color:var(--mustard)">Book a trip</div>
+    <h2>Just call us.</h2>
+    <p>Most of our trips are planned over one phone call or a few WhatsApp messages.</p>
+    <a class="big" data-tel data-site="phone"></a>
+    <a data-mail style="font-size:18px;text-decoration:underline" data-site="email"></a>
+    <div class="ctas"><a class="btn r" data-wa>WhatsApp</a><a class="btn m" data-tel>Call now</a></div>
+  </div>
+  <form data-enquiry>
+    <div style="font:600 20px var(--head);letter-spacing:.1em;text-transform:uppercase">Or send details on WhatsApp</div>
+    <div class="two"><label>Name<input name="name"></label><label>Travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>Trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>Where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>When<input name="when" placeholder="e.g. March 2027"></label>
+    <label>Notes<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn r" style="cursor:pointer;justify-content:center">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>© We Rove · Safari & Birding · India</span><span><a href="#" data-mail data-site="email"></a> · <a href="https://www.instagram.com/werove.in/">Instagram</a></span><span>Terms · Privacy</span></div></footer>
+
+<script src="shared.js"></script>
+<script>
+  // Tree silhouettes on the hero ridge
+  let t='';for(let x=10;x<1200;x+=34+((x*7)%23)){const h=40+((x*13)%50),y=440-((x*3)%18);t+=`<path d="M${x} ${y}l${h/4} -${h} l${h/4} ${h}z"/>`}
+  document.getElementById('trees').innerHTML=t;
+  // Each destination gets a flat-art "poster" generated from a palette
+  const PAL={tadoba:['#e9a15a','#b8623a','#6d4a2a','#3a2a1c'],pench:['#e3c27a','#8aa05a','#4e6a3a','#2a3a22'],corbett:['#cfe0c8','#7fae86','#3f7a5a','#1f3f31'],
+    sattal:['#bcd8d6','#6aa3a0','#2f6b63','#1a3d3a'],ranthambore:['#f0b27a','#d1784a','#9a4a2e','#4a2a1c'],dharamshala:['#d6e2ee','#9ab0c8','#5a7290','#2e3e56']};
+  const art=(s,p)=>{let h=`<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="${p[0]}"/><circle cx="${120+s.length*20}" cy="120" r="46" fill="#fff3d6" opacity=".85"/>`;
+    [150,185,215].forEach((y,i)=>{let d=`M0 ${y}`;for(let x=0;x<=400;x+=50)d+=` Q${x+25} ${y-18+((s.charCodeAt(i)+x)%30)} ${x+50} ${y}`;h+=`<path d="${d} V260 H0Z" fill="${p[i+1]}"/>`});
+    return h+`<text x="20" y="40" font-family="Oswald" font-weight="700" font-size="30" fill="${p[3]}" letter-spacing="2">${s.toUpperCase()}</text></svg>`};
+  document.getElementById('posters').innerHTML=DESTS.map(d=>`<a class="dp" href="#">${art(d.name.split(' ')[0],PAL[d.slug])}
+    <div class="in"><div>${d.type.map(t=>`<span class="stamp ${t[0]}">${t}</span>`).join('')}</div><h3 style="margin-top:12px">${d.name}</h3><div class="reg">${d.region}</div>
+    <p>${d.blurb}</p><div class="meta"><span>Best: ${d.best}</span><span>View →</span></div></div></a>`).join('');
+  document.querySelector('.seasons thead tr').innerHTML+=MONTHS.map(m=>`<th>${m.toUpperCase()}</th>`).join('');
+  document.querySelector('.seasons tbody').innerHTML=DESTS.map(d=>`<tr><td>${d.name}</td>${[...d.m].map(c=>`<td class="s${c}"></td>`).join('')}</tr>`).join('');
+  document.getElementById('rules').innerHTML=ETHICS.map(([a,b])=>`<div><b>${a}</b>${b}</div>`).join('');
+  const ICON=['<path d="M8 48 L28 14 L48 48Z" fill="none" stroke="#22201c" stroke-width="4"/><path d="M20 48 L28 34 L36 48" fill="#c4532d"/>',
+    '<circle cx="18" cy="30" r="12" fill="none" stroke="#22201c" stroke-width="4"/><circle cx="40" cy="30" r="12" fill="none" stroke="#22201c" stroke-width="4"/><rect x="25" y="22" width="8" height="6" fill="#22201c"/>',
+    '<rect x="8" y="10" width="40" height="40" fill="none" stroke="#22201c" stroke-width="4"/><path d="M8 22H48M18 6V14M38 6V14" stroke="#22201c" stroke-width="4"/><rect x="16" y="30" width="8" height="8" fill="#c4532d"/>'];
+  document.getElementById('crew').innerHTML=CREW.map(([a,b],i)=>`<div><svg viewBox="0 0 56 56">${ICON[i]}</svg><b>${a}</b><p>${b}</p></div>`).join('');
+  document.getElementById('notes').innerHTML=NOTES.map(([c,t,img])=>`<a class="note" href="#"><img src="img/${img}.webp" alt=""><small>${c}</small><b>${t}</b></a>`).join('');
+  document.getElementById('faqs').innerHTML=FAQ.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('');
+  document.querySelectorAll('.destsel').forEach(s=>s.innerHTML+=DESTS.map(d=>`<option>${d.name}</option>`).join('')+'<option>Elsewhere</option>');
+</script>
+<script src="ambient.js"></script>
+</body>
+</html>

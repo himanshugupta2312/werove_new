@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup I · Moonlit)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Shadows+Into+Light&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#121c17;--night2:#18261f;--moss:#22372c;--cream:#eee2c6;--mut:#a9b3a2;--amber:#e3a64e;--rose:#d98a6a;--line:#2f4639;
+    --serif:'Marcellus',Georgia,serif;--hand:'Shadows Into Light',cursive;--sans:'Figtree',system-ui,sans-serif;--ambient:#d9c9a3;--firefly:#f3dc7a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--night);color:var(--cream);font:17px/1.7 var(--sans);overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08}
+  h2{font-size:clamp(36px,4.6vw,56px);margin:6px 0 16px}
+  h2 em,h1 em{font-style:normal;color:var(--amber)}
+  .hand{font:400 25px/1.1 var(--hand);color:var(--rose)}
+  section{padding:96px 0;position:relative}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:99px;font:600 15px var(--sans);transition:.2s}
+  .btn.a{background:var(--amber);color:#2a1d0c}
+  .btn.o{border:1px solid var(--cream)}
+  .btn:hover{transform:translateY(-2px)}
+  .ls{fill:none;stroke:var(--cream);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .ls.a{stroke:var(--amber)}.ls.r{stroke:var(--rose)}.ls.m{stroke:#7f9a83}
+  .muted{color:var(--mut)}
+
+  nav .wrap{display:flex;align-items:center;gap:28px;height:86px}
+  .logo{display:flex;align-items:center;gap:10px;font:400 27px var(--serif)}
+  nav ul{display:flex;gap:26px;list-style:none;margin-right:auto;color:var(--mut)}
+  nav ul a:hover{color:var(--cream)}
+
+  .phases{display:flex;justify-content:center;gap:30px;padding:10px 0 0}
+  .phases svg{width:26px;height:26px}
+
+  .hero{padding:30px 0 60px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(48px,6vw,84px);margin:12px 0 22px}
+  .hero p{font-size:19px;color:var(--mut);max-width:470px;margin-bottom:32px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .orb{position:relative;height:560px}
+  .orb .ring{position:absolute;inset:40px 30px 20px 30px;border-radius:50%;overflow:hidden;border:1.5px solid var(--cream);padding:12px}
+  .orb .ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:saturate(.85) brightness(.92)}
+  .orb svg.deco{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);overflow:visible}
+  .glow{position:absolute;inset:80px;border-radius:50%;background:radial-gradient(circle,rgba(227,166,78,.22),transparent 65%);filter:blur(30px)}
+
+  /* safari zigzag */
+  .zig{margin-top:50px;display:grid;gap:56px}
+  .zrow{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
+  .zrow:nth-child(even){grid-template-columns:1fr 300px}
+  .zrow:nth-child(even) .pic{order:2}
+  .zrow .pic{position:relative}
+  .zrow .pic img{width:300px;height:300px;border-radius:50%;object-fit:cover;border:1.5px solid var(--line);padding:10px}
+  .zrow .pic span{position:absolute;right:-6px;bottom:20px;background:var(--amber);color:#2a1d0c;font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+  .zrow h3{font-size:40px}
+  .zrow .reg{font:400 23px var(--hand);color:var(--rose)}
+  .zrow p{color:var(--mut);max-width:520px;margin:8px 0 14px}
+  .zrow dl{display:flex;gap:28px;font-size:14px}
+  .zrow dt{color:var(--amber);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+
+  /* birding */
+  .bird{background:var(--moss);border-radius:200px 200px 32px 32px;padding:80px 56px 56px;text-align:center;margin-top:90px;position:relative}
+  .bird .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px;text-align:left}
+  .bird .c{background:var(--night2);border-radius:20px;padding:14px 14px 20px}
+  .bird .c img{border-radius:14px;aspect-ratio:16/10;object-fit:cover;width:100%;margin-bottom:12px}
+  .bird .c b{font:400 22px var(--serif);display:block;padding:0 6px}
+  .bird .c span{font-size:14px;color:var(--mut);padding:0 6px;display:block}
+
+  .else{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:56px;border:1px dashed var(--line);border-radius:24px;padding:30px 36px}
+  .else h3{font-size:30px}
+
+  /* seasons with moons */
+  .seasons{background:var(--night2);border:1px solid var(--line);border-radius:28px;padding:30px;margin-top:30px;overflow-x:auto}
+  .srow{display:grid;grid-template-columns:200px repeat(12,1fr);align-items:center;min-width:760px;height:44px;border-bottom:1px solid var(--line)}
+  .srow:last-of-type{border:0}
+  .srow b{font:400 18px var(--serif)}
+  .srow.h{height:30px;border:0}.srow.h span{text-align:center;font:400 20px var(--hand);color:var(--mut)}
+  .srow svg{width:20px;height:20px;margin:auto;display:block}
+
+  /* ethics */
+  .ethics{text-align:center}
+  .ethics svg.stars{width:100%;max-width:700px;height:120px;margin:0 auto 10px;display:block}
+  .ethics h2{max-width:760px;margin:0 auto 10px}
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;text-align:left}
+  .rules div{border-top:1px solid var(--line);padding-top:18px}
+  .rules b{display:block;font:400 22px var(--serif);color:var(--amber);margin-bottom:6px}
+  .rules span{font-size:15px;color:var(--mut)}
+
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  .crew div{background:var(--night2);border:1px solid var(--line);border-radius:999px 999px 24px 24px;padding:44px 26px 28px;text-align:center}
+  .crew svg{width:70px;height:70px;margin:0 auto 12px;display:block}
+  .crew b{display:block;font:400 24px var(--serif);margin-bottom:6px}
+  .crew p{font-size:15px;color:var(--mut)}
+
+  .gal{display:flex;gap:16px;margin-top:36px}
+  .gal img{flex:1;min-width:0;height:300px;object-fit:cover;border-radius:999px;filter:saturate(.9)}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+  .notes img{border-radius:50%;aspect-ratio:1;object-fit:cover;width:100%;margin-bottom:12px}
+  .notes small{font:400 20px var(--hand);color:var(--rose)}
+  .notes b{display:block;font:400 21px/1.25 var(--serif)}
+
+  .faq details{border-bottom:1px solid var(--line);padding:18px 0}
+  .faq summary{font:400 21px var(--serif);cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+  .faq summary::after{content:"☾";color:var(--amber);transition:.3s}
+  .faq details[open] summary::after{content:"●"}
+  .faq details p{color:var(--mut);margin-top:6px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .moonbox{background:var(--cream);color:var(--night);border-radius:50%;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px;max-width:470px;box-shadow:0 0 80px rgba(238,226,198,.18)}
+  .moonbox .hand{color:#9a5a3e}
+  .moonbox .num{font:400 clamp(30px,3.4vw,42px) var(--serif);margin:10px 0 2px}
+  .moonbox .ctas{display:flex;gap:10px;margin-top:20px}
+  .moonbox .btn.o{border-color:var(--night)}
+  form{display:grid;gap:14px}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:2px;font:400 21px var(--hand);color:var(--rose)}
+  form input,form select,form textarea{background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 2px;font:16px var(--sans);color:var(--cream);outline:none}
+  form option{color:#111}
+
+  footer{padding:50px 0;text-align:center;color:var(--mut);font-size:14px}
+
+  @media(max-width:900px){
+    nav ul{display:none}
+    .hero .wrap,.contact,.rules,.crew,.notes,.bird .cards{grid-template-columns:1fr}
+    .orb{height:420px}
+    .zrow,.zrow:nth-child(even){grid-template-columns:1fr;text-align:center}.zrow:nth-child(even) .pic{order:0}.zrow .pic img{margin:0 auto}.zrow dl{justify-content:center}
+    .bird{padding:60px 22px 30px;border-radius:120px 120px 24px 24px}
+    .gal{flex-wrap:wrap}.gal img{flex:1 1 40%;height:200px}
+    .moonbox{padding:40px;margin:0 auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="phases" data-stamp id="phases"></div>
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="30" height="30" viewBox="0 0 40 40"><path d="M26 4A16 16 0 1 0 36 28 13 13 0 1 1 26 4Z" fill="#e3a64e"/></svg>We Rove</a>
+  <ul><li><a href="#safari">Safaris</a></li><li><a href="#birding">Birding</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a data-tel style="font-weight:600">☎ <span data-site="phone"></span></a>
+  <a class="btn a" data-wa style="padding:10px 20px">WhatsApp</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="hand">tiger safaris, and birding too</span>
+    <h1>When the forest <em>wakes,</em> we're already at the gate.</h1>
+    <p>Small-group safaris through India's tiger reserves at dawn and dusk, planned and led by people who keep going back.</p>
+    <div class="ctas"><a class="btn a" data-wa>Plan on WhatsApp</a><a class="btn o" data-tel>Call us</a></div>
+  </div>
+  <div class="orb">
+    <div class="glow"></div>
+    <div class="ring"><img src="img/bengal-tiger.webp" alt="Bengal tiger"></div>
+    <svg class="deco" viewBox="0 0 560 620" data-draw>
+      <path class="ls a" d="M500 40A44 44 0 1 0 530 112 36 36 0 1 1 500 40Z"/>
+      <path class="ls" d="M40 140l4 10 10 4-10 4-4 10-4-10-10-4 10-4ZM470 520l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/>
+      <circle class="ls" cx="90" cy="70" r="2"/><circle class="ls" cx="430" cy="200" r="2"/><circle class="ls" cx="60" cy="460" r="2"/>
+      <path class="ls m" d="M20 600C60 560 90 520 100 470"/>
+      <path class="ls m" d="M84 540Q66 530 48 538Q64 552 84 540M94 510Q80 494 60 498Q72 516 94 510M98 482Q90 462 70 460Q78 480 98 482"/>
+      <path class="ls m" d="M540 600C510 570 490 540 486 500"/>
+      <path class="ls m" d="M500 560Q520 548 538 554Q522 570 500 560M490 528Q506 512 526 514Q514 532 490 528"/>
+    </svg>
+  </div>
+</div></header>
+
+<section id="safari"><div class="wrap">
+  <span class="hand">popular safari destinations</span>
+  <h2>Where travellers ask us to <em>go</em></h2>
+  <p class="muted" style="max-width:620px">The reserves people ask us about most. Each trip is shaped around your dates, so treat these as a starting point.</p>
+  <div class="zig" id="zig"></div>
+
+  <div class="bird" id="birding">
+    <span class="hand">and for the birders</span>
+    <h2>Foothill birding trips</h2>
+    <p class="muted" style="max-width:600px;margin:0 auto">Quiet dawn walks through oak and pine with birders who find birds by ear first, and never use playback.</p>
+    <div class="cards" id="bcards"></div>
+  </div>
+
+  <div class="else">
+    <div><span class="hand">somewhere else?</span><h3>If it's wild and in India, ask us.</h3></div>
+    <a class="btn a" data-wa="Hi We Rove, I'd like a trip to:">Ask on WhatsApp</a>
+  </div>
+</div></section>
+
+<section id="seasons" style="padding-top:30px"><div class="wrap">
+  <span class="hand">seasons</span>
+  <h2>Reading the <em>moons</em></h2>
+  <p class="muted">Most reserves rest through the monsoon. Tigers show best in summer and foothill birds in winter. These dates are approximate.</p>
+  <div class="seasons" id="sz"></div>
+</div></section>
+
+<section class="ethics"><div class="wrap">
+  <svg class="stars" viewBox="0 0 700 120" data-draw>
+    <path class="ls a" d="M60 80L140 40L230 70L310 30L400 60L470 20L560 50L640 30"/>
+    <circle class="ls a" cx="60" cy="80" r="3"/><circle class="ls a" cx="140" cy="40" r="3"/><circle class="ls a" cx="230" cy="70" r="3"/><circle class="ls a" cx="310" cy="30" r="4"/><circle class="ls a" cx="400" cy="60" r="3"/><circle class="ls a" cx="470" cy="20" r="3"/><circle class="ls a" cx="560" cy="50" r="4"/><circle class="ls a" cx="640" cy="30" r="3"/>
+  </svg>
+  <span class="hand">how we travel</span>
+  <h2>Leave life alone, and it will <em>flourish.</em></h2>
+  <div class="rules" id="rules"></div>
+</div></section>
+
+<section style="padding-top:30px"><div class="wrap">
+  <span class="hand">who guides you</span>
+  <h2>A small crew of <em>night owls</em> and early risers</h2>
+  <p class="muted" style="max-width:620px">It started on a Republic Day in Corbett. The same few of us plan every trip and go on most of them. No names, just what each of us does.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section style="padding-top:30px"><div class="wrap">
+  <span class="hand">from the field</span><h2>Seen on our <em>trips</em></h2>
+  <div class="gal"><img src="img/bengal-tiger.webp" alt=""><img src="img/indian-peafowl.webp" alt=""><img src="img/pink-browed-rosefinch.webp" alt=""><img src="img/pied-kingfisher.webp" alt=""></div>
+</div></section>
+
+<section data-blog style="padding-top:30px"><div class="wrap">
+  <span class="hand">field notes</span><h2>Stories after <em>dark</em></h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" class="faq" style="padding-top:30px"><div class="wrap" style="max-width:820px">
+  <span class="hand">questions</span><h2>Before you <em>go</em></h2>
+  <div id="faqs" style="margin-top:16px"></div>
+</div></section>
+
+<section style="padding-top:30px"><div class="wrap contact">
+  <div class="moonbox">
+    <span class="hand">plan a safari</span>
+    <h2 style="font-size:34px;margin:4px 0">Call, or just say hi.</h2>
+    <a class="num" data-tel data-site="phone"></a>
+    <a data-mail data-site="email" style="opacity:.7;font-size:15px"></a>
+    <div class="ctas"><a class="btn a" data-wa>WhatsApp</a><a class="btn o" data-tel>Call</a></div>
+  </div>
+  <form data-enquiry>
+    <span class="hand" style="font-size:30px;color:var(--cream)">or send your details on WhatsApp</span>
+    <div class="two"><label>name<input name="name"></label><label>travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>when<input name="when" placeholder="e.g. April 2027"></label>
+    <label>anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn a" style="border:0;cursor:pointer;justify-self:start">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<footer>© We Rove · Safari & birding trips in India · <a href="https://www.instagram.com/werove.in/">Instagram</a> · Terms · Privacy</footer>
+
+<script src="shared.js"></script>
+<script>
+  // Moon icon: lit fraction drawn as a circle plus an inner ellipse terminator
+  const moon=(lit,col='#eee2c6')=>{
+    if(lit===0) return `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="${col}" stroke-width="1.2" opacity=".5"/></svg>`;
+    if(lit===1) return `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="${col}"/></svg>`;
+    const rx=Math.abs(1-2*lit)*9, sweep=lit<.5?0:1;
+    return `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="${col}" stroke-width="1.2" opacity=".5"/><path d="M12 3A9 9 0 0 1 12 21A${rx} 9 0 0 ${sweep} 12 3Z" fill="${col}"/></svg>`};
+  document.getElementById('phases').innerHTML=[0,.15,.35,.5,.65,.85,1,.85,.65,.5,.35,.15,0].map(l=>moon(l)).join('');
+  const safari=DESTS.filter(d=>d.type.includes('safari')), birding=DESTS.filter(d=>d.type.includes('birding'));
+  document.getElementById('zig').innerHTML=safari.map(d=>`<a class="zrow" href="#"><div class="pic"><img src="img/${d.slug}.webp" alt="">${d.type.includes('birding')?'<span>+ birding</span>':''}</div>
+    <div><h3>${d.name}</h3><div class="reg">${d.region}</div><p>${d.blurb}</p>
+    <dl><div><dt>Best time</dt><dd>${d.best}</dd></div><div><dt>Getting there</dt><dd>${d.reach}</dd></div><div><dt>Look for</dt><dd>${d.see.split(',').slice(0,3).join(',')}</dd></div></dl></div></a>`).join('');
+  document.getElementById('bcards').innerHTML=birding.map(d=>`<a class="c" href="#"><img src="img/${d.slug}.webp" alt=""><b>${d.name}</b><span>${d.region} · best ${d.best}</span></a>`).join('');
+  const M={2:moon(1,'#e3a64e'),1:moon(.5,'#e3a64e'),0:moon(0)};
+  document.getElementById('sz').innerHTML=`<div class="srow h"><span></span>${MONTHS.map(m=>`<span>${m}</span>`).join('')}</div>`+
+    DESTS.map(d=>`<div class="srow"><b>${d.name}</b>${[...d.m].map(c=>M[c]).join('')}</div>`).join('')+
+    `<p style="margin-top:12px;font:400 20px var(--hand);color:var(--mut)">full moon = best · half = open · new moon = closed</p>`;
+  document.getElementById('rules').innerHTML=ETHICS.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
+  const ART=['<path class="ls" d="M6 60L30 22L42 40L50 30L66 60Z"/><path class="ls a" d="M54 16A8 8 0 1 0 60 28 6 6 0 1 1 54 16Z"/>',
+    '<circle class="ls" cx="22" cy="40" r="12"/><circle class="ls" cx="48" cy="40" r="12"/><path class="ls" d="M30 34h10M14 30l3-10h9l1 8M56 30l-3-10h-9l-1 8"/><circle class="ls a" cx="22" cy="40" r="4"/>',
+    '<path class="ls" d="M10 18l16-6 18 6 16-6v42l-16 6-18-6-16 6Z"/><path class="ls" d="M26 12v42M44 18v42"/><path class="ls a" d="M14 42q8-12 18-6t22-10"/>'];
+  document.getElementById('crew').innerHTML=CREW.map(([a,b],i)=>`<div><svg viewBox="0 0 70 70" data-draw>${ART[i]}</svg><b>${a}</b><p>${b}</p></div>`).join('');
+  document.getElementById('notes').innerHTML=NOTES.map(([c,t,img])=>`<a href="#"><img src="img/${img}.webp" alt=""><small>${c}</small><b>${t}</b></a>`).join('');
+  document.getElementById('faqs').innerHTML=FAQ.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('');
+  document.querySelectorAll('.destsel').forEach(s=>s.innerHTML+=DESTS.map(d=>`<option>${d.name}</option>`).join('')+'<option>Elsewhere</option>');
+</script>
+<script src="ambient.js" data-always data-fx="fireflies vines"></script>
+</body>
+</html>

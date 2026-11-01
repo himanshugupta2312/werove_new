@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup G · Boho)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Caveat:wght@500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--sand:#f1e6d4;--sand2:#e8d8c0;--card:#f8f0e3;--ink:#3b2a20;--mut:#7a6556;--terra:#c46f4c;--clay:#a2553a;--sage:#8a9a78;--mustard:#d6a13f;--line:#d9c6a9;
+    --serif:'Gloock',Georgia,serif;--hand:'Caveat',cursive;--sans:'Jost',system-ui,sans-serif;--ambient:#9a7258}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--sand);color:var(--ink);font:17px/1.65 var(--sans);overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .2 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05}
+  h2{font-size:clamp(38px,4.8vw,60px);margin:6px 0 16px}
+  .hand{font:600 26px/1 var(--hand);color:var(--terra)}
+  section{padding:90px 0;position:relative}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:99px;font:600 15px var(--sans);letter-spacing:.03em;transition:.2s}
+  .btn.t{background:var(--terra);color:#fff8ee}
+  .btn.o{border:1.5px solid var(--ink)}
+  .btn.w{background:#3f6b4a;color:#fff8ee}
+  .btn:hover{transform:translateY(-2px)}
+  .arch{border-radius:999px 999px 18px 18px;overflow:hidden}
+  .ls{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .ls.t{stroke:var(--terra)}.ls.g{stroke:var(--sage)}.ls.m{stroke:var(--mustard)}
+  .wave{display:block;width:100%;height:40px}
+
+  nav{position:relative;z-index:20}
+  nav .wrap{display:flex;align-items:center;gap:28px;height:88px}
+  .logo{display:flex;align-items:center;gap:10px;font:400 28px var(--serif)}
+  nav ul{display:flex;gap:28px;list-style:none;font-weight:500;margin-right:auto}
+  nav ul a:hover{color:var(--terra)}
+  nav .tel{font-weight:600}
+
+  /* hero */
+  .hero{padding:20px 0 60px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(52px,6.4vw,92px);margin:14px 0 22px}
+  .hero h1 em{font-style:normal;color:var(--terra)}
+  .hero p{font-size:19px;color:var(--mut);max-width:470px;margin-bottom:34px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .underline{display:block;width:210px;height:14px;margin-top:2px}
+  .stage{position:relative;height:600px}
+  .stage svg.deco{position:absolute;inset:-40px -60px -20px -60px;width:calc(100% + 120px);height:calc(100% + 60px);overflow:visible}
+  .stage .win{position:absolute;left:14%;right:14%;top:70px;bottom:20px;border:10px solid var(--card);box-shadow:0 30px 60px -30px rgba(59,42,32,.55)}
+  .stage .win img{width:100%;height:100%;object-fit:cover}
+  .stage .note{position:absolute;left:0;bottom:70px;background:var(--card);padding:12px 18px;border-radius:14px;transform:rotate(-4deg);font:600 22px/1.1 var(--hand);color:var(--clay);box-shadow:0 10px 24px -14px rgba(59,42,32,.5)}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:1.45fr 1fr;gap:56px;margin-top:40px;align-items:end}.pillar.small .arch{height:300px}.pillar.small h3{font-size:32px}
+  .pillar{text-align:center}
+  .pillar .arch{height:380px;border:8px solid var(--card);margin-bottom:24px}
+  .pillar img{width:100%;height:100%;object-fit:cover}
+  .pillar h3{font-size:40px}
+  .pillar p{color:var(--mut);max-width:420px;margin:10px auto 14px}
+  .pillar .where{font:600 24px var(--hand);color:var(--terra)}
+
+  /* destinations */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 28px;margin-top:44px}
+  .d{background:var(--card);border-radius:999px 999px 24px 24px;padding:12px 12px 26px;display:flex;flex-direction:column;transition:.3s}
+  .d:hover{transform:translateY(-6px) rotate(-.4deg)}
+  .d .arch{aspect-ratio:4/4.4}
+  .d img{width:100%;height:100%;object-fit:cover}
+  .d .in{padding:18px 14px 0;text-align:center;display:flex;flex-direction:column;flex:1}
+  .d h3{font-size:28px}
+  .d .reg{font:600 22px var(--hand);color:var(--terra);margin:2px 0 8px}
+  .d p{font-size:15px;color:var(--mut);margin-bottom:14px}
+  .d .best{margin-top:auto;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  .d .best b{color:var(--ink)}
+  .d .tags{display:flex;justify-content:center;gap:6px;margin-bottom:12px}
+  .tag{font:600 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:99px;border:1px solid}
+  .tag.s{color:var(--clay)}.tag.b{color:#5f7350}
+  .d.ask{background:transparent;border:1.5px dashed var(--terra);justify-content:center;align-items:center;text-align:center;padding:40px 26px}
+  .d.ask h3{font-size:30px;margin:12px 0 10px}
+
+  /* seasons */
+  .seasons{background:var(--card);border-radius:28px;padding:34px;margin-top:36px;overflow-x:auto}
+  .srow{display:grid;grid-template-columns:200px repeat(12,1fr);align-items:center;min-width:740px;height:44px;border-bottom:1px dashed var(--line)}
+  .srow:last-child{border:0}
+  .srow b{font:400 19px var(--serif)}
+  .srow.h{height:30px;border:0}
+  .srow.h span{text-align:center;font:600 20px var(--hand);color:var(--mut)}
+  .srow svg{width:22px;height:22px;margin:auto;display:block}
+
+  /* ethics */
+  .ethics{background:var(--terra);color:#fff6ea;border-radius:40px;padding:70px 60px;position:relative;overflow:hidden}
+  .ethics .hand{color:#ffe0b8}
+  .ethics h2{max-width:640px}
+  .ethics ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:26px 48px;margin-top:36px;max-width:820px;counter-reset:r}
+  .ethics li{counter-increment:r;display:grid;grid-template-columns:44px 1fr}
+  .ethics li::before{content:counter(r);font:700 34px/1 var(--hand);color:#ffe0b8}
+  .ethics b{display:block;font:400 22px var(--serif);margin-bottom:4px}
+  .ethics span{color:#fbe3cf;font-size:15px}
+  .ethics svg.corner{position:absolute;right:-20px;bottom:-20px;width:300px;height:300px}
+  .ethics svg.corner .ls{stroke:#ffe0b8}
+
+  /* crew */
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px;text-align:center}
+  .crew svg{width:120px;height:120px;margin:0 auto 14px;display:block}
+  .crew b{display:block;font:400 25px var(--serif);margin-bottom:6px}
+  .crew p{color:var(--mut);font-size:15px}
+
+  /* gallery */
+  .gal{display:flex;gap:18px;margin-top:40px;align-items:flex-end}
+  .gal img{flex:1;min-width:0;object-fit:cover;border:7px solid var(--card)}
+  .gal img:nth-child(1){height:300px;border-radius:999px 999px 14px 14px}
+  .gal img:nth-child(2){height:360px;border-radius:14px}
+  .gal img:nth-child(3){height:420px;border-radius:999px 999px 14px 14px}
+  .gal img:nth-child(4){height:340px;border-radius:50%}
+  .gal img:nth-child(5){height:300px;border-radius:999px 999px 14px 14px}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+  .notes img{border-radius:999px 999px 14px 14px;aspect-ratio:1;object-fit:cover;width:100%;margin-bottom:14px}
+  .notes small{font:600 20px var(--hand);color:var(--terra)}
+  .notes b{display:block;font:400 22px/1.2 var(--serif)}
+
+  .faq details{border-bottom:1px dashed var(--line);padding:18px 0}
+  .faq summary{font:400 22px var(--serif);cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+  .faq summary::after{content:"✿";color:var(--terra);font-size:18px;transition:.3s}
+  .faq details[open] summary::after{transform:rotate(90deg)}
+  .faq details p{color:var(--mut);margin-top:6px}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .portal{background:var(--card);border-radius:999px 999px 30px 30px;padding:90px 48px 48px;text-align:center;position:relative}
+  .portal .num{display:block;font:400 clamp(34px,3.6vw,46px) var(--serif);margin:14px 0 4px}
+  .portal .ctas{display:flex;justify-content:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+  form{display:grid;gap:14px}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:4px;font:600 22px/1 var(--hand);color:var(--clay)}
+  form input,form select,form textarea{background:transparent;border:0;border-bottom:1.5px solid var(--ink);padding:8px 2px;font:16px var(--sans);color:var(--ink);outline:none}
+
+  footer{padding:50px 0 60px;text-align:center;color:var(--mut);font-size:14px}
+  footer .logo{justify-content:center;margin-bottom:8px;color:var(--ink)}
+
+  @media(max-width:900px){
+    nav ul,nav .tel{display:none}
+    .hero .wrap,.pillars,.grid,.crew,.notes,.contact,.ethics ol{grid-template-columns:1fr}
+    .stage{height:460px}
+    .ethics{padding:44px 26px}
+    .gal{flex-wrap:wrap}.gal img{flex:1 1 40%;height:220px!important}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="36" height="36" viewBox="0 0 100 100"><g transform="rotate(30 50 50)"><path d="M50 3C59 8 68 22 69 40 70 58 63 71 52 78L50 79 48 78C41 70 36 57 37 41 38 23 44 9 50 3Z" fill="#c46f4c"/><path d="M50 8V98" stroke="#3b2a20" stroke-width="4" stroke-linecap="round"/></g></svg>We Rove</a>
+  <ul><li><a href="#trips">Safaris</a></li><li><a href="#trips">Birding</a></li><li><a href="#dest">Destinations</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="tel" data-tel>☎ <span data-site="phone"></span></a>
+  <a class="btn t" data-wa style="padding:11px 20px">WhatsApp</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="hand">safari &amp; birding, India</span>
+    <svg class="underline" viewBox="0 0 210 14" data-draw><path class="ls t" d="M2 9C40 3 90 3 120 7S190 12 208 5"/></svg>
+    <h1>Slow journeys into <em>wild</em> India.</h1>
+    <p>Tiger safaris in the central Indian forests and birding in the Himalayan foothills, in small groups, at the forest's pace.</p>
+    <div class="ctas"><a class="btn t" data-wa>Chat on WhatsApp</a><a class="btn o" data-tel>Call us</a></div>
+  </div>
+  <div class="stage">
+    <!-- Line-art scene around the arch: rainbow arcs, sun with rays, hills, grasses, branch -->
+    <svg class="deco" viewBox="0 0 560 660" data-draw>
+      <path class="ls m" d="M80 330A200 200 0 0 1 480 330"/>
+      <path class="ls t" d="M60 330A220 220 0 0 1 500 330"/>
+      <path class="ls g" d="M40 330A240 240 0 0 1 520 330"/>
+      <circle class="ls m" cx="470" cy="70" r="26"/>
+      <path class="ls m" d="M470 28V16M470 124V112M428 70H416M524 70H512M440 40l-8-8M500 100l8 8M500 40l8-8M440 100l-8 8"/>
+      <path class="ls" d="M0 600Q60 560 110 590T220 585"/>
+      <path class="ls" d="M360 600Q430 555 480 585T570 580"/>
+      <path class="ls g" d="M30 600C26 570 20 552 8 536M40 600C42 566 50 548 62 530M52 600C50 580 44 566 34 556"/>
+      <path class="ls g" d="M520 600C516 572 508 556 496 544M532 600C536 570 546 552 558 540"/>
+      <path class="ls t" d="M560 400C520 410 500 440 470 470"/>
+      <path class="ls t" d="M545 404Q548 388 534 380Q532 396 545 404M527 418Q518 404 503 406Q510 420 527 418M512 433Q514 416 500 408M497 449Q488 436 473 440Q482 452 497 449"/>
+      <path class="ls" d="M120 150q8-8 16 0q8-8 16 0M160 120q6-6 12 0q6-6 12 0"/>
+    </svg>
+    <div class="win arch"><img src="img/bengal-tiger.webp" alt="Bengal tiger"></div>
+    <div class="note">tiger country,<br>at the forest's pace ✿</div>
+  </div>
+</div></header>
+
+<svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" data-draw><path class="ls t" d="M0 20Q60 4 120 20T240 20T360 20T480 20T600 20T720 20T840 20T960 20T1080 20T1200 20T1320 20T1440 20"/></svg>
+
+<section id="trips"><div class="wrap" style="text-align:center">
+  <span class="hand">what we do</span>
+  <h2>Two ways to wander</h2>
+  <div class="pillars">
+    <div class="pillar"><div class="arch"><img src="img/bengal-tiger.webp" alt=""></div><h3>Safari trips</h3><p>Jeep safaris in tiger country, timed for the season. We handle zones, permits and stays.</p><div class="where">Tadoba · Pench · Ranthambore · Corbett</div></div>
+    <div class="pillar small"><div class="arch"><img src="img/verditer-flycatcher.webp" alt=""></div><h3>And birding, too</h3><p>Slow walks through oak and pine at first light, with birders who listen before they look.</p><div class="where">Sattal · Corbett · Dharamshala</div></div>
+  </div>
+</div></section>
+
+<section id="dest" style="padding-top:30px"><div class="wrap">
+  <div style="text-align:center"><span class="hand">popular destinations</span><h2>Where the trail leads</h2></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="seasons" style="padding-top:30px"><div class="wrap">
+  <span class="hand">seasons</span>
+  <h2>When the forest is ready</h2>
+  <p style="color:var(--mut);max-width:600px">Parks rest through the monsoon. Tigers show best in the dry heat; foothill birds peak in winter. These dates are approximate.</p>
+  <div class="seasons" id="sz"></div>
+</div></section>
+
+<section style="padding-top:30px"><div class="wrap"><div class="ethics">
+  <span class="hand">how we travel</span>
+  <h2>Leave life alone, and it will flourish.</h2>
+  <ol id="rules"></ol>
+  <svg class="corner" viewBox="0 0 300 300" data-draw>
+    <path class="ls" d="M300 300C240 250 200 200 180 120"/>
+    <path class="ls" d="M262 268Q270 246 254 232Q246 252 262 268M232 236Q216 222 196 228Q210 244 232 236M214 200Q220 178 206 164Q198 184 214 200M196 166Q180 152 160 158Q174 174 196 166M186 132Q190 112 178 100Q170 118 186 132"/>
+    <circle class="ls" cx="120" cy="90" r="5"/><circle class="ls" cx="100" cy="120" r="3"/>
+  </svg>
+</div></div></section>
+
+<section style="padding-top:30px"><div class="wrap" style="text-align:center">
+  <span class="hand">who guides you</span>
+  <h2>A small crew of forest people</h2>
+  <p style="color:var(--mut);max-width:620px;margin:0 auto">It started on a Republic Day in Corbett. The same few of us still plan every trip and go on most of them. No names, just what each of us does.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section style="padding-top:30px"><div class="wrap">
+  <div style="text-align:center"><span class="hand">from the field</span><h2>Seen along the way</h2></div>
+  <div class="gal">
+    <img src="img/pink-browed-rosefinch.webp" alt=""><img src="img/pied-kingfisher.webp" alt=""><img src="img/indian-pitta.webp" alt=""><img src="img/indian-silverbill.webp" alt=""><img src="img/eurasian-wren.webp" alt="">
+  </div>
+</div></section>
+
+<section data-blog style="padding-top:30px"><div class="wrap">
+  <span class="hand">field notes</span><h2>Stories from the forest</h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" class="faq" style="padding-top:30px"><div class="wrap" style="max-width:820px">
+  <div style="text-align:center"><span class="hand">questions</span><h2>Before you pack</h2></div>
+  <div id="faqs" style="margin-top:20px"></div>
+</div></section>
+
+<section style="padding-top:30px"><div class="wrap contact">
+  <div class="portal">
+    <svg viewBox="0 0 200 60" style="position:absolute;top:26px;left:50%;width:200px;transform:translateX(-50%)" data-draw>
+      <circle class="ls m" cx="100" cy="40" r="14"/><path class="ls m" d="M100 18V10M78 40H70M130 40H122M84 24l-6-6M116 24l6-6"/><path class="ls" d="M20 58Q60 46 100 56T180 56"/>
+    </svg>
+    <span class="hand">plan a trip</span>
+    <h2 style="font-size:40px">Just say hello.</h2>
+    <a class="num" data-tel data-site="phone"></a>
+    <a data-mail data-site="email" style="color:var(--mut)"></a>
+    <div class="ctas"><a class="btn t" data-wa>WhatsApp</a><a class="btn o" data-tel>Call</a></div>
+  </div>
+  <form data-enquiry>
+    <span class="hand" style="font-size:30px;color:var(--ink)">or send your details on WhatsApp</span>
+    <div class="two"><label>name<input name="name"></label><label>travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>when<input name="when" placeholder="e.g. April 2027"></label>
+    <label>anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn w" style="border:0;cursor:pointer;justify-self:start">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<footer><div class="logo">We Rove</div>Safari &amp; birding trips in India · <a href="https://www.instagram.com/werove.in/">Instagram</a> · Terms · Privacy</footer>
+
+<script src="shared.js"></script>
+<script>
+  document.getElementById('grid').innerHTML=DESTS.map(d=>`<a class="d" href="#"><div class="arch"><img src="img/${d.slug}.webp" alt=""></div>
+    <div class="in"><h3>${d.name}</h3><div class="reg">${d.region}</div><div class="tags">${d.type.map(t=>`<span class="tag ${t[0]}">${t}</span>`).join('')}</div>
+    <p>${d.blurb}</p><div class="best">Best <b>${d.best}</b></div></div></a>`).join('')+
+    `<div class="d ask"><svg viewBox="0 0 80 50" width="90" data-draw><path class="ls t" d="M8 30q8-8 16 0q8-8 16 0M44 18q6-6 12 0q6-6 12 0"/></svg><h3>Somewhere else?</h3><p style="color:var(--mut);margin-bottom:18px">Kaziranga, the Sundarbans, Latpanchar... tell us where.</p><a class="btn t" data-wa="Hi We Rove, I'd like a trip somewhere not on your list:">Ask us</a></div>`;
+  // Season marks: full sun = best, outline sun = open, small dot = closed/off
+  const SUN={2:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#c46f4c"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M5 19l2-2" stroke="#c46f4c" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    1:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="none" stroke="#d6a13f" stroke-width="1.6"/></svg>',
+    0:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="#d9c6a9"/></svg>'};
+  document.getElementById('sz').innerHTML=`<div class="srow h"><span></span>${MONTHS.map(m=>`<span>${m}</span>`).join('')}</div>`+
+    DESTS.map(d=>`<div class="srow"><b>${d.name}</b>${[...d.m].map(c=>SUN[c]).join('')}</div>`).join('')+
+    `<p style="margin-top:16px;font:600 20px var(--hand);color:var(--mut)">● sun = best &nbsp; ○ open &nbsp; · resting</p>`;
+  document.getElementById('rules').innerHTML=ETHICS.map(([a,b])=>`<li><div><b>${a}</b><span>${b}</span></div></li>`).join('');
+  const ART=[
+    '<circle class="ls g" cx="60" cy="60" r="56"/><path class="ls" d="M20 86L48 40L62 62L74 48L100 86Z"/><path class="ls t" d="M40 53L48 40L56 53"/><path class="ls" d="M70 30q4-4 8 0q4-4 8 0"/>',
+    '<circle class="ls g" cx="60" cy="60" r="56"/><circle class="ls" cx="42" cy="64" r="16"/><circle class="ls" cx="78" cy="64" r="16"/><path class="ls" d="M54 56h12M34 46l4-12h10l2 10M86 46l-4-12H72l-2 10"/><circle class="ls t" cx="42" cy="64" r="6"/>',
+    '<circle class="ls g" cx="60" cy="60" r="56"/><path class="ls" d="M28 36l20-8 24 8 20-8v56l-20 8-24-8-20 8Z"/><path class="ls" d="M48 28v56M72 36v56"/><path class="ls t" d="M34 70q10-14 22-6t26-10"/>'];
+  document.getElementById('crew').innerHTML=CREW.map(([a,b],i)=>`<div><svg viewBox="0 0 120 120" data-draw>${ART[i]}</svg><b>${a}</b><p>${b}</p></div>`).join('');
+  document.getElementById('notes').innerHTML=NOTES.map(([c,t,img])=>`<a href="#"><img src="img/${img}.webp" alt=""><small>${c}</small><b>${t}</b></a>`).join('');
+  document.getElementById('faqs').innerHTML=FAQ.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('');
+  document.querySelectorAll('.destsel').forEach(s=>s.innerHTML+=DESTS.map(d=>`<option>${d.name}</option>`).join('')+'<option>Elsewhere</option>');
+</script>
+<script src="ambient.js" data-always></script>
+</body>
+</html>
