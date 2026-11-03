@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup R · Dak Bungalow)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bevan&family=Special+Elite&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--parch:#ece1c6;--paper:#f6efdb;--green:#1f4d34;--green2:#173b28;--yel:#f1d35a;--red:#b3261e;--ink:#2b2218;--mut:#6f604a;--line:#c9b78f;
+    --bevan:'Bevan',Georgia,serif;--type:'Special Elite','Courier New',monospace;--serif:'Lora',Georgia,serif;--hand:'Caveat',cursive;--ambient:#6b4d33}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--parch) url(img/map-bg.webp) fixed center/cover;color:var(--ink);font:18px/1.6 var(--serif);overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;background:rgba(236,225,198,.8);pointer-events:none;z-index:0}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+  h1,h2,h3{font-family:var(--bevan);font-weight:400;line-height:1.1}
+  section{padding:76px 0;position:relative;z-index:2}
+  .kerb{height:12px;background:repeating-linear-gradient(135deg,var(--red) 0 14px,var(--paper) 14px 28px);border-block:2px solid var(--ink);position:relative;z-index:2}
+  .typ{font-family:var(--type)}
+  .btn{display:inline-flex;align-items:center;padding:13px 26px;border:3px solid var(--ink);font:400 15px var(--type);letter-spacing:.08em;text-transform:uppercase;background:var(--paper);box-shadow:4px 4px 0 var(--ink);transition:.15s}
+  .btn.r{background:var(--red);color:#fbf1de;border-color:var(--ink)}
+  .btn.g{background:var(--green);color:var(--yel)}
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+
+  /* painted signboard */
+  .board{background:var(--green);color:var(--yel);border:7px solid var(--paper);outline:3px solid var(--green);text-align:center;padding:26px 30px;box-shadow:6px 8px 0 rgba(43,34,24,.35);position:relative}
+  .board h2{font-size:clamp(30px,4vw,50px);letter-spacing:.04em}
+  .board .sub{font:400 15px var(--type);letter-spacing:.24em;text-transform:uppercase;color:var(--paper);margin-top:8px}
+  .sec-h{max-width:760px;margin:0 auto 34px}
+
+  nav{background:var(--green2);color:var(--yel);position:sticky;top:0;z-index:40;border-bottom:4px solid var(--paper)}
+  nav .wrap{display:flex;align-items:center;gap:26px;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;font:400 26px var(--bevan);letter-spacing:.03em}
+  nav ul{display:flex;gap:22px;list-style:none;font:400 14px var(--type);letter-spacing:.12em;text-transform:uppercase;margin-right:auto;color:var(--paper)}
+  nav ul a:hover{color:var(--yel)}
+  nav .tel{font:400 15px var(--type);letter-spacing:.06em;color:var(--paper)}
+
+  .hero{padding:54px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .hero .board{padding:36px 30px 32px}
+  .hero .board h1{font-size:clamp(46px,6.4vw,92px);letter-spacing:.03em}
+  .hero .board .rest{font:400 17px var(--type);letter-spacing:.3em;text-transform:uppercase;color:var(--paper);margin:10px 0 20px}
+  .hero .board hr{border:0;border-top:3px solid var(--paper);margin:16px 0}
+  .hero .board .ln{font:400 18px var(--type);color:var(--paper);letter-spacing:.06em;line-height:1.9}
+  .hero .board .ln b{color:var(--yel);font-weight:400}
+  .hero .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px;justify-content:center}
+  .posts{display:flex;justify-content:space-between;padding:0 60px}
+  .posts i{width:16px;height:46px;background:#5b4630;border:2px solid var(--ink);border-top:0}
+  .mount{position:relative;background:#fbf6e6;padding:12px;box-shadow:4px 6px 0 rgba(43,34,24,.3);border:1px solid var(--line)}
+  .mount img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:sepia(.25)}
+  .mount::before,.mount::after{content:"";position:absolute;width:30px;height:30px;background:var(--ink);opacity:.9;z-index:2}
+  .mount::before{left:0;top:0;clip-path:polygon(0 0,100% 0,0 100%)}
+  .mount::after{right:0;bottom:0;clip-path:polygon(100% 0,100% 100%,0 100%)}
+  .mount figcaption{font:400 14px var(--type);color:var(--mut);margin-top:8px;letter-spacing:.06em}
+  .stamp{position:absolute;right:-18px;top:-26px;width:118px;height:118px;transform:rotate(14deg);z-index:5;opacity:.9}
+
+  /* range register (safari) */
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:6px}
+  .dc{background:var(--paper);border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(43,34,24,.3);display:flex;flex-direction:column;transition:.15s}
+  .dc:hover{transform:translate(-2px,-2px)}
+  .dc .ph{position:relative;padding:14px 14px 0}
+  .dc .ph img{width:100%;aspect-ratio:16/10;object-fit:cover;filter:sepia(.2);border:1px solid var(--line)}
+  .dc .ph::before,.dc .ph::after{content:"";position:absolute;width:28px;height:28px;background:var(--ink);z-index:2}
+  .dc .ph::before{left:14px;top:14px;clip-path:polygon(0 0,100% 0,0 100%)}
+  .dc .ph::after{right:14px;bottom:0;clip-path:polygon(100% 0,100% 100%,0 100%)}
+  .dc .in{padding:16px 22px 22px}
+  .dc .no{font:400 14px var(--type);letter-spacing:.14em;text-transform:uppercase;color:var(--red);border-bottom:2px dashed var(--ink);padding-bottom:6px;margin-bottom:8px}
+  .dc .no::before{content:"RANGE No. "}
+  .dc h3{font-size:28px;color:var(--green)}
+  .plus{display:inline-block;margin-left:8px;font:400 12px var(--type);letter-spacing:.1em;border:2px solid var(--red);color:var(--red);padding:0 6px;vertical-align:5px;text-transform:uppercase}
+  .dc .reg{font:400 15px var(--type);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .dc p{font-size:16px;color:var(--mut);margin:8px 0}
+  .dc dl{font:400 15px var(--type);display:grid;gap:2px;border-top:1px solid var(--ink);padding-top:8px}
+  .dc dl div{display:flex;gap:8px}
+  .dc dt{min-width:74px;text-transform:uppercase;letter-spacing:.06em;color:var(--green)}
+  .dc dt::after{content:":"}
+  .dc .go{display:inline-block;margin-top:12px;font:400 14px var(--type);letter-spacing:.1em;text-transform:uppercase;color:var(--red);border-bottom:2px solid var(--red)}
+
+  /* bird register */
+  .birds{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:6px}
+  .bc .ph{position:relative;background:#fbf6e6;padding:12px;border:1px solid var(--line);box-shadow:4px 6px 0 rgba(43,34,24,.3)}
+  .bc .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:sepia(.18)}
+  .bc .ph::before,.bc .ph::after{content:"";position:absolute;width:26px;height:26px;background:var(--ink);z-index:2}
+  .bc .ph::before{left:0;top:0;clip-path:polygon(0 0,100% 0,0 100%)}
+  .bc .ph::after{right:0;bottom:0;clip-path:polygon(100% 0,100% 100%,0 100%)}
+  .bc b{display:block;font:400 17px var(--type);margin-top:12px;text-transform:uppercase;letter-spacing:.06em}
+  .bc i{font-size:15px;color:var(--mut)}
+  .places{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .chip{border:2px solid var(--ink);background:var(--paper);padding:8px 16px;font:400 14px var(--type);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .chip small{color:var(--mut);margin-left:4px;text-transform:none}
+  .chip:hover{background:var(--yel)}
+  .else{margin-top:50px}
+  .else .board{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;text-align:left}
+  .else h3{font-size:30px}
+
+  /* seasons notice */
+  .notice{background:var(--paper);border:3px double var(--ink);padding:26px;box-shadow:5px 6px 0 rgba(43,34,24,.3);overflow-x:auto}
+  .notice .hd{font:400 15px var(--type);letter-spacing:.14em;text-transform:uppercase;text-align:center;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:12px}
+  .sr{display:grid;grid-template-columns:200px repeat(12,1fr);min-width:760px;align-items:center;font:400 14px var(--type);border-bottom:1px dotted var(--ink)}
+  .sr:last-child{border:0}
+  .sr b{font-weight:400;padding:8px 6px;text-transform:uppercase}
+  .sr.h span{text-align:center;letter-spacing:.1em;padding:6px 0;border-bottom:2px solid var(--ink)}
+  .sr i{font-style:normal;text-align:center;font-size:17px}
+  .c2{color:var(--red)}.c1{color:var(--green)}.c0{color:#9a8b6b}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);background:var(--paper)}
+  .step{padding:26px;border-right:2px dashed var(--ink)}
+  .step:last-child{border:0}
+  .step .n{display:inline-grid;place-items:center;width:46px;height:46px;border:3px solid var(--red);border-radius:50%;font:400 26px var(--bevan);color:var(--red);font-style:normal}
+  .step b{display:block;font:400 18px var(--type);text-transform:uppercase;letter-spacing:.08em;margin:10px 0 4px}
+  .step p{font-size:16px;color:var(--mut)}
+
+  .rules{background:var(--green);border:7px solid var(--paper);outline:3px solid var(--green);padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px 50px;box-shadow:6px 8px 0 rgba(43,34,24,.35)}
+  .rule{color:var(--paper);display:grid;grid-template-columns:42px 1fr;column-gap:12px}
+  .rule .n{grid-row:span 2;font:400 34px var(--bevan);color:var(--yel);font-style:normal}
+  .rule b{font:400 18px var(--type);text-transform:uppercase;letter-spacing:.06em;color:var(--yel)}
+  .rule span{font-size:16px;color:#e4dcc2}
+
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .ci{background:var(--paper);border:2px solid var(--ink);padding:22px;box-shadow:4px 5px 0 rgba(43,34,24,.3)}
+  .ci .ico{display:none}
+  .ci b{display:block;font:400 17px var(--type);text-transform:uppercase;letter-spacing:.06em;color:var(--green);border-bottom:2px dashed var(--ink);padding-bottom:8px;margin-bottom:8px}
+  .ci b::before{content:"STAFF — "}
+  .ci p{font-size:16px;color:var(--mut)}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .note img{aspect-ratio:3/2;object-fit:cover;width:100%;border:6px solid #fbf6e6;box-shadow:3px 4px 0 rgba(43,34,24,.3);margin-bottom:10px;filter:sepia(.2)}
+  .note small{font:400 13px var(--type);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+  .note b{display:block;font:400 18px/1.25 var(--serif);font-weight:600}
+
+  /* visitors' book */
+  .book{background:var(--paper);border:2px solid var(--ink);padding:10px 34px 20px;box-shadow:5px 6px 0 rgba(43,34,24,.3);background-image:repeating-linear-gradient(transparent 0 35px,#d9c9a0 35px 36px)}
+  .book h3{font:700 32px var(--hand);color:var(--red);padding-top:10px}
+  details{padding:0}
+  summary{font:600 28px/36px var(--hand);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;color:#1f3a7a}
+  summary::after{content:"✎";font-size:20px;color:var(--red)}
+  details p{font:500 24px/36px var(--hand);color:#2c2c5e;padding-bottom:0}
+
+  /* permit ticket */
+  .ticket{display:grid;grid-template-columns:1fr 250px;background:var(--paper);border:3px solid var(--ink);box-shadow:6px 8px 0 rgba(43,34,24,.35);position:relative}
+  .ticket::before,.ticket::after{content:"";position:absolute;right:236px;width:28px;height:28px;border-radius:50%;background:var(--parch);border:3px solid var(--ink)}
+  .ticket::before{top:-16px}.ticket::after{bottom:-16px}
+  .ticket .main{padding:34px 36px}
+  .ticket .stub{border-left:3px dashed var(--ink);padding:34px 20px;text-align:center;background:#efe5c8;font:400 15px var(--type);display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .ticket .stub b{font:400 28px var(--bevan);color:var(--red)}
+  .ticket h2{font-size:34px;color:var(--green)}
+  .ticket .num{display:block;font:400 clamp(34px,4.4vw,58px) var(--bevan);color:var(--ink);margin:10px 0 4px}
+  .ticket .ctas{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+  .formwrap{margin-top:36px}
+  form{display:grid;gap:14px;background:var(--paper);border:2px solid var(--ink);padding:26px;box-shadow:5px 6px 0 rgba(43,34,24,.3)}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:3px;font:400 13px var(--type);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  form input,form select,form textarea{background:transparent;border:0;border-bottom:2px solid var(--ink);padding:8px 2px;font:400 18px var(--type);color:var(--ink);outline:none}
+
+  footer{padding:36px 0 46px;text-align:center;font:400 14px var(--type);letter-spacing:.08em;color:var(--mut);position:relative;z-index:2}
+
+  @media(max-width:900px){
+    nav ul,nav .tel{display:none}
+    .hero .wrap,.sgrid,.birds,.steps,.rules,.crew,.notes,form .two{grid-template-columns:1fr}
+    .ticket{grid-template-columns:1fr}.ticket::before,.ticket::after{display:none}.ticket .stub{border-left:0;border-top:3px dashed var(--ink)}
+    .step{border-right:0;border-bottom:2px dashed var(--ink)}
+    .posts{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="38" height="30" viewBox="0 0 48 36"><path d="M2 20L24 4l22 16" fill="none" stroke="#f1d35a" stroke-width="3.4" stroke-linejoin="round"/><path d="M8 18V32H40V18" fill="#f1d35a" stroke="#f1d35a" stroke-width="2"/><rect x="20" y="22" width="8" height="10" fill="#173b28"/></svg>We Rove</a>
+  <ul><li><a href="#safari">Safari</a></li><li><a href="#birding">Birding</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#visitor-rules">Rules</a></li><li><a href="#faq">Visitors' book</a></li></ul>
+  <a class="tel" data-tel>☎ <span data-site="phone"></span></a>
+  <a class="btn r" data-wa style="padding:8px 18px;box-shadow:3px 3px 0 #000">WhatsApp</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="board">
+      <h1>WE ROVE</h1>
+      <div class="rest">Safari &amp; Birding · India</div>
+      <hr>
+      <div class="ln"><b>TIGER SAFARIS</b> — morning &amp; evening drives<br><b>BIRDING WALKS</b> — dawn, by ear, no playback<br><b>BOOKINGS</b> — by call or WhatsApp only</div>
+      <div class="ctas"><a class="btn r" data-wa>Book on WhatsApp</a><a class="btn" data-tel>Call us</a></div>
+    </div>
+    <div class="posts"><i></i><i></i></div>
+  </div>
+  <figure class="mount">
+    <svg class="stamp" viewBox="0 0 120 120"><defs><path id="rs" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><g fill="none" stroke="#b3261e" stroke-width="3"><circle cx="60" cy="60" r="55"/><circle cx="60" cy="60" r="30"/></g><text font-family="Special Elite" font-size="11.5" letter-spacing="2.4" fill="#b3261e"><textPath href="#rs">PERMITTED · SAFARI &amp; BIRDING ·</textPath></text><text x="60" y="66" text-anchor="middle" font-family="Special Elite" font-size="15" fill="#b3261e">WR</text></svg>
+    <img src="img/bengal-tiger.webp" alt="Bengal tiger">
+    <figcaption>PLATE 1 — Bengal tiger, central India. Photographed on safari.</figcaption>
+  </figure>
+</div></header>
+<div class="kerb"></div>
+
+<section id="safari"><div class="wrap">
+  <div class="board sec-h"><h2>RANGE REGISTER</h2><div class="sub">Where travellers ask us to go · safari first</div></div>
+  <div class="sgrid" id="safari-grid"></div>
+</div></section>
+
+<div class="kerb"></div>
+<section id="birding"><div class="wrap">
+  <div class="board sec-h"><h2>BIRD REGISTER</h2><div class="sub">Foothill birding · by ear first · no playback</div></div>
+  <div class="birds" id="bird-grid"></div>
+  <div class="places" id="birding-places"></div>
+  <div class="else"><div class="board"><div><h3>SOMEWHERE ELSE?</h3><div class="sub" style="margin-top:4px">If it's wild and in India, ask us</div></div><a class="btn r" data-wa="Hi We Rove, I'd like a trip to:">Ask on WhatsApp</a></div></div>
+</div></section>
+
+<div class="kerb"></div>
+<section id="seasons"><div class="wrap">
+  <div class="board sec-h"><h2>OPENING SEASON NOTICE</h2><div class="sub">Reserves rest through the monsoon · dates approximate</div></div>
+  <div class="notice"><div class="hd">Notice to visitors: seasons of access</div><div id="season"></div>
+    <p class="typ" style="font-size:14px;margin-top:12px">■ BEST SEASON &nbsp; □ OPEN &nbsp; – CLOSED OR OFF-SEASON</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="board sec-h"><h2>PROCEDURE FOR BOOKING</h2><div class="sub">No forms in triplicate</div></div>
+  <div class="steps" id="steps"></div>
+</div></section>
+
+<div class="kerb"></div>
+<section id="visitor-rules"><div class="wrap">
+  <div class="board sec-h"><h2>RULES FOR VISITORS</h2><div class="sub">Leave life alone and undisturbed, and it will flourish</div></div>
+  <div class="rules" id="rules-board"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="board sec-h"><h2>STAFF ON DUTY</h2><div class="sub">A small crew · no names, just duties</div></div>
+  <div class="crew" id="crew"></div>
+  <p class="typ" style="text-align:center;margin-top:22px;color:var(--mut)">Est. on a Republic Day in the jungles of Corbett.</p>
+</div></section>
+
+<section data-blog><div class="wrap">
+  <div class="board sec-h"><h2>FIELD NOTES</h2><div class="sub">From the journal</div></div>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<div class="kerb"></div>
+<section id="faq"><div class="wrap" style="max-width:860px">
+  <div class="board sec-h"><h2>VISITORS' BOOK</h2><div class="sub">Questions we are often asked</div></div>
+  <div class="book" id="faqs"></div>
+</div></section>
+
+<div class="kerb"></div>
+<section><div class="wrap" style="max-width:960px">
+  <div class="ticket">
+    <div class="main">
+      <span class="typ" style="letter-spacing:.2em;color:var(--red)">PERMIT TO TRAVEL — APPLY HERE</span>
+      <h2>One call is usually enough.</h2>
+      <a class="num" data-tel data-site="phone"></a>
+      <a class="typ" data-mail data-site="email" style="color:var(--mut)"></a>
+      <div class="ctas"><a class="btn r" data-wa>WhatsApp</a><a class="btn" data-tel>Call now</a></div>
+    </div>
+    <div class="stub"><span>ADMIT</span><b>2+</b><span>TRAVELLERS</span><span style="border-top:2px dashed var(--ink);padding-top:8px;margin-top:4px">SERIES WR-2027</span></div>
+  </div>
+  <div class="formwrap"><form data-enquiry>
+    <div class="typ" style="letter-spacing:.14em;text-transform:uppercase;color:var(--red)">Or send your particulars on WhatsApp</div>
+    <div class="two"><label>Name<input name="name"></label><label>Travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>Trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>Where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>When<input name="when" placeholder="e.g. April 2027"></label>
+    <label>Anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn r" style="cursor:pointer;justify-content:center">Send on WhatsApp →</button>
+  </form></div>
+</div></section>
+<div class="kerb"></div>
+<footer>© WE ROVE · SAFARI &amp; BIRDING TRIPS IN INDIA · <a href="https://www.instagram.com/werove.in/">INSTAGRAM</a> · TERMS · PRIVACY</footer>
+
+<script src="shared.js"></script>
+<script src="trad.js"></script>
+<script>
+  TRAD.mount({numerals:['1.','2.','3.','4.','5.','6.'],mark:{2:'■',1:'□',0:'–'}});
+  // the rules board uses its own container id so the section anchor #rules stays on the section
+  const rb=document.getElementById('rules-board');
+  rb.innerHTML=ETHICS.map(([a,b],i)=>`<div class="rule"><i class="n">${i+1}</i><b>${a}</b><span>${b}</span></div>`).join('');
+</script>
+<script src="ambient.js"></script>
+</body>
+</html>

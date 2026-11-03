@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { site, destinations } from '../lib/data.js';
+
+const { title, description = site.description, image = '/og.jpg', path = '', jsonLd = null, ambient = true } = Astro.props;
+const fullTitle = title ? `${title} | We Rove` : `We Rove: ${site.tagline}`;
+const url = new URL(path || Astro.url.pathname, site.url).href;
+const ogImage = new URL(image, site.url).href;
+---
+<!doctype html>
+<html lang="en" data-theme="day" data-mode="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#23402f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="We Rove" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Chooses day or night from the visitor's clock before the page paints, so there's no flash -->
+    <script is:inline src="/js/theme.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <Header />
+    <main id="main"><slot /></main>
+    <Footer />
+    <CookieBanner />
+    <script is:inline type="application/json" id="wr-config" set:html={JSON.stringify({ phone: site.phone, phoneRaw: site.phoneRaw, email: site.email, analyticsId: site.analyticsId })} />
+    <script is:inline src="/js/site.js"></script>
+    {ambient && <script is:inline src="/js/ambient.js" data-always data-fx="birds pugs prints fireflies"></script>}
+  </body>
+</html>

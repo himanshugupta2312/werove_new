@@ -1,0 +1,43 @@
+---
+import { site, destinations, waLink } from '../lib/data.js';
+import { ICON } from './Icons.js';
+import Logo from './Logo.astro';
+---
+<footer>
+  <div class="wrap foot">
+    <div class="fbrand">
+      <Logo />
+      <p>{site.tagline}.</p>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:+${site.phoneRaw}`}>{site.phone}</a></p>
+      <div class="icons">
+        <a class="ic wa" href={waLink()} target="_blank" rel="noopener" aria-label="WhatsApp" set:html={ICON.wa} />
+        <a class="ic" href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram" set:html={ICON.ig} />
+        <a class="ic" href={site.facebook} target="_blank" rel="noopener" aria-label="Facebook" set:html={ICON.fb} />
+      </div>
+    </div>
+    <nav class="fcol" aria-label="Destinations">
+      <b>Where we rove</b>
+      {destinations.map((d) => <a href={`/destinations/${d.slug}`}>{d.name}</a>)}
+    </nav>
+    <nav class="fcol" aria-label="More">
+      <b>More</b>
+      <a href="/#story">About us</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/terms">Terms &amp; conditions</a>
+      <a href="/privacy">Privacy policy</a>
+      <a href="/cancellation">Cancellation &amp; refunds</a>
+      <button type="button" class="linklike" data-cookie-open>Cookie settings</button>
+    </nav>
+    <div class="fcol">
+      <b>Theme</b>
+      <div class="modes" title="The theme follows your local time unless you choose one">
+        <button type="button" data-m="auto">Auto</button><button type="button" data-m="day">Day</button><button type="button" data-m="night">Night</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap legal">© {new Date().getFullYear()} We Rove · {site.photoCredit ?? site.credit}</div>
+</footer>
+<div class="float">
+  <a href={`tel:+${site.phoneRaw}`} class="fl-call" aria-label="Call us" set:html={ICON.tel} />
+  <a href={waLink()} target="_blank" rel="noopener" class="fl-wa" aria-label="WhatsApp us" set:html={ICON.wa} />
+</div>

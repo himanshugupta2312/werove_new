@@ -1,0 +1,26 @@
+---
+import { site, waLink } from '../lib/data.js';
+import { ICON } from './Icons.js';
+import Logo from './Logo.astro';
+---
+<div class="top">
+  <div class="wrap">
+    <Logo />
+    <ul class="nav" id="nav">
+      <li><a href="/#where">Where we rove</a></li>
+      <li><a href="/#travel">How we travel</a></li>
+      <li><a href="/#story">About us</a></li>
+      <li><a href="/#sightings">Sightings</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a class="phone" href={`tel:+${site.phoneRaw}`}>{site.phone}</a>
+    <div class="icons">
+      <a class="ic wa" href={waLink()} target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp" set:html={ICON.wa} />
+      <a class="ic" href={site.instagram} target="_blank" rel="noopener" title="Instagram" aria-label="Instagram" set:html={ICON.ig} />
+      <a class="ic" href={site.facebook} target="_blank" rel="noopener" title="Facebook" aria-label="Facebook" set:html={ICON.fb} />
+      <button class="ic" id="modebtn" type="button" title="Switch day / night" aria-label="Switch between day and night" set:html={ICON.sun + ICON.moon} />
+      <button class="ic burger" id="burger" type="button" aria-label="Menu" aria-controls="nav" set:html={ICON.menu} />
+    </div>
+  </div>
+</div>

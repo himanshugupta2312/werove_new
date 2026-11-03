@@ -1,0 +1,14 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+---
+<Base title={frontmatter.title} description={frontmatter.description} path={frontmatter.path} ambient={false}>
+  <section class="legalpage">
+    <div class="wrap">
+      {frontmatter.draft && (
+        <p class="draftbar"><b>Draft:</b> this page is still being reviewed and has details to fill in. It should not go live until that's done.</p>
+      )}
+      <article class="prose"><slot /></article>
+    </div>
+  </section>
+</Base>

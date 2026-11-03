@@ -1,0 +1,245 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, content, destinations, heroSlides, sightings, photoById, photoUrl, fmt, waLink } from '../lib/data.js';
+import { INDIA } from '../lib/india.js';
+import { ICON } from '../components/Icons.js';
+
+const { wildlife, ghosts, ethics, faq } = content;
+
+// ---- map: pin positions are worked out here, so the map shows without JavaScript
+const pct = ([lon, lat]) => {
+  const [x, y] = INDIA.project(lon, lat);
+  return [((x / INDIA.w) * 100).toFixed(2), ((y / INDIA.h) * 100).toFixed(2)];
+};
+const present = Object.keys(wildlife).filter((t) => destinations.some((d) => d.tags.includes(t)));
+const pins = destinations.map((d) => ({
+  ...d, pos: pct(d.coords),
+  c: wildlife[d.tags[0]].color, c2: d.tags[0] !== 'birding' && d.tags.includes('birding') ? wildlife.birding.color : 'var(--card)',
+}));
+const ghostPins = ghosts.map((g) => ({ ...g, pos: pct(g.coords) }));
+const legend = [...new Set(destinations.map((d) => d.tags[0]))].map((t) => ({
+  label: t === 'birding' ? 'Birding only' : 'Tiger, leopard, sloth bear & birding',
+  color: wildlife[t].color,
+  ring: t !== 'birding',
+}));
+// slim data for the map panel (client side)
+const atlasData = {
+  wildlife, ghosts: ghosts.map((g) => ({ name: g.name, note: g.note })),
+  destinations: destinations.map((d) => ({
+    slug: d.slug, name: d.name, short: d.short, region: d.region, tags: d.tags, summary: d.summary,
+    see: d.mammals, birds: d.birds, best: d.best, reach: d.reach, img: d.coverMd, hasPhotos: d.hasPhotos,
+  })),
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'TravelAgency', '@id': `${site.url}/#org`, name: site.name, url: site.url, description: site.description,
+      telephone: site.phone, email: site.email, image: `${site.url}/og.jpg`, logo: `${site.url}/icon-512.png`,
+      areaServed: 'India', sameAs: [site.instagram, site.facebook],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replaceAll('{{phone}}', site.phone) } })),
+    },
+  ],
+};
+---
+<Base path="/" jsonLd={jsonLd}>
+  <!-- ============ hero: full-width pictures (videos can be added later) ============ -->
+  <header class="hero">
+    <div class="cine">
+      <div class="slides" id="slides">
+        {heroSlides.map((s, i) => (
+          <img class={`slide${i === 0 ? ' on' : ''}`} src={photoUrl(s.p, 'xl')} alt={s.p.alt} data-caption={s.caption}
+            width={s.p.w} height={s.p.h} fetchpriority={i === 0 ? 'high' : 'auto'} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+        ))}
+      </div>
+      <div class="in">
+        <div class="txt">
+          <span class="hand">safari &amp; birding · India</span>
+          <h1>Wild India, at the <em>forest's pace.</em></h1>
+          <p>Small-group tiger safaris and birding trips, planned by people who keep going back.</p>
+          <div class="ctas">
+            <a class="btn w" href={waLink()} target="_blank" rel="noopener"><span class="btn-ic" set:html={ICON.wa} />Chat on WhatsApp</a>
+            <a class="btn o" href={`tel:+${site.phoneRaw}`}>Call us</a>
+          </div>
+        </div>
+        <p class="hcap" id="hcap" aria-live="off">{heroSlides[0].caption}</p>
+      </div>
+      {heroSlides.length > 1 && (
+        <div class="sdots" id="sdots">
+          {heroSlides.map((s, i) => <button type="button" class={i === 0 ? 'on' : ''} data-i={i} aria-label={`Show picture ${i + 1}`} />)}
+        </div>
+      )}
+    </div>
+  </header>
+
+  <!-- ============ finder ============ -->
+  <div class="wrap">
+    <form class="finder" data-enquiry>
+      <label>I want to
+        <select name="type"><option>Go on safari</option><option>Go birding</option><option>Do both</option></select></label>
+      <label>Where
+        <select name="dest">
+          <option>Help me choose</option>
+          {destinations.map((d) => <option>{d.name}</option>)}
+          <option>Others (type a location)</option>
+        </select>
+        <input name="dest_other" placeholder="Type a location" hidden /></label>
+      <label>When
+        <select name="when" data-months><option>Flexible</option></select></label>
+      <label>Travellers
+        <input name="people" type="number" value="2" min="1" /></label>
+      <button class="btn w" type="submit">Plan on WhatsApp →</button>
+    </form>
+  </div>
+
+  <!-- ============ where do we rove ============ -->
+  <section id="where">
+    <div class="wrap">
+      <div class="head">
+        <span class="hand">tap a pin</span>
+        <h2>Where do we <em>rove?</em></h2>
+        <p class="muted">Tiger country on your mind, or a birding haven? We have it all for you. Just tap a pin to know more about the locations.</p>
+      </div>
+      <div class="tabs mfilters" id="mfilters">
+        <button type="button" class="on" data-f="all">All</button>
+        {present.map((t) => <button type="button" data-f={t}>{wildlife[t].label}</button>)}
+      </div>
+      <div class="atlas">
+        <div class="mapcard" id="mapcard">
+          <div class="mapin">
+            <svg class="india" viewBox={`0 0 ${INDIA.w} ${INDIA.h}`} role="img" aria-label="Map of India showing the places we travel to">
+              <path id="indiapath" pathLength="1" d={INDIA.d} /><path class="isl" d={INDIA.dots} />
+            </svg>
+            {pins.map((d) => (
+              <button type="button" class={`mpin ${d.side}`} data-s={d.slug} data-tags={d.tags.join(' ')}
+                style={`left:${d.pos[0]}%;top:${d.pos[1]}%;--c:${d.c};--c2:${d.c2}`} aria-label={d.name}><i></i><span>{d.name.replace(' & around', '')}</span></button>
+            ))}
+            {ghostPins.map((g) => (
+              <button type="button" class={`mpin g ${g.hot ? 'hot ' : ''}${g.side}`} data-s={`g:${g.name}`} data-tags=""
+                style={`left:${g.pos[0]}%;top:${g.pos[1]}%`} aria-label={`${g.name}, ask us`}><i></i><span>{g.name}</span></button>
+            ))}
+          </div>
+          <div class="mlegend">
+            {legend.map((l) => <span><i style={`background:${l.color}${l.ring ? `;box-shadow:0 0 0 2px var(--card),0 0 0 4px ${wildlife.birding.color}` : ''}`}></i>{l.label}</span>)}
+            <span><i class="g"></i>Ask us</span>
+            <small>Illustrative map, not to scale.</small>
+          </div>
+        </div>
+        <aside class="mpanel" id="mpanel" aria-live="polite">
+          <noscript>
+            <p>Our places: {destinations.map((d, i) => <><a href={`/destinations/${d.slug}`}>{d.name}</a>{i < destinations.length - 1 ? ', ' : ''}</>)}.</p>
+          </noscript>
+        </aside>
+      </div>
+      <p class="mapnote">Map outline: DataMeet India boundaries (CC0), following the official boundary of India. Illustrative, not to scale. Positions are approximate.</p>
+    </div>
+  </section>
+
+  <!-- ============ how we travel ============ -->
+  <section class="travel" id="travel" style="padding-top:20px">
+    <div class="wrap"><div class="block">
+      <span class="hand">how we travel</span>
+      <h2>Leave life alone, and it will <em>flourish.</em></h2>
+      <p class="lead2">It's our first rule. We'd rather miss a photo than stress an animal.</p>
+      <div class="rules">
+        {ethics.map(([a, b]) => <div class="rule"><b>{a}</b><span>{b}</span></div>)}
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ============ about us ============ -->
+  <section class="story" id="story">
+    <div class="wrap">
+      <div class="imgs">
+        <figure class="t t1"><img src={photoUrl(photoById['tadoba-tigress-with-cubs'], 'md')} alt={photoById['tadoba-tigress-with-cubs'].alt} loading="lazy" /></figure>
+        <figure class="t t2"><img src={photoUrl(photoById['sattal-common-kingfisher'], 'md')} alt={photoById['sattal-common-kingfisher'].alt} loading="lazy" /></figure>
+        <figure class="t t3"><img src={photoUrl(photoById['pench-malabar-pied-hornbill'], 'md')} alt={photoById['pench-malabar-pied-hornbill'].alt} loading="lazy" /></figure>
+        <figure class="t t4"><img src={photoUrl(photoById['chakki-mod-himalayan-bluetail'], 'md')} alt={photoById['chakki-mod-himalayan-bluetail'].alt} loading="lazy" /></figure>
+        <figure class="t t5"><img src={photoUrl(photoById['bor-leopard'], 'md')} alt={photoById['bor-leopard'].alt} loading="lazy" /></figure>
+        <figure class="t t6"><img src={photoUrl(photoById['sattal-red-billed-leiothrix'], 'md')} alt={photoById['sattal-red-billed-leiothrix'].alt} loading="lazy" /></figure>
+      </div>
+      <div class="abouttext">
+        <span class="hand">about us</span>
+        <h2>For the travellers, <em>by the travellers</em></h2>
+        <div class="ablock"><h3>Our mission</h3>
+          <blockquote>&ldquo;The world is a book, and those who don't travel read only one page.&rdquo;</blockquote>
+          <p>At We Rove we put the experiences of Rovers, for Rovers, in one place, so the love and care you'd want while travelling is there for anyone who needs it. We're building a community held together by trust and affection, and our goal is simple: to give everyone a reason to travel, with quality and security always first.</p></div>
+        <div class="ablock"><h3>Our story</h3>
+          <p>A wise man once said, &ldquo;Adventure is out there&rdquo;, and we truly believe it. One fine Republic Day, while roaming the jungles of Corbett, our friend, a veteran mountaineer and naturalist turned tour operator (and a bird lover, not to forget), suggested a community that could help people everywhere travel more smoothly. Others had been turning over similar ideas, the kind of work that gives a deeper satisfaction than any corporate job could. We believe that community should connect Rovers with fellow Rovers, to find the best of places: common, uncommon, unexplored and popular.</p></div>
+        <div class="ablock"><h3>Meet the team</h3>
+          <p>We are a group of passionate travellers and photographers from four different states. We met through a shared love of the outdoors in Delhi NCR, and decided to work together.</p>
+          <div class="abtns"><a class="btn p" href={waLink("Hi We Rove, I'd like to know more about you and how you travel.")} target="_blank" rel="noopener">Say hello on WhatsApp</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ recent sightings ============ -->
+  <section id="sightings" style="padding:30px 0 70px">
+    <div class="wrap"><div class="head"><span class="hand">from the field</span><h2>Recent <em>sightings</em></h2>
+      <p class="muted">All photographed by our own team on our trips.</p></div></div>
+    <div class="strip">
+      {sightings.map((p) => (
+        <figure>
+          <img src={photoUrl(p, 'md')} alt={p.alt} loading="lazy" width={Math.round(p.w * 0.1)} height={Math.round(p.h * 0.1)} />
+          <figcaption>{p.title}<small>{p.placeName}</small></figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="head"><span class="hand">questions</span><h2><em>FAQ</em></h2>
+        <p class="muted">The things people ask us most. If yours isn't here, we're only a call or a message away.</p></div>
+      <div class="faqlist">
+        {faq.map(([q, a], i) => <details open={i === 0}><summary>{q}</summary><p set:html={fmt(a)} /></details>)}
+        <details class="more" open>
+          <summary>Need more information, or have another question?</summary>
+          <p>Call us or message us on WhatsApp, and we'll answer in plain words.</p>
+          <div class="morebtns">
+            <a class="btn w" href={waLink()} target="_blank" rel="noopener"><span class="btn-ic" set:html={ICON.wa} />WhatsApp us</a>
+            <a class="btn p" href={`tel:+${site.phoneRaw}`}>Call {site.phone}</a>
+            <a class="btn o" href={`mailto:${site.email}`}>Email us</a>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ contact ============ -->
+  <section id="contact" style="padding-top:20px">
+    <div class="wrap"><div class="cta">
+      <div>
+        <span class="hand">plan a trip</span>
+        <h2>Tell us what you want <em>to see.</em></h2>
+        <p class="muted">Call or WhatsApp is quickest. The form opens WhatsApp with your details filled in.</p>
+        <div class="direct">
+          <a href={waLink()} target="_blank" rel="noopener"><span class="ic wa" set:html={ICON.wa} /><span>{site.phone}<small>WhatsApp, fastest reply</small></span></a>
+          <a href={`tel:+${site.phoneRaw}`}><span class="ic" set:html={ICON.tel} /><span>{site.phone}<small>Call us</small></span></a>
+          <a href={`mailto:${site.email}`}><span class="ic" set:html={ICON.mail} /><span>{site.email}<small>Email</small></span></a>
+          <a href={site.instagram} target="_blank" rel="noopener"><span class="ic" set:html={ICON.ig} /><span>@werove.in<small>Instagram</small></span></a>
+          <a href={site.facebook} target="_blank" rel="noopener"><span class="ic" set:html={ICON.fb} /><span>We Rove on Facebook<small>Our Facebook page</small></span></a>
+        </div>
+      </div>
+      <form class="enq" data-enquiry>
+        <label>Name<input name="name" autocomplete="name" /></label>
+        <label>Travellers<input name="people" type="number" value="2" min="1" /></label>
+        <label>Trip type<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label>
+        <label>Destination
+          <select name="dest"><option>Help me choose</option>{destinations.map((d) => <option>{d.name}</option>)}<option>Others (type a location)</option></select>
+          <input name="dest_other" placeholder="Type a location" hidden /></label>
+        <label class="full">Dates<input name="when" placeholder="e.g. mid-March, 4 nights" /></label>
+        <label class="full">Anything else<textarea name="notes" rows="3" placeholder="Target species, photography, budget, kids, mobility..."></textarea></label>
+        <button class="btn w full" type="submit">Send on WhatsApp →</button>
+      </form>
+    </div></div>
+  </section>
+
+  <script is:inline type="application/json" id="wr-atlas" set:html={JSON.stringify(atlasData)} />
+  <script is:inline src="/js/atlas.js"></script>
+</Base>

@@ -30,9 +30,15 @@
     @media(max-width:760px){.amb-side{display:none}}
     [data-draw] .d{transition:stroke-dashoffset 2.8s cubic-bezier(.45,0,.2,1)}
     .amb-pugs{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:2}
-    .amb-pug{position:absolute;width:28px;height:28px;opacity:0;transform:scale(.4);transition:opacity .9s,transform .9s}
-    .amb-pug.in{opacity:var(--pug-o,.6);transform:scale(1)}
+    .amb-pug{position:absolute;width:28px;height:28px;opacity:0}
+    .amb-pug.in{animation:pugstamp 1.5s cubic-bezier(.2,.7,.2,1) var(--d,0ms) both}
+    @keyframes pugstamp{0%{opacity:0;transform:scale(1.9)}45%{opacity:var(--pug-o,.5);transform:scale(.88)}100%{opacity:var(--pug-o,.5);transform:scale(1)}}
+    @media(prefers-reduced-motion:reduce){.amb-pug.in{animation:none;opacity:var(--pug-o,.5)}}
     .amb-pug svg{width:100%;height:100%;fill:var(--ambient,#8a6a50)}
+    .amb-pug.bp svg{fill:none;stroke:var(--ambient,#8a6a50);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+    html[data-theme=night] .amb-pug.in{filter:drop-shadow(0 0 5px var(--ambient,#e3a64e))}
+    html[data-theme=day] .amb-fly{display:none}
+    html[data-theme=night] .amb-birds{display:none}
     @media(max-width:1260px){.amb-pugs{opacity:.5}}
     @media(max-width:760px){.amb-pugs{display:none}}
     .amb-fly{position:fixed;width:5px;height:5px;border-radius:50%;pointer-events:none;z-index:2;background:var(--firefly,#f6e27a);
@@ -109,20 +115,23 @@
 
   // ---- Pugmark trails: tiger tracks walking down both margins, each print appearing as you reach it
   const PUG = '<svg viewBox="0 0 100 100"><path d="M33 63C33 51 41 46 50 46S67 51 67 63C67 71 62 74 58 71 55 69 53 74 50 74S45 69 42 71C38 74 33 71 33 63Z"/><ellipse cx="31" cy="40" rx="6" ry="8" transform="rotate(-22 31 40)"/><ellipse cx="43" cy="30" rx="6" ry="8.5" transform="rotate(-6 43 30)"/><ellipse cx="57" cy="30" rx="6" ry="8.5" transform="rotate(6 57 30)"/><ellipse cx="69" cy="40" rx="6" ry="8" transform="rotate(22 69 40)"/></svg>';
+  // Bird footprint: three forward toes and one back toe
+  const BIRDPRINT = '<svg viewBox="0 0 100 100"><path d="M50 62V94M50 62L22 34M50 62L78 34M50 62V12"/></svg>';
   const pugs = () => {
     const box = document.createElement('div');
     box.className = 'amb-pugs';
     document.body.appendChild(box);
     const prints = [];
-    const H = document.documentElement.scrollHeight;
+    const H = document.body.offsetHeight;   // the page's own height, not the window's
     box.style.height = H + 'px';
     [[0, 0], [1, 1.7]].forEach(([right, seed]) => {
       for (let y = 260 + seed * 140, k = 0; y < H - 160; y += 64, k++) {
         const x = 44 + 20 * Math.sin(y / 380 + seed) + (k % 2 ? 11 : -11);
         const ang = 180 + 18 * Math.cos(y / 380 + seed) * (right ? -1 : 1);
         const el = document.createElement('div');
-        el.className = 'amb-pug';
-        el.innerHTML = PUG;
+        const bird = right && fx.has('prints');       // pugmarks down the left, bird prints down the right
+        el.className = 'amb-pug' + (bird ? ' bp' : '');
+        el.innerHTML = bird ? BIRDPRINT : PUG;
         el.style.top = y + 'px';
         el.style[right ? 'right' : 'left'] = x + 'px';
         el.style.rotate = ang + 'deg';
@@ -130,7 +139,15 @@
         prints.push({ el, y });
       }
     });
-    const walk = () => prints.forEach(p => p.el.classList.toggle('in', reduce || p.y < scrollY + innerHeight * .92));
+    const walk = () => {
+      const line = scrollY + innerHeight * .66;            // the "ground" where new prints land
+      let n = 0;
+      prints.filter(p => !p.done && (reduce || p.y < line)).sort((a, b) => a.y - b.y).forEach(p => {
+        p.done = true;                                      // once printed, a track stays printed
+        p.el.style.setProperty('--d', reduce ? '0ms' : Math.min(n++ * 240, 1900) + 'ms');   // one after another, never all at once
+        p.el.classList.add('in');
+      });
+    };
     addEventListener('scroll', walk, { passive: true });
     setTimeout(walk, 200);
   };

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup S · Ajrakh)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700;800&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--indigo:#1b2a5c;--indigo2:#142049;--madder:#a3372a;--cream:#f3e9d2;--cream2:#ebdfc3;--black:#14161d;--gold:#d9a43a;--mut:#665c4c;
+    --head:'Eczar',Georgia,serif;--sans:'Hind',system-ui,sans-serif;--ambient:#1b2a5c;
+    --jaali-c:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cg fill='none' stroke='%23f3e9d2' stroke-opacity='.18' stroke-width='1.2'%3E%3Cpath d='M28 2L54 28L28 54L2 28Z'/%3E%3Cpath d='M28 12L44 28L28 44L12 28Z'/%3E%3Cpath d='M0 0L6 6M56 0L50 6M0 56L6 50M56 56L50 50'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='3' fill='%23f3e9d2' fill-opacity='.18'/%3E%3C/svg%3E");
+    --jaali-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cg fill='none' stroke='%231b2a5c' stroke-opacity='.13' stroke-width='1.2'%3E%3Cpath d='M28 2L54 28L28 54L2 28Z'/%3E%3Cpath d='M28 12L44 28L28 44L12 28Z'/%3E%3Cpath d='M0 0L6 6M56 0L50 6M0 56L6 50M56 56L50 50'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='3' fill='%23a3372a' fill-opacity='.25'/%3E%3C/svg%3E");
+    --diamonds:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 3L25 14L14 25L3 14Z' fill='%23a3372a'/%3E%3Cpath d='M14 8L20 14L14 20L8 14Z' fill='%23f3e9d2'/%3E%3Ccircle cx='14' cy='14' r='2' fill='%2314161d'/%3E%3C/svg%3E")}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream) var(--jaali-i);color:var(--black);font:18px/1.6 var(--sans);overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+  h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.08}
+  h2{font-size:clamp(34px,4.6vw,56px);text-align:center}
+  .lead{text-align:center;max-width:640px;margin:10px auto 0;color:var(--mut)}
+  section{padding:80px 0;position:relative}
+  .ind{background:var(--indigo) var(--jaali-c);color:var(--cream)}
+  .ind .lead{color:#c9cfe6}
+  .ind h2{color:var(--cream)}
+  .cr2{background:var(--cream2) var(--jaali-i)}
+  .btn{display:inline-flex;align-items:center;padding:13px 28px;border:3px solid var(--black);font:600 15px var(--sans);letter-spacing:.08em;text-transform:uppercase;background:var(--cream);color:var(--black);box-shadow:5px 5px 0 var(--madder);transition:.15s}
+  .btn.m{background:var(--madder);color:var(--cream);box-shadow:5px 5px 0 var(--black)}
+  .ind .btn{border-color:var(--cream);box-shadow:5px 5px 0 var(--madder);background:transparent;color:var(--cream)}
+  .ind .btn.m{background:var(--madder);border-color:var(--cream)}
+  .btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--madder)}
+  .bandj{height:30px;background:var(--diamonds) repeat-x center;border-block:3px solid var(--black);background-color:var(--cream)}
+  .ornh{display:flex;align-items:center;justify-content:center;gap:12px;margin:12px auto 6px}
+  .ornh i{display:block;width:12px;height:12px;background:var(--madder);transform:rotate(45deg)}
+  .ornh i:nth-child(2){width:18px;height:18px;background:var(--gold)}
+  .ornh::before,.ornh::after{content:"";width:80px;border-top:3px double currentColor}
+
+  .oct{clip-path:polygon(13% 0,87% 0,100% 13%,100% 87%,87% 100%,13% 100%,0 87%,0 13%);background:var(--madder);padding:9px}
+  .oct>div{clip-path:polygon(13% 0,87% 0,100% 13%,100% 87%,87% 100%,13% 100%,0 87%,0 13%);background:var(--cream);padding:5px}
+  .oct>div>div{clip-path:polygon(13% 0,87% 0,100% 13%,100% 87%,87% 100%,13% 100%,0 87%,0 13%);aspect-ratio:1;overflow:hidden;background:var(--indigo)}
+  .oct img{width:100%;height:100%;object-fit:cover}
+
+  nav{background:var(--indigo2);color:var(--cream);position:sticky;top:0;z-index:40;border-bottom:4px solid var(--madder)}
+  nav .wrap{display:flex;align-items:center;gap:26px;height:76px}
+  .logo{display:flex;align-items:center;gap:10px;font:800 28px var(--head);letter-spacing:.02em}
+  nav ul{display:flex;gap:24px;list-style:none;font-weight:500;margin-right:auto;color:#c9cfe6}
+  nav ul a:hover{color:var(--gold)}
+
+  .hero{padding:50px 0 74px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+  .tag{font:600 13px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .hero h1{font-size:clamp(46px,6.2vw,86px);margin:14px 0 18px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{font-size:20px;color:#d6dbee;max-width:470px;margin-bottom:28px}
+  .hero .ctas{display:flex;gap:18px;flex-wrap:wrap}
+  .stage{position:relative;max-width:500px;margin:0 auto;width:100%;aspect-ratio:1}
+  .stage svg{position:absolute;inset:0;width:100%;height:100%}
+  .stage .oct{position:absolute;left:19%;right:19%;top:19%;bottom:19%}
+
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:44px}
+  .dc{background:var(--cream);border:3px solid var(--black);box-shadow:7px 7px 0 var(--madder);padding:22px;display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:center;transition:.15s}
+  .dc:hover{transform:translate(3px,3px);box-shadow:4px 4px 0 var(--madder)}
+  .dc .ph{display:block}
+  .dc .no{font:600 13px var(--sans);letter-spacing:.2em;color:var(--madder)}
+  .dc h3{font-size:28px;color:var(--indigo)}
+  .plus{display:inline-block;margin-left:8px;font:600 11px var(--sans);letter-spacing:.1em;border:2px solid var(--madder);color:var(--madder);padding:0 6px;vertical-align:5px;text-transform:uppercase}
+  .dc .reg{font:600 15px var(--head);color:var(--madder)}
+  .dc p{font-size:16px;color:var(--mut);margin:6px 0 8px}
+  .dc dl{display:grid;gap:1px;font-size:15px;border-top:3px double var(--black);padding-top:8px}
+  .dc dl div{display:flex;gap:8px}
+  .dc dt{font-weight:600;color:var(--indigo);min-width:68px}
+  .dc .go{display:inline-block;margin-top:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:14px;color:var(--madder);border-bottom:3px solid var(--madder)}
+
+  .birds{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:40px}
+  .bc{text-align:center}
+  .bc .ph{display:block;max-width:300px;margin:0 auto}
+  .bc b{display:block;font:700 24px var(--head);margin-top:14px;color:var(--gold)}
+  .bc i{font-size:16px;color:#c9cfe6}
+  .places{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .chip{border:2px solid var(--cream);padding:8px 18px;font-weight:600;cursor:pointer}
+  .chip small{opacity:.8;font-weight:400}
+  .chip:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+  .else{margin:54px auto 0;max-width:780px;text-align:center;border:3px double var(--gold);padding:30px}
+  .else h3{font-size:30px;margin-bottom:8px;color:var(--gold)}
+
+  .season{margin-top:34px;border:3px solid var(--black);background:var(--cream);overflow-x:auto;box-shadow:7px 7px 0 var(--madder)}
+  .sr{display:grid;grid-template-columns:200px repeat(12,1fr);min-width:780px;align-items:stretch;border-bottom:2px solid var(--black)}
+  .sr:last-child{border:0}
+  .sr b{font:700 17px var(--head);padding:9px 14px;border-right:2px solid var(--black)}
+  .sr.h{background:var(--indigo);color:var(--cream)}
+  .sr.h b{border-color:var(--cream)}
+  .sr.h span{font:600 11px var(--sans);letter-spacing:.12em;text-align:center;padding:10px 0}
+  .sr i{border-right:1px solid rgba(20,22,29,.25)}
+  .c2{background:var(--madder)}
+  .c1{background:repeating-linear-gradient(135deg,var(--indigo) 0 3px,transparent 3px 8px)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:40px;text-align:center}
+  .step .n{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 18px;position:relative;isolation:isolate;font:700 28px var(--head);font-style:normal;color:var(--cream);line-height:1}
+  .step .n::before{content:"";position:absolute;inset:6px;background:var(--madder);transform:rotate(45deg);z-index:-1}
+  .step b{display:block;font:700 24px var(--head)}
+  .step p{color:var(--mut);font-size:17px}
+
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+  .rule{border:2px solid var(--cream);padding:22px 20px;position:relative}
+  .rule::before{content:"";position:absolute;inset:5px;border:1px solid rgba(243,233,210,.4);pointer-events:none}
+  .rule .n{display:inline-block;font:800 26px var(--head);font-style:normal;color:var(--gold)}
+  .rule b{display:block;font:700 22px var(--head);margin:2px 0 6px}
+  .rule span{color:#c9cfe6;font-size:16px}
+
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;text-align:center}
+  .ci{background:var(--cream);border:3px solid var(--black);box-shadow:6px 6px 0 var(--indigo);padding:0 20px 24px}
+  .ci .ico{display:block;height:26px;margin:0 -20px 18px;background:var(--diamonds) repeat-x center;background-color:var(--cream2);border-bottom:3px solid var(--black)}
+  .ci b{display:block;font:700 22px var(--head);margin-bottom:6px;color:var(--indigo)}
+  .ci p{color:var(--mut);font-size:16px}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:34px}
+  .note img{aspect-ratio:3/2;object-fit:cover;width:100%;border:3px solid var(--black);box-shadow:5px 5px 0 var(--madder);margin-bottom:12px}
+  .note small{font:600 12px var(--sans);letter-spacing:.18em;color:var(--madder);text-transform:uppercase}
+  .note b{display:block;font:700 21px/1.2 var(--head)}
+
+  .faq{max-width:820px;margin:26px auto 0}
+  details{border-bottom:3px double var(--black);padding:16px 0}
+  summary{font:700 23px var(--head);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px}
+  summary::after{content:"◆";color:var(--madder);font-size:16px;transition:.3s}
+  details[open] summary::after{transform:rotate(90deg)}
+  details p{color:var(--mut);margin-top:6px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+  .cbox{background:var(--madder);color:var(--cream);border:3px solid var(--black);box-shadow:8px 8px 0 var(--black);padding:42px;text-align:center;position:relative}
+  .cbox::before{content:"";position:absolute;inset:8px;border:2px solid rgba(243,233,210,.55);pointer-events:none}
+  .cbox .num{display:block;font:800 clamp(34px,4vw,52px) var(--head);margin:8px 0 4px}
+  .cbox .tag{color:var(--cream)}
+  .cbox .ctas{display:flex;gap:16px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+  .cbox .btn{box-shadow:5px 5px 0 var(--black)}
+  form{display:grid;gap:14px}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:3px;font:600 12px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--indigo)}
+  form input,form select,form textarea{background:var(--cream);border:3px solid var(--black);padding:10px;font:17px var(--sans);color:var(--black)}
+
+  footer{padding:34px 0 40px;text-align:center;background:var(--indigo2);color:#c9cfe6;font-size:15px}
+
+  @media(max-width:900px){
+    nav ul{display:none}
+    .hero .wrap,.sgrid,.birds,.steps,.rules,.crew,.notes,.contact,form .two{grid-template-columns:1fr}
+    .dc{grid-template-columns:1fr;text-align:center}.dc .ph{max-width:200px;margin:0 auto}.dc dl div{justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="bandj" style="border-top:0"></div>
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="34" height="34" viewBox="0 0 40 40"><path d="M20 2L38 20L20 38L2 20Z" fill="#a3372a"/><path d="M20 9L31 20L20 31L9 20Z" fill="#f3e9d2"/><circle cx="20" cy="20" r="4" fill="#1b2a5c"/></svg>We Rove</a>
+  <ul><li><a href="#safari">Safari</a></li><li><a href="#birding">Birding</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#ethics">How we travel</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a data-tel style="font-weight:600">☎ <span data-site="phone"></span></a>
+  <a class="btn m" data-wa style="padding:9px 20px;box-shadow:3px 3px 0 #000;border-color:#f3e9d2">WhatsApp</a>
+</div></nav>
+
+<header class="hero ind"><div class="wrap">
+  <div>
+    <span class="tag">Safari &amp; birding · India</span>
+    <h1>Into the forest, <em>pattern</em> by pattern.</h1>
+    <p>Tiger safaris across India's reserves, and birding in the Himalayan foothills, in small groups, planned by people who keep going back.</p>
+    <div class="ctas"><a class="btn m" data-wa>Plan on WhatsApp</a><a class="btn" data-tel>Call us</a></div>
+  </div>
+  <div class="stage">
+    <svg id="star" viewBox="0 0 400 400"></svg>
+    <div class="oct"><div><div><img src="img/bengal-tiger.webp" alt="Bengal tiger"></div></div></div>
+  </div>
+</div></header>
+<div class="bandj"></div>
+
+<section id="safari"><div class="wrap">
+  <h2>Where people ask us to go</h2>
+  <div class="ornh" style="color:var(--black)"><i></i><i></i><i></i></div>
+  <p class="lead">Tiger safaris come first. These are the reserves we're asked about most, and every trip is planned around your dates and group.</p>
+  <div class="sgrid" id="safari-grid"></div>
+</div></section>
+
+<section id="birding" class="ind"><div class="wrap">
+  <h2>And for the birders</h2>
+  <div class="ornh" style="color:var(--cream)"><i></i><i></i><i></i></div>
+  <p class="lead">Quiet dawn walks in oak and pine with birders who find birds by ear first, and never use playback. Beginners are very welcome.</p>
+  <div class="birds" id="bird-grid"></div>
+  <div class="places" id="birding-places"></div>
+  <div class="else"><h3>Somewhere else in mind?</h3><p style="color:#c9cfe6;margin-bottom:16px">If it's wild and in India, ask us. Kaziranga, the Sundarbans, Bandhavgarh, Latpanchar...</p><a class="btn m" data-wa="Hi We Rove, I'd like a trip to:">Ask on WhatsApp</a></div>
+</div></section>
+<div class="bandj"></div>
+
+<section id="seasons" class="cr2"><div class="wrap">
+  <h2>When the forest opens</h2>
+  <div class="ornh" style="color:var(--black)"><i></i><i></i><i></i></div>
+  <p class="lead">Reserves rest through the monsoon. Tigers show best in the dry heat; foothill birds peak in winter. Dates are approximate.</p>
+  <div class="season" id="season"></div>
+  <p style="margin-top:12px;font-size:15px;color:var(--mut)">Solid red = best · indigo hatch = open · blank = closed or off-season</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How it works</h2>
+  <div class="ornh" style="color:var(--black)"><i></i><i></i><i></i></div>
+  <div class="steps" id="steps"></div>
+</div></section>
+
+<section id="ethics" class="ind"><div class="wrap">
+  <h2>How we travel</h2>
+  <div class="ornh" style="color:var(--cream)"><i></i><i></i><i></i></div>
+  <p class="lead">"Leave life alone and undisturbed, and it will flourish like you never could imagine."</p>
+  <div class="rules" id="rules"></div>
+</div></section>
+<div class="bandj"></div>
+
+<section class="cr2"><div class="wrap">
+  <h2>A small crew</h2>
+  <div class="ornh" style="color:var(--black)"><i></i><i></i><i></i></div>
+  <p class="lead">It started on a Republic Day in Corbett. The same few of us plan every trip and go on most of them. No names, just what each of us does.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section data-blog><div class="wrap">
+  <h2>From the journal</h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" class="cr2"><div class="wrap">
+  <h2>Before you go</h2>
+  <div class="ornh" style="color:var(--black)"><i></i><i></i><i></i></div>
+  <div class="faq" id="faqs"></div>
+</div></section>
+
+<section><div class="wrap contact">
+  <div class="cbox">
+    <span class="tag">Book a trip</span>
+    <h2 style="font-size:36px;margin-top:6px;color:var(--cream)">One call is usually enough.</h2>
+    <a class="num" data-tel data-site="phone"></a>
+    <a data-mail data-site="email" style="opacity:.9"></a>
+    <div class="ctas"><a class="btn" data-wa>WhatsApp</a><a class="btn" data-tel>Call now</a></div>
+  </div>
+  <form data-enquiry>
+    <div class="two"><label>Name<input name="name"></label><label>Travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>Trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>Where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>When<input name="when" placeholder="e.g. April 2027"></label>
+    <label>Anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn m" style="cursor:pointer;justify-content:center">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<div class="bandj"></div>
+<footer>© We Rove · Safari &amp; birding trips in India · <a href="https://www.instagram.com/werove.in/">Instagram</a> · Terms · Privacy</footer>
+
+<script src="shared.js"></script>
+<script src="trad.js"></script>
+<script>
+  const octMedia=inner=>`<span class="oct" style="display:block"><div><div>${inner}</div></div></span>`;
+  // hero star: a 16-point star and a ring of diamonds behind the octagon
+  let pts='';for(let i=0;i<32;i++){const r=i%2?150:196,a=i*Math.PI/16-Math.PI/2;pts+=`${(200+Math.cos(a)*r).toFixed(1)},${(200+Math.sin(a)*r).toFixed(1)} `}
+  let dia='';for(let i=0;i<16;i++){dia+=`<path d="M200 4L206 14L200 24L194 14Z" transform="rotate(${i*22.5} 200 200)" fill="#d9a43a"/>`}
+  document.getElementById('star').innerHTML=`<polygon points="${pts}" fill="#a3372a" stroke="#f3e9d2" stroke-width="2.5" stroke-linejoin="round"/><circle cx="200" cy="200" r="142" fill="none" stroke="#f3e9d2" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>${dia}`;
+  TRAD.mount({
+    media:d=>octMedia(`<img src="img/${d.slug}.webp" alt="">`),
+    bmedia:b=>octMedia(`<img src="img/${b[2]}.webp" alt="">`),
+    numerals:['1','2','3','4','5','6'],mark:{2:'',1:'',0:''}});
+</script>
+<script src="ambient.js"></script>
+</body>
+</html>

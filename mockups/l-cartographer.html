@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup L · Cartographer)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--parch:#ece1c6;--parch2:#e3d6b5;--ink:#3a2c1f;--mut:#76654f;--red:#bf4528;--teal:#2b7a78;--gold:#d4962d;--line:#c9b78f;
+    --head:'Cinzel',Georgia,serif;--serif:'Crimson Pro',Georgia,serif;--hand:'Caveat',cursive;--ambient:#6b4d33}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--parch) url(img/map-bg.webp) fixed center/cover;color:var(--ink);font:19px/1.6 var(--serif);overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;background:rgba(236,225,198,.82);pointer-events:none;z-index:0}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+  h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.1;letter-spacing:.02em}
+  h2{font-size:clamp(30px,4vw,48px);margin:6px 0 14px}
+  .hand{font:700 26px/1 var(--hand);color:var(--red)}
+  section{padding:84px 0;position:relative;z-index:2}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border:2px solid var(--ink);font:600 13px var(--head);letter-spacing:.14em;text-transform:uppercase;background:var(--parch);transition:.2s}
+  .btn.r{background:var(--red);border-color:var(--red);color:#fbf1de}
+  .btn.k{background:var(--ink);color:var(--parch)}
+  .btn:hover{transform:translateY(-2px)}
+  .muted{color:var(--mut)}
+  .card{background:rgba(250,243,226,.92);border:2px solid var(--ink);box-shadow:6px 6px 0 rgba(58,44,31,.25)}
+
+  nav{position:relative;z-index:20;border-bottom:2px solid var(--ink);background:rgba(236,225,198,.95)}
+  nav .wrap{display:flex;align-items:center;gap:26px;height:78px}
+  .logo{display:flex;align-items:center;gap:10px;font:700 24px var(--head);letter-spacing:.06em}
+  nav ul{display:flex;gap:24px;list-style:none;font:600 12px var(--head);letter-spacing:.14em;text-transform:uppercase;margin-right:auto}
+  nav ul a:hover{color:var(--red)}
+  nav .tel{font:600 15px var(--head);letter-spacing:.06em}
+
+  /* hero map */
+  .hero{padding:50px 0 70px}
+  .intro{text-align:center;max-width:760px;margin:0 auto 34px}
+  .intro h1{font-size:clamp(36px,5.4vw,70px);margin:8px 0 14px}
+  .intro h1 em{font-style:normal;color:var(--red)}
+  .intro p{color:var(--mut);font-size:21px}
+  .atlas{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:30px;align-items:stretch}
+  .map{position:relative;min-height:640px;background:var(--parch2) url(img/map-bg.webp) center/cover;overflow:hidden}
+  .map svg.grid{position:absolute;inset:0;width:100%;height:100%}
+  .map svg.grid line{stroke:#8b7351;stroke-width:1;stroke-dasharray:2 6;opacity:.7}
+  .map svg.grid text{font:600 11px var(--head);fill:#7c6648;letter-spacing:.12em}
+  .glyph{position:absolute;width:22px;height:22px;opacity:.55;pointer-events:none}
+  .glyph svg{width:100%;height:100%;fill:none;stroke:#6b4d33;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .pin{position:absolute;transform:translate(-50%,-100%);background:none;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;z-index:5;font-family:var(--head)}
+  .pin i{width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid var(--ink);background:var(--c);transition:.2s;box-shadow:2px 3px 0 rgba(58,44,31,.35)}
+  .pin span{margin-top:6px;font:700 12px var(--head);letter-spacing:.08em;background:rgba(250,243,226,.92);border:1.5px solid var(--ink);padding:2px 8px;white-space:nowrap}
+  .pin:hover i,.pin.on i{transform:rotate(-45deg) scale(1.3)}
+  .pin.on span{background:var(--ink);color:var(--parch)}
+  .pin.L span,.pin.R span{position:absolute;top:-2px;margin:0}
+  .pin.L span{right:30px}.pin.R span{left:30px}
+  .pin.s{--c:var(--red)}.pin.b{--c:var(--teal)}
+  .pin.q{--c:var(--gold)}
+  .pin.q i{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 12px rgba(212,150,45,.0),2px 3px 0 rgba(58,44,31,.35);transform:rotate(-45deg) scale(1.25)}}
+  @media(prefers-reduced-motion:reduce){.pin.q i{animation:none}}
+  .compass{position:absolute;right:18px;bottom:18px;width:84px;height:84px;opacity:.85}
+  .legend{position:absolute;left:16px;bottom:14px;padding:10px 14px;font:600 11px var(--head);letter-spacing:.1em;text-transform:uppercase}
+  .legend div{display:flex;align-items:center;gap:8px;margin:3px 0}
+  .legend i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink)}
+  .legend small{display:block;font:italic 400 13px var(--serif);text-transform:none;letter-spacing:0;color:var(--mut);margin-top:6px}
+
+  .panel{padding:26px;display:flex;flex-direction:column;gap:12px}
+  .panel .im{aspect-ratio:16/10;object-fit:cover;width:100%;border:2px solid var(--ink)}
+  .panel h3{font-size:30px}
+  .panel .reg{font:700 22px var(--hand);color:var(--red)}
+  .panel .chips{display:flex;gap:6px}
+  .chip{font:700 11px var(--head);letter-spacing:.14em;text-transform:uppercase;padding:3px 10px;border:1.5px solid currentColor}
+  .chip.s{color:var(--red)}.chip.b{color:var(--teal)}
+  .panel dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:17px;border-top:1px dashed var(--ink);padding-top:12px}
+  .panel dt{font:700 11px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-top:5px}
+  .mini{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+  .mini i{height:12px;background:rgba(58,44,31,.12)}
+  .mini i.m2{background:var(--red)}.mini i.m1{background:var(--gold);opacity:.6}
+  .mlab{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;font:600 9px var(--head);color:var(--mut);text-align:center}
+  .panel .btn{margin-top:auto;justify-content:center}
+
+  .list{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .list h4{font:700 13px var(--head);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .list h4.s{color:var(--red)}.list h4.b{color:var(--teal)}
+  .list button{display:flex;justify-content:space-between;width:100%;background:none;border:0;border-bottom:1px dashed var(--line);padding:10px 4px;font:500 20px var(--serif);color:var(--ink);cursor:pointer;text-align:left}
+  .list button small{color:var(--mut);font-size:15px}
+  .list button:hover,.list button.on{background:rgba(212,150,45,.16)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border:2px solid var(--ink);background:rgba(250,243,226,.9)}
+  .step{padding:30px;border-right:2px dashed var(--ink)}
+  .step:last-child{border:0}
+  .step .n{font:700 44px/1 var(--head);color:var(--red)}
+  .step b{display:block;font:600 20px var(--head);letter-spacing:.04em;margin:8px 0 4px}
+  .step p{color:var(--mut);font-size:18px}
+
+  .seasons{overflow-x:auto;padding:22px;margin-top:28px}
+  .sr{display:grid;grid-template-columns:200px repeat(12,1fr);gap:3px;min-width:760px;align-items:center;margin-bottom:6px}
+  .sr b{font:600 14px var(--head);letter-spacing:.04em}
+  .sr.h span{font:600 11px var(--head);color:var(--mut);text-align:center;letter-spacing:.1em}
+  .sr i{height:20px;background:rgba(58,44,31,.1)}
+  .sr i.c2{background:var(--red)}.sr i.c1{background:repeating-linear-gradient(135deg,var(--gold) 0 3px,transparent 3px 7px)}
+
+  .key{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px}
+  .key div{padding:24px;border:1.5px solid var(--ink);margin:-1px 0 0 -1px;background:rgba(250,243,226,.9)}
+  .key b{display:flex;align-items:center;gap:10px;font:600 17px var(--head);letter-spacing:.04em;margin-bottom:6px}
+  .key b::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--gold);border:2px solid var(--ink);flex:none}
+  .key span{color:var(--mut);font-size:18px}
+
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+  .crew div{padding:26px}
+  .crew b{display:block;font:600 19px var(--head);letter-spacing:.04em;margin-bottom:6px}
+  .crew p{color:var(--mut);font-size:18px}
+
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:30px}
+  .specs figure{background:rgba(250,243,226,.95);border:2px solid var(--ink);padding:10px 10px 12px;transform:rotate(var(--r,0deg))}
+  .specs img{aspect-ratio:4/5;object-fit:cover;width:100%}
+  .specs figcaption{font:700 20px var(--hand);margin-top:6px;color:var(--ink)}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+  .notes img{aspect-ratio:3/2;object-fit:cover;width:100%;border:2px solid var(--ink);margin-bottom:10px}
+  .notes small{font:700 22px var(--hand);color:var(--red)}
+  .notes b{display:block;font:600 18px/1.25 var(--head)}
+
+  .faq details{border-bottom:1px dashed var(--ink);padding:15px 0}
+  .faq summary{font:600 18px var(--head);letter-spacing:.03em;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  .faq summary::after{content:"✕";color:var(--red);transform:rotate(45deg);transition:.3s}
+  .faq details[open] summary::after{transform:rotate(0)}
+  .faq details p{color:var(--mut);margin-top:6px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .mark{padding:44px;text-align:center}
+  .mark .num{display:block;font:700 clamp(30px,3.4vw,44px) var(--head);margin:12px 0 4px}
+  .mark .x{font:700 70px/0.8 var(--hand);color:var(--red)}
+  .mark .ctas{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+  form{display:grid;gap:14px}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:2px;font:700 22px/1 var(--hand);color:var(--red)}
+  form input,form select,form textarea{background:rgba(250,243,226,.7);border:0;border-bottom:2px solid var(--ink);padding:9px 6px;font:18px var(--serif);color:var(--ink);outline:none}
+
+  footer{padding:46px 0 56px;text-align:center;color:var(--mut);font-size:16px;position:relative;z-index:2}
+
+  @media(max-width:980px){
+    nav ul,nav .tel{display:none}
+    .atlas,.list,.steps,.key,.crew,.specs,.notes,.contact{grid-template-columns:1fr}
+    .specs{grid-template-columns:1fr 1fr}
+    .map{min-height:560px}
+    .step{border-right:0;border-bottom:2px dashed var(--ink)}
+    form .two{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="#3a2c1f" stroke-width="2.4" stroke-linecap="round"><path d="M6 32C14 30 10 20 20 20S26 8 34 8" stroke-dasharray="1 5"/><circle cx="34" cy="8" r="3.5" fill="#bf4528"/><path d="M5 33l5-2" /></svg>We Rove</a>
+  <ul><li><a href="#atlas">Atlas</a></li><li><a href="#how">How it works</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#key">Map key</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="tel" data-tel>☎ <span data-site="phone"></span></a>
+  <a class="btn r" data-wa style="padding:10px 18px">WhatsApp</a>
+</div></nav>
+
+<header class="hero" id="atlas"><div class="wrap">
+  <div class="intro">
+    <span class="hand">safari & birding · India</span>
+    <h1>Where would you like to <em>go?</em></h1>
+    <p>Tiger country first, then the birding foothills. Pick a pin, or tell us somewhere new, and we'll plan the trip.</p>
+  </div>
+  <div class="atlas">
+    <div class="map card" id="map">
+      <svg class="grid" id="gridsvg" preserveAspectRatio="none"></svg>
+      <svg class="compass" viewBox="0 0 100 100" fill="none" stroke="#3a2c1f" stroke-width="1.6" data-draw><circle cx="50" cy="50" r="30"/><path d="M50 8L58 50L50 92L42 50Z"/><path d="M8 50L50 42L92 50L50 58Z"/><text x="46" y="6" font-size="11" font-family="Cinzel" fill="#3a2c1f" stroke="none" font-weight="700">N</text></svg>
+      <div class="legend card"><div><i style="background:var(--red)"></i>Safari</div><div><i style="background:var(--teal)"></i>Birding</div><div><i style="background:var(--gold)"></i>Tell us where</div><small>Illustrative map, not to scale.</small></div>
+    </div>
+    <aside class="panel card" id="panel"></aside>
+  </div>
+  <div class="list" id="list"></div>
+</div></header>
+
+<section id="how"><div class="wrap">
+  <span class="hand">how it works</span><h2>From pin to <span style="color:var(--red)">first light</span></h2>
+  <div class="steps">
+    <div class="step"><div class="n">I</div><b>Mark your destination</b><p>Call or WhatsApp us with where, when and who's coming.</p></div>
+    <div class="step"><div class="n">II</div><b>Chart the route</b><p>We send a day-by-day plan with stays, safari zones and a clear price.</p></div>
+    <div class="step"><div class="n">III</div><b>Set out</b><p>Permits, transfers and naturalists are all arranged.</p></div>
+  </div>
+</div></section>
+
+<section id="seasons" style="padding-top:20px"><div class="wrap">
+  <span class="hand">seasons</span><h2>Reading the <span style="color:var(--red)">calendar</span></h2>
+  <p class="muted">Reserves rest through the monsoon. Tigers show best in the dry heat; foothill birds peak in winter. Dates are approximate.</p>
+  <div class="seasons card" id="sz"></div>
+</div></section>
+
+<section id="key" style="padding-top:20px"><div class="wrap">
+  <span class="hand">map key</span><h2>How we <span style="color:var(--red)">travel</span></h2>
+  <p class="muted" style="max-width:640px">Leave life alone and undisturbed, and it will flourish like you never could imagine. These are the marks we keep to on every trip.</p>
+  <div class="key" id="rules"></div>
+</div></section>
+
+<section style="padding-top:20px"><div class="wrap">
+  <span class="hand">the cartographers</span><h2>A small crew</h2>
+  <p class="muted" style="max-width:620px">It started on a Republic Day in Corbett. The same few of us plan every trip and go on most of them. No names, just what each of us does.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section style="padding-top:20px"><div class="wrap">
+  <span class="hand">specimens</span><h2>Seen along the way</h2>
+  <div class="specs">
+    <figure style="--r:-2deg"><img src="img/bengal-tiger.webp" alt=""><figcaption>Panthera tigris</figcaption></figure>
+    <figure style="--r:1.5deg"><img src="img/verditer-flycatcher.webp" alt=""><figcaption>Verditer Flycatcher</figcaption></figure>
+    <figure style="--r:-1deg"><img src="img/indian-pitta.webp" alt=""><figcaption>Indian Pitta</figcaption></figure>
+    <figure style="--r:2deg"><img src="img/pink-browed-rosefinch.webp" alt=""><figcaption>Pink-browed Rosefinch</figcaption></figure>
+  </div>
+</div></section>
+
+<section data-blog style="padding-top:20px"><div class="wrap">
+  <span class="hand">field notes</span><h2>From the journal</h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" class="faq" style="padding-top:20px"><div class="wrap" style="max-width:860px">
+  <span class="hand">questions</span><h2>Before you set out</h2>
+  <div id="faqs" style="margin-top:12px"></div>
+</div></section>
+
+<section style="padding-top:20px"><div class="wrap contact">
+  <div class="mark card">
+    <div class="x">✕</div>
+    <span class="hand">X marks the trip</span>
+    <a class="num" data-tel data-site="phone"></a>
+    <a data-mail data-site="email" class="muted"></a>
+    <div class="ctas"><a class="btn r" data-wa>WhatsApp</a><a class="btn" data-tel>Call</a></div>
+  </div>
+  <form data-enquiry>
+    <span class="hand" style="font-size:30px;color:var(--ink)">or send your details on WhatsApp</span>
+    <div class="two"><label>name<input name="name"></label><label>travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>when<input name="when" placeholder="e.g. April 2027"></label>
+    <label>anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn r" style="border:2px solid var(--red);cursor:pointer;justify-self:start">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<footer>© We Rove · Safari & birding trips in India · <a href="https://www.instagram.com/werove.in/">Instagram</a> · Terms · Privacy</footer>
+
+<script src="shared.js"></script>
+<script>
+  // Approximate positions: lon 72–83 E across, lat 34–19 N down. Illustrative only.
+  const POS={tadoba:[79.4,20.25],pench:[79.3,21.7],ranthambore:[76.5,26.0],corbett:[78.9,29.5],sattal:[79.57,29.35],dharamshala:[76.3,32.2]};
+  const px=([lo,la])=>[(lo-72)/11*100,(34-la)/15*100];
+  const map=document.getElementById('map');
+  // graticule with labels
+  const g=document.getElementById('gridsvg'); let gh='';
+  [74,76,78,80,82].forEach(lo=>{const x=px([lo,0])[0];gh+=`<line x1="${x}%" y1="0" x2="${x}%" y2="100%"/><text x="${x+.6}%" y="16">${lo}°E</text>`});
+  [22,25,28,31].forEach(la=>{const y=px([0,la])[1];gh+=`<line x1="0" y1="${y}%" x2="100%" y2="${y}%"/><text x="8" y="${y}%" dy="-5">${la}°N</text>`});
+  g.innerHTML=gh;
+  // hand-drawn glyphs: mountains in the north, trees in the central forests
+  const MT='<svg viewBox="0 0 22 22"><path d="M2 18L9 6l4 6 3-4 5 10Z"/><path d="M7 10l2-3 2 3"/></svg>', TR='<svg viewBox="0 0 22 22"><path d="M11 20V10M11 4C6 6 5 11 11 12 17 11 16 6 11 4Z"/></svg>';
+  const glyphs=[[8,7,MT],[16,4,MT],[24,9,MT],[52,5,MT],[60,10,MT],[72,6,MT],[82,11,MT],[90,16,MT],[56,70,TR],[78,75,TR],[84,86,TR],[60,95,TR],[84,64,TR],[22,80,TR],[14,66,TR],[28,92,TR],[40,40,TR],[50,56,TR]];
+  glyphs.forEach(([x,y,s])=>map.insertAdjacentHTML('beforeend',`<div class="glyph" style="left:${x}%;top:${y}%">${s}</div>`));
+  // pins
+  const pins=DESTS.map(d=>{const [x,y]=px(POS[d.slug]);const t=d.type.includes('safari')?'s':'b';
+    const side=d.slug==='corbett'?' L':d.slug==='sattal'?' R':'';
+    map.insertAdjacentHTML('beforeend',`<button class="pin ${t}${side}" data-s="${d.slug}" style="left:${x}%;top:${y}%"><i></i><span>${d.name.replace(' & around','')}</span></button>`);return d});
+  map.insertAdjacentHTML('beforeend',`<button class="pin q" data-s="elsewhere" style="left:88%;top:52%"><i></i><span>Somewhere else?</span></button>`);
+  const panel=document.getElementById('panel');
+  const show=slug=>{
+    document.querySelectorAll('.pin,.list button').forEach(e=>e.classList.toggle('on',e.dataset.s===slug));
+    if(slug==='elsewhere'){panel.innerHTML=`<span class="hand">somewhere else</span><h3>If it's wild and in India, ask us.</h3><p class="muted">Kaziranga, the Sundarbans, Bandhavgarh, Latpanchar... people ask us for trips well beyond these pins. Tell us where you'd like to go and we'll plan it.</p><a class="btn r" data-wa="Hi We Rove, I'd like a trip to:">Ask on WhatsApp</a>`;wire();return}
+    const d=DESTS.find(x=>x.slug===slug);
+    panel.innerHTML=`<img class="im" src="img/${d.slug}.webp" alt=""><div class="chips">${d.type.map(t=>`<span class="chip ${t[0]}">${t}</span>`).join('')}</div>
+      <h3>${d.name}</h3><div class="reg">${d.region}</div><p class="muted" style="font-size:18px">${d.blurb}</p>
+      <dl><dt>Look for</dt><dd>${d.see}</dd><dt>Best</dt><dd>${d.best}</dd><dt>Reach</dt><dd>${d.reach}</dd></dl>
+      <div><div class="mini">${[...d.m].map(c=>`<i class="m${c}"></i>`).join('')}</div><div class="mlab">${MONTHS.map(m=>`<span>${m[0]}</span>`).join('')}</div></div>
+      <a class="btn r" data-wa="Hi We Rove, I'd like a trip to ${d.name}.">Plan ${d.name.split(' ')[0]} on WhatsApp</a>`;
+    wire();
+  };
+  const wire=()=>panel.querySelectorAll('[data-wa]').forEach(a=>{a.href=waLink(a.dataset.wa||undefined);a.target='_blank'});
+  map.addEventListener('click',e=>{const p=e.target.closest('.pin');if(p)show(p.dataset.s)});
+  const safari=DESTS.filter(d=>d.type.includes('safari')), birding=DESTS.filter(d=>!d.type.includes('safari'));
+  document.getElementById('list').innerHTML=`<div><h4 class="s">Safari destinations</h4>${safari.map(d=>`<button data-s="${d.slug}">${d.name}<small>${d.region}</small></button>`).join('')}</div>
+    <div><h4 class="b">Birding destinations</h4>${birding.map(d=>`<button data-s="${d.slug}">${d.name}<small>${d.region}</small></button>`).join('')}<button data-s="elsewhere">Somewhere else?<small>Ask us</small></button></div>`;
+  document.getElementById('list').addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(b.dataset.s)});
+  show('tadoba');
+
+  document.getElementById('sz').innerHTML=`<div class="sr h"><span></span>${MONTHS.map(m=>`<span>${m.toUpperCase()}</span>`).join('')}</div>`+
+    DESTS.map(d=>`<div class="sr"><b>${d.name}</b>${[...d.m].map(c=>`<i class="c${c}"></i>`).join('')}</div>`).join('')+
+    `<p class="muted" style="font-size:15px;margin-top:10px">Solid = best · hatched = open · blank = closed or off-season</p>`;
+  document.getElementById('rules').innerHTML=ETHICS.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
+  document.getElementById('crew').innerHTML=CREW.map(([a,b])=>`<div class="card"><b>${a}</b><p>${b}</p></div>`).join('');
+  document.getElementById('notes').innerHTML=NOTES.map(([c,t,img])=>`<a href="#"><img src="img/${img}.webp" alt=""><small>${c}</small><b>${t}</b></a>`).join('');
+  document.getElementById('faqs').innerHTML=FAQ.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('');
+  document.querySelectorAll('.destsel').forEach(s=>s.innerHTML+=DESTS.map(d=>`<option>${d.name}</option>`).join('')+'<option>Elsewhere</option>');
+</script>
+<script src="ambient.js" data-always data-fx="birds"></script>
+</body>
+</html>

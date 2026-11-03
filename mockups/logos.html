@@ -123,12 +123,122 @@
       <path d="M2 74H98" stroke="var(--fg,#1d211c)" stroke-width="3" stroke-linecap="round"/>
       <path d="M26 50q3-3 6 0q3-3 6 0M40 43q2-2 4 0q2-2 4 0" fill="none" stroke="var(--fg,#1d211c)" stroke-width="1.6" stroke-linecap="round"/>
     </symbol>
+
+    <!-- 7 · Stripe Arch: jharokha arch filled with tiger stripes, a bird in the opening -->
+    <clipPath id="stripeArchClip"><path d="M10 96V50A9 9 0 0 1 16 36A9 9 0 0 1 25 24A9 9 0 0 1 37 14A11 11 0 0 1 50 4A11 11 0 0 1 63 14A9 9 0 0 1 75 24A9 9 0 0 1 84 36A9 9 0 0 1 90 50V96Z"/></clipPath>
+    <symbol id="m-stripearch" viewBox="0 0 100 100">
+      <g clip-path="url(#stripeArchClip)">
+        <rect width="100" height="100" fill="#e2892f"/>
+        <g fill="#1d211c">
+          <path d="M8 40L34 52 8 50Z"/><path d="M92 40L66 52 92 50Z"/>
+          <path d="M8 60L38 70 8 72Z"/><path d="M92 60L62 70 92 72Z"/>
+          <path d="M8 80L40 86 8 92Z"/><path d="M92 80L60 86 92 92Z"/>
+          <path d="M30 20L40 36 24 30Z"/><path d="M70 20L60 36 76 30Z"/>
+          <path d="M50 4L46 20 54 20Z"/>
+        </g>
+        <path d="M34 62Q42 52 50 62Q58 52 66 62" fill="none" stroke="#f6eedd" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <path d="M10 96V50A9 9 0 0 1 16 36A9 9 0 0 1 25 24A9 9 0 0 1 37 14A11 11 0 0 1 50 4A11 11 0 0 1 63 14A9 9 0 0 1 75 24A9 9 0 0 1 84 36A9 9 0 0 1 90 50V96Z" fill="none" stroke="var(--fg,#1d211c)" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M4 96H96" stroke="var(--fg,#1d211c)" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- 8 · Eye & Feather: a tiger's eye whose upper lid sweeps out into feather barbs -->
+    <symbol id="m-eye" viewBox="0 0 100 100">
+      <path d="M8 56Q50 24 92 56Q50 86 8 56Z" fill="#fff8ea" stroke="var(--fg,#1d211c)" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="50" cy="55" r="15" fill="#e2892f"/>
+      <ellipse cx="50" cy="55" rx="4.2" ry="12" fill="#1d211c"/>
+      <circle cx="45" cy="49" r="2.6" fill="#fff8ea"/>
+      <path d="M18.1 49.2l6.5 -8.1M26.5 45.0l7.2 -9.1M34.9 42.1l8.0 -10.0M43.3 40.4l8.7 -11.0M51.7 40.0l9.2 -11.5M60.1 40.9l8.4 -10.6M68.5 43.1l7.7 -9.6M76.9 46.6l6.9 -8.7" fill="none" stroke="#e2892f" stroke-width="3.4" stroke-linecap="round"/>
+      <path d="M92 56L99 30" stroke="var(--fg,#1d211c)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M14 70Q50 94 86 70" fill="none" stroke="var(--fg,#1d211c)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- 9 · Trail Mark: a winding path from a pugmark to a bird -->
+    <symbol id="m-trail" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="var(--bg,#f4eee2)" stroke="var(--fg,#1d211c)" stroke-width="3.5"/>
+      <path d="M26 78C26 62 60 66 58 50S36 40 48 26" fill="none" stroke="var(--fg,#1d211c)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"/>
+      <g fill="#c46a2b" transform="translate(26 80) scale(.2) translate(-50 -52)">
+        <path d="M33 63C33 51 41 46 50 46S67 51 67 63C67 71 62 74 58 71 55 69 53 74 50 74S45 69 42 71C38 74 33 71 33 63Z"/>
+        <ellipse cx="31" cy="40" rx="6" ry="8" transform="rotate(-22 31 40)"/><ellipse cx="43" cy="30" rx="6" ry="8.5" transform="rotate(-6 43 30)"/>
+        <ellipse cx="57" cy="30" rx="6" ry="8.5" transform="rotate(6 57 30)"/><ellipse cx="69" cy="40" rx="6" ry="8" transform="rotate(22 69 40)"/>
+      </g>
+      <g stroke="var(--fg,#1d211c)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M62 31L76 38L61 26Z" fill="#2b7a78"/>
+        <ellipse cx="54" cy="27" rx="12" ry="7.5" transform="rotate(-18 54 27)" fill="#2b7a78"/>
+        <circle cx="43" cy="21" r="6" fill="#2b7a78"/>
+        <path d="M38 20L31 22.5L38 25Z" fill="#e2892f"/>
+        <path d="M50 27Q58 24 64 28" fill="none"/>
+        <path d="M52 34L51 41M57 33L57 40" fill="none"/>
+      </g>
+      <circle cx="42" cy="19.5" r="1.4" fill="#fff"/>
+    </symbol>
+
+    <!-- 10 · Open Book: "the world is a book" -->
+    <symbol id="m-book" viewBox="0 0 100 100">
+      <circle cx="50" cy="42" r="19" fill="#e2892f"/>
+      <path d="M60 26q5-6 10 0q5-6 10 0M24 32q4-5 8 0q4-5 8 0" fill="none" stroke="var(--fg,#1d211c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 70C40 60 22 58 6 64V90C22 84 40 86 50 96Z" fill="#fff8ea" stroke="var(--fg,#1d211c)" stroke-width="3.2" stroke-linejoin="round"/>
+      <path d="M50 70C60 60 78 58 94 64V90C78 84 60 86 50 96Z" fill="#fff8ea" stroke="var(--fg,#1d211c)" stroke-width="3.2" stroke-linejoin="round"/>
+      <path d="M50 70V96" stroke="var(--fg,#1d211c)" stroke-width="3.2"/>
+      <path d="M11 84L22 70L29 78L36 68L46 83C36 79 22 80 11 84Z" fill="#3f5f36"/>
+      <g fill="#3f5f36"><path d="M58 83L65 68L72 83Z"/><path d="M71 84L79 66L87 84Z"/></g>
+    </symbol>
+
+    <!-- 11 · Rover prints: tiger, bird and boot walking in a circle (Rovers with Rovers) -->
+    <symbol id="m-ring" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="36" fill="none" stroke="var(--fg,#1d211c)" stroke-width="2" stroke-dasharray="0.5 5.5" stroke-linecap="round" opacity=".75"/>
+      <g transform="translate(50 15) rotate(90) scale(.52) translate(-50 -52)" fill="#c46a2b"><path d="M33 63C33 51 41 46 50 46S67 51 67 63C67 71 62 74 58 71 55 69 53 74 50 74S45 69 42 71C38 74 33 71 33 63Z"/><ellipse cx="31" cy="40" rx="6" ry="8" transform="rotate(-22 31 40)"/><ellipse cx="43" cy="30" rx="6" ry="8.5" transform="rotate(-6 43 30)"/><ellipse cx="57" cy="30" rx="6" ry="8.5" transform="rotate(6 57 30)"/><ellipse cx="69" cy="40" rx="6" ry="8" transform="rotate(22 69 40)"/></g>
+      <g transform="translate(81.2 68) rotate(210) scale(.5) translate(-50 -50)" fill="none" stroke="#2b7a78" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 62V94M50 62L22 34M50 62L78 34M50 62V12"/></g>
+      <g transform="translate(18.8 68) rotate(330) scale(.56)">
+        <path d="M-7 -30C-9 -40 -3 -44 1 -44C6 -44 10 -40 8 -30C7 -22 9 -14 7 -6L-5 -6C-8 -14 -6 -22 -7 -30Z" fill="var(--fg,#1d211c)"/>
+        <path d="M-5 0H7C9 10 5 20 1 20C-4 20 -7 10 -5 0Z" fill="var(--fg,#1d211c)"/>
+        <path d="M-6 -32H7M-6 -25H8M-6 -18H8M-5 -11H7" stroke="var(--bg,#f4eee2)" stroke-width="2.2"/>
+      </g>
+      <circle cx="50" cy="50" r="6" fill="#e2892f"/>
+    </symbol>
+
+    <!-- 12 · Pole & feather: the mountaineer-naturalist and the bird lover -->
+    <symbol id="m-pole" viewBox="0 0 100 100">
+      <clipPath id="poleClip"><circle cx="50" cy="50" r="44"/></clipPath>
+      <circle cx="50" cy="50" r="46" fill="var(--bg,#f4eee2)"/>
+      <g clip-path="url(#poleClip)"><path d="M6 88L30 62L42 74L60 52L94 88Z" fill="#3f5f36" opacity=".22"/></g>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="var(--fg,#1d211c)" stroke-width="3.4"/>
+      <g transform="translate(50 52) rotate(34) translate(-50 -52)">
+        <path d="M50 24V84" stroke="var(--fg,#1d211c)" stroke-width="3.6" stroke-linecap="round"/>
+        <path d="M50 84L47 91H53Z" fill="var(--fg,#1d211c)" stroke="var(--fg,#1d211c)" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M50 27C58 20 70 20 78 31" fill="none" stroke="var(--fg,#1d211c)" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M50 27L34 24" stroke="var(--fg,#1d211c)" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M50 66V74" stroke="#e2892f" stroke-width="4.6" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(50 52) rotate(-58) scale(.66) translate(-50 -50)"><use href="#m-feather" style="--fg:var(--fg,#1d211c)"/></g>
+    </symbol>
+
+    <!-- 13 · Compass feather: "adventure is out there" -->
+    <symbol id="m-compass" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="var(--bg,#f4eee2)" stroke="var(--fg,#1d211c)" stroke-width="3.4"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="var(--fg,#1d211c)" stroke-width="1.2"/>
+      <g stroke="var(--fg,#1d211c)" stroke-width="2.6" stroke-linecap="round">
+        <path d="M50 12V20M50 80V88M12 50H20M80 50H88"/>
+        <path d="M23 23L28 28M77 23L72 28M23 77L28 72M77 77L72 72" stroke-width="1.8"/>
+      </g>
+      <path d="M50 3L55 14H45Z" fill="#e2892f" stroke="var(--fg,#1d211c)" stroke-width="1.6" stroke-linejoin="round"/>
+      <g transform="translate(50 50) scale(.78) translate(-50 -50)"><use href="#m-feather" style="--fg:var(--fg,#1d211c)"/></g>
+      <circle cx="50" cy="50" r="3.4" fill="var(--bg,#f4eee2)" stroke="var(--fg,#1d211c)" stroke-width="2"/>
+    </symbol>
+
+    <!-- 14 · R with a feather for its leg -->
+    <symbol id="m-rfeather" viewBox="0 0 100 100">
+      <path d="M30 20V82" stroke="var(--fg,#1d211c)" stroke-width="9.5" stroke-linecap="round" fill="none"/>
+      <path d="M30 20H50A16 16 0 0 1 50 52H30" stroke="var(--fg,#1d211c)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <g transform="translate(62 70) rotate(112) scale(.62) translate(-50 -50)"><use href="#m-feather" style="--fg:var(--fg,#1d211c)"/></g>
+    </symbol>
   </defs>
 </svg>
 
 <div class="wrap">
   <h1>Logo concepts</h1>
-  <p class="muted">The current logo, a hiker on a mountain, reads as a trekking company. Every concept below says safari and birding. Each one is shown on light and dark backgrounds, next to the name, and at browser-tab size. These are concept sketches, not final artwork.</p>
+  <p style="background:#fff3c4;border:1px solid #e6cf7a;padding:10px 14px;border-radius:10px;margin:8px 0 14px"><b>New:</b> <a href="logo-original-refined.html">Your original logo, refined</a>: the same sunrise dome, hiker and pines, redrawn more cleanly, with a version that adds the tiger and a one-colour print version.</p>
+  <p class="muted">The current logo, a hiker on a mountain, reads as a trekking company. Every concept below says safari and birding. Concepts 7–9 were added after the competitor study. Concepts 10–14 come from your own story and words: the Open Book, the Rover community, the founders, "adventure is out there", and the name itself. Each one is shown on light and dark backgrounds, next to the name, and at browser-tab size. These are concept sketches, not final artwork.</p>
 
   <!-- 1 -->
   <div class="concept">
@@ -231,8 +341,99 @@
     </div>
   </div>
 
+  <!-- 7 -->
+  <div class="concept">
+    <div class="info"><div><h2>7 · Stripe Arch</h2><p>A jharokha-style arch (the cusped window arch of Rajasthani forts) filled with tiger stripes, with a small bird flying in the opening. It ties directly to the arch and block-print look of themes G and J, and it still reads at tab size. A strong contender if you go with an Indian boho direction.</p></div><span class="badge" style="background:#f6e3c8;color:#8a4a1d">Distinctive</span></div>
+    <div class="panel light">
+      <svg class="mark"><use href="#m-stripearch" style=""/></svg>
+      <div class="lockup"><svg class="mk"><use href="#m-stripearch" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div>
+    </div>
+    <div class="panel dark">
+      <svg class="mark"><use href="#m-stripearch" style="--fg:#f4eee2"/></svg>
+      <div class="lockup"><svg class="mk"><use href="#m-stripearch" style="--fg:#f4eee2"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div>
+    </div>
+    <div class="sizes">Small sizes:
+      <svg width="48" height="48"><use href="#m-stripearch"/></svg><svg width="32" height="32"><use href="#m-stripearch"/></svg><svg width="16" height="16"><use href="#m-stripearch"/></svg>
+      <span class="tab"><svg width="16" height="16"><use href="#m-stripearch"/></svg>We Rove · Safari & Birding</span>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="concept">
+    <div class="info"><div><h2>8 · Eye & Feather</h2><p>A tiger's eye, with an upper lid that sweeps out into feather barbs and a quill. Safari and birding in a single compact mark. It's the most graphic of the set, and it works well as an Instagram avatar and a jeep or bag sticker.</p></div><span class="badge" style="background:#e3eef0;color:#2c5960">Compact</span></div>
+    <div class="panel light">
+      <svg class="mark"><use href="#m-eye" style=""/></svg>
+      <div class="lockup"><svg class="mk"><use href="#m-eye" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div>
+    </div>
+    <div class="panel dark">
+      <svg class="mark"><use href="#m-eye" style="--fg:#f4eee2"/></svg>
+      <div class="lockup"><svg class="mk"><use href="#m-eye" style="--fg:#f4eee2"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div>
+    </div>
+    <div class="sizes">Small sizes:
+      <svg width="48" height="48"><use href="#m-eye"/></svg><svg width="32" height="32"><use href="#m-eye"/></svg><svg width="16" height="16"><use href="#m-eye"/></svg>
+      <span class="tab"><svg width="16" height="16"><use href="#m-eye"/></svg>We Rove · Safari & Birding</span>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="concept">
+    <div class="info"><div><h2>9 · Trail Mark</h2><p>A dotted path winding from a pugmark to a bird, set in a round badge. It tells the story of the trip (tracks, then birdsong) and sits naturally beside the map theme (L). The dotted line is the thinnest detail, so it needs the badge size to read well.</p></div><span class="badge" style="background:#e7f0e3;color:#3f5f36">Story-led</span></div>
+    <div class="panel light">
+      <svg class="mark"><use href="#m-trail" style=""/></svg>
+      <div class="lockup"><svg class="mk"><use href="#m-trail" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div>
+    </div>
+    <div class="panel dark">
+      <svg class="mark"><use href="#m-trail" style="--fg:#f4eee2;--bg:#121713"/></svg>
+      <div class="lockup"><svg class="mk"><use href="#m-trail" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div>
+    </div>
+    <div class="sizes">Small sizes:
+      <svg width="48" height="48"><use href="#m-trail"/></svg><svg width="32" height="32"><use href="#m-trail"/></svg><svg width="16" height="16"><use href="#m-trail"/></svg>
+      <span class="tab"><svg width="16" height="16"><use href="#m-trail"/></svg>We Rove · Safari & Birding</span>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="concept">
+    <div class="info"><div><h2>10 · Open Book</h2><p>From your own words: <i>&ldquo;The world is a book, and those who don't travel read only one page.&rdquo;</i> An open book whose pages are a mountain range and a forest, with a sun rising behind it and birds in the sky. It says travel, nature and storytelling at once.</p></div><span class="badge" style="background:#e3eef0;color:#2c5960">The mission</span></div>
+    <div class="panel light"><svg class="mark"><use href="#m-book" style=""/></svg><div class="lockup"><svg class="mk"><use href="#m-book" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="panel dark"><svg class="mark"><use href="#m-book" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="lockup"><svg class="mk"><use href="#m-book" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="sizes">Small sizes: <svg width="48" height="48"><use href="#m-book"/></svg><svg width="32" height="32"><use href="#m-book"/></svg><svg width="16" height="16"><use href="#m-book"/></svg><span class="tab"><svg width="16" height="16"><use href="#m-book"/></svg>We Rove · Safari & Birding</span></div>
+  </div>
+
+  <!-- 11 -->
+  <div class="concept">
+    <div class="info"><div><h2>11 · Rover Prints</h2><p>A tiger's pugmark, a bird's footprint and a hiking-boot print walking in a circle: Rovers connecting with fellow Rovers. This is the community idea from your story, and the three prints are the three kinds of people in it.</p></div><span class="badge" style="background:#e7f0e3;color:#3f5f36">The community</span></div>
+    <div class="panel light"><svg class="mark"><use href="#m-ring" style=""/></svg><div class="lockup"><svg class="mk"><use href="#m-ring" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="panel dark"><svg class="mark"><use href="#m-ring" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="lockup"><svg class="mk"><use href="#m-ring" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="sizes">Small sizes: <svg width="48" height="48"><use href="#m-ring"/></svg><svg width="32" height="32"><use href="#m-ring"/></svg><svg width="16" height="16"><use href="#m-ring"/></svg><span class="tab"><svg width="16" height="16"><use href="#m-ring"/></svg>We Rove · Safari & Birding</span></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="concept">
+    <div class="info"><div><h2>12 · Ice Axe & Feather</h2><p>An ice axe crossed with a feather,  It's the origin story in one picture: the veteran mountaineer-naturalist and the bird lover, meeting in the Corbett jungle on a Republic Day.</p></div><span class="badge" style="background:#f6e3c8;color:#8a4a1d">The founders</span></div>
+    <div class="panel light"><svg class="mark"><use href="#m-pole" style=""/></svg><div class="lockup"><svg class="mk"><use href="#m-pole" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="panel dark"><svg class="mark"><use href="#m-pole" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="lockup"><svg class="mk"><use href="#m-pole" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="sizes">Small sizes: <svg width="48" height="48"><use href="#m-pole"/></svg><svg width="32" height="32"><use href="#m-pole"/></svg><svg width="16" height="16"><use href="#m-pole"/></svg><span class="tab"><svg width="16" height="16"><use href="#m-pole"/></svg>We Rove · Safari & Birding</span></div>
+  </div>
+
+  <!-- 13 -->
+  <div class="concept">
+    <div class="info"><div><h2>13 · Compass Feather</h2><p>A compass whose needle is a feather: <i>&ldquo;Adventure is out there.&rdquo;</i> It keeps the feather you liked, but gives it a job: showing the way.</p></div><span class="badge" style="background:#f3f0e0;color:#6b5b14">Keeps the feather</span></div>
+    <div class="panel light"><svg class="mark"><use href="#m-compass" style=""/></svg><div class="lockup"><svg class="mk"><use href="#m-compass" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="panel dark"><svg class="mark"><use href="#m-compass" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="lockup"><svg class="mk"><use href="#m-compass" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="sizes">Small sizes: <svg width="48" height="48"><use href="#m-compass"/></svg><svg width="32" height="32"><use href="#m-compass"/></svg><svg width="16" height="16"><use href="#m-compass"/></svg><span class="tab"><svg width="16" height="16"><use href="#m-compass"/></svg>We Rove · Safari & Birding</span></div>
+  </div>
+
+  <!-- 14 -->
+  <div class="concept">
+    <div class="info"><div><h2>14 · R with a Feather</h2><p>A bold, simple letter R for Rove, whose leg is a feather. Very clean and easy to reproduce: it works on a cap, a jeep door or a profile picture. It leans on the name more than the story.</p></div><span class="badge" style="background:#eee7f5;color:#4b3a7a">Minimal</span></div>
+    <div class="panel light"><svg class="mark"><use href="#m-rfeather" style=""/></svg><div class="lockup"><svg class="mk"><use href="#m-rfeather" style=""/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="panel dark"><svg class="mark"><use href="#m-rfeather" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="lockup"><svg class="mk"><use href="#m-rfeather" style="--fg:#f4eee2;--bg:#121713"/></svg><div class="wm">We Rove<small>Safari & Birding · India</small></div></div></div>
+    <div class="sizes">Small sizes: <svg width="48" height="48"><use href="#m-rfeather"/></svg><svg width="32" height="32"><use href="#m-rfeather"/></svg><svg width="16" height="16"><use href="#m-rfeather"/></svg><span class="tab"><svg width="16" height="16"><use href="#m-rfeather"/></svg>We Rove · Safari & Birding</span></div>
+  </div>
+
   <div class="rec">
-    <b>Recommendation:</b> use <b>1 · Striped Feather</b> as the main mark, with the name set in Fraunces, and keep <b>5 · Field Pass</b> as a secondary badge for itineraries and social posts. Once you pick a direction, have a designer refine it into final vector files (about a day's work). These sketches are meant for choosing a direction, not for print.
+    <b>Recommendation:</b> use <b>1 · Striped Feather</b> (or, for an Indian boho direction, <b>7 · Stripe Arch</b>) as the main mark, with the name set in Fraunces, and keep <b>5 · Field Pass</b> as a secondary badge for itineraries and social posts. Once you pick a direction, have a designer refine it into final vector files (about a day's work). These sketches are meant for choosing a direction, not for print. <br><br><b>If you want a logo that is true to your story:</b> my picks are <b>10 · Open Book</b> (your own mission quote, and it reads instantly) and <b>13 · Compass Feather</b> (keeps the feather you liked and gives it a job). <b>12 · Ice Axe &amp; Feather</b> is the origin story but busier at small sizes; <b>11</b> and <b>14</b> are the weakest visually.
   </div>
 </div>
 </body>

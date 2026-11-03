@@ -1,0 +1,35 @@
+---
+layout: ../layouts/Legal.astro
+title: "Cancellation & refund policy"
+description: "How cancellations, date changes and refunds work at We Rove."
+path: "/cancellation"
+draft: true
+---
+
+# Cancellation & refund policy
+
+## The policy
+
+**1. Advance.** To confirm a trip we take an advance by bank transfer or UPI. *(Suggested: 30–50% of the trip price. You can say "to be discussed on a call".)* The balance is due **[15 / 30] days** before travel.
+
+**2. Refunds if you cancel.** Refunds are a percentage of the amount you've paid, counted from the day we receive your cancellation in writing (WhatsApp or email counts).
+
+| Days before the trip starts | Refund |
+|---|---|
+| 45 days or more | 90% (10% handling fee) |
+| 30 – 44 days | 70% |
+| 15 – 29 days | 40% |
+| 7 – 14 days | 20% |
+| Under 7 days, or no-show | No refund |
+
+**3. Costs we can't recover come off first.** Any forest-department permit fees, lodge deposits or other charges we've already paid out and cannot get back are deducted before the percentage is applied. We'll show you these in writing when you book.
+
+**4. Change of dates.** One date change is free if you ask **30 or more days** before the trip, subject to availability. Any permit fees that have to be paid again will be charged at cost.
+
+**5. Credit instead of a refund.** If you'd prefer, you can take a **trip credit** for the refundable amount, valid for 12 months.
+
+**6. If we have to change or cancel.** If we cancel a trip, or the forest is closed or travel is unsafe because of weather, floods, government orders or similar events outside our control, we'll offer you a new date, a credit, or a refund of the amount we can recover. If We Rove cancels for any other reason, you get a **full refund**.
+
+**7. If you leave early or miss part of a trip,** there is no refund for unused services.
+
+**8. How refunds are paid.** By bank transfer or UPI, within **[7–10] working days** of agreeing the amount.

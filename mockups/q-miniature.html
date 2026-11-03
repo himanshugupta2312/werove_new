@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup Q · Miniature)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--ivory:#f7edd3;--ivory2:#efe0bb;--maroon:#6f1d2a;--teal:#0f4c4c;--teal2:#0b3a3a;--gold:#d4a13b;--gold2:#a8791f;--saffron:#e07b2f;--lapis:#20346b;--ink:#2a1a14;--mut:#6e5a48;
+    --deco:'Cinzel Decorative',serif;--cin:'Cinzel',serif;--body:'EB Garamond',Georgia,serif;--ambient:#d4a13b;
+    --arch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V62A12 12 0 0 1 8 44A12 12 0 0 1 20 28A12 12 0 0 1 36 14A14 14 0 0 1 50 0A14 14 0 0 1 64 14A12 12 0 0 1 80 28A12 12 0 0 1 92 44A12 12 0 0 1 100 62V130Z'/%3E%3C/svg%3E");
+    --floral:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='none' stroke='%23d4a13b' stroke-opacity='.28' stroke-width='1.2'%3E%3Cpath d='M24 14Q28 20 24 26Q20 20 24 14ZM24 26Q18 22 12 26Q18 30 24 26ZM24 26Q30 22 36 26Q30 30 24 26ZM24 26Q28 32 24 38Q20 32 24 26Z'/%3E%3C/g%3E%3C/svg%3E")}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ivory);color:var(--ink);font:20px/1.55 var(--body);overflow-x:hidden}
+  /* a folio-style gold frame around the viewport */
+  body::before{content:"";position:fixed;inset:10px;border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:5px;pointer-events:none;z-index:60}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 40px;position:relative;z-index:3}
+  h1,h2,h3{font-family:var(--cin);font-weight:600;line-height:1.15;letter-spacing:.04em}
+  h2{font-size:clamp(28px,3.6vw,44px);text-align:center;text-transform:uppercase}
+  .lead{text-align:center;max-width:640px;margin:10px auto 0;font-style:italic;color:var(--mut)}
+  section{padding:84px 0;position:relative}
+  .teal{background:var(--teal) var(--floral);color:var(--ivory)}
+  .teal .lead{color:#cfe0d6}
+  .teal h2{color:var(--gold)}
+  .mar{background:var(--maroon) var(--floral);color:var(--ivory)}
+  .mar h2{color:var(--gold)}
+  .mar .lead{color:#ecd3c3}
+  .cream2{background:var(--ivory2)}
+  .btn{display:inline-flex;align-items:center;padding:12px 28px;border:2px solid var(--gold);font:600 13px var(--cin);letter-spacing:.16em;text-transform:uppercase;background:transparent;color:inherit;position:relative;transition:.2s}
+  .btn::before{content:"";position:absolute;inset:3px;border:1px solid var(--gold)}
+  .btn.g{background:var(--gold);color:#2a1a14}
+  .btn.m{background:var(--maroon);color:var(--ivory);border-color:var(--maroon)}
+  .btn:hover{transform:translateY(-2px)}
+  .orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px auto 4px;color:var(--gold)}
+  .orn::before,.orn::after{content:"";width:90px;border-top:2px double currentColor}
+  .orn svg{width:34px;height:34px}
+
+  nav{background:var(--teal2);color:var(--ivory);position:sticky;top:0;z-index:40;border-bottom:3px double var(--gold)}
+  nav .wrap{display:flex;align-items:center;gap:28px;height:78px}
+  .logo{display:flex;align-items:center;gap:10px;font:700 24px var(--deco);color:var(--gold)}
+  nav ul{display:flex;gap:24px;list-style:none;font:600 12px var(--cin);letter-spacing:.16em;text-transform:uppercase;margin-right:auto}
+  nav ul a:hover{color:var(--gold)}
+  nav .tel{font:600 14px var(--cin);letter-spacing:.06em}
+
+  .hero{padding:54px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+  .tag{font:600 12px var(--cin);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .hero h1{font:700 clamp(38px,5vw,68px)/1.12 var(--deco);margin:14px 0 18px;letter-spacing:.02em}
+  .hero p{font-size:22px;max-width:480px;margin-bottom:28px;color:#e6efe8}
+  .hero .ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .scene{position:relative;max-width:480px;margin:0 auto;width:100%;aspect-ratio:.82}
+  .scene .arch{position:absolute;left:16%;right:16%;top:0;bottom:10%;-webkit-mask:var(--arch) center/100% 100% no-repeat;mask:var(--arch) center/100% 100% no-repeat}
+  .scene .arch img{width:100%;height:100%;object-fit:cover}
+  .scene svg.frame{position:absolute;left:calc(16% - 14px);right:calc(16% - 14px);top:-14px;bottom:calc(10% - 14px);width:calc(68% + 28px);height:calc(90% + 28px);overflow:visible}
+  .scene svg.frame path{fill:none;stroke:var(--gold);stroke-width:2.2;vector-effect:non-scaling-stroke}
+  .scene .cy{position:absolute;bottom:6%;width:15%}
+  .scene .cy.l{left:0}.scene .cy.r{right:0}
+  .scene .pond{position:absolute;left:0;right:0;bottom:0;height:16%}
+
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:46px}
+  .dc{display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:center;background:var(--ivory);color:var(--ink);padding:24px;outline:2px solid var(--gold);outline-offset:-8px;border:1px solid var(--gold2);transition:.2s}
+  .dc:hover{transform:translateY(-4px)}
+  .dc .ph{aspect-ratio:3/4;-webkit-mask:var(--arch) center/100% 100% no-repeat;mask:var(--arch) center/100% 100% no-repeat;background:var(--gold)}
+  .dc .ph img{width:100%;height:100%;object-fit:cover}
+  .dc .no{font:600 13px var(--cin);letter-spacing:.24em;color:var(--saffron)}
+  .dc h3{font-size:22px;text-transform:uppercase;color:var(--maroon)}
+  .plus{display:inline-block;margin-left:8px;font:600 10px var(--cin);letter-spacing:.12em;border:1px solid var(--teal);color:var(--teal);padding:0 7px;vertical-align:4px;text-transform:uppercase}
+  .dc .reg{font-style:italic;color:var(--gold2);font-size:19px}
+  .dc p{font-size:17px;color:var(--mut);margin:6px 0 8px}
+  .dc dl{display:grid;gap:1px;font-size:16px;border-top:1px solid var(--gold);padding-top:8px}
+  .dc dl div{display:flex;gap:8px}
+  .dc dt{font:600 11px var(--cin);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);min-width:62px;padding-top:4px}
+  .dc .go{display:inline-block;margin-top:10px;font:600 12px var(--cin);letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);border-bottom:2px solid var(--gold)}
+
+  .birds{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:40px}
+  .bc{text-align:center}
+  .bc .ph{aspect-ratio:3/4;-webkit-mask:var(--arch) center/100% 100% no-repeat;mask:var(--arch) center/100% 100% no-repeat;background:var(--gold)}
+  .bc img{width:100%;height:100%;object-fit:cover}
+  .bc b{display:block;font:600 16px var(--cin);letter-spacing:.1em;text-transform:uppercase;margin-top:14px;color:var(--gold)}
+  .bc i{font-size:17px;color:#cfe0d6}
+  .places{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .chip{border:1px solid var(--gold);padding:8px 20px;font:600 12px var(--cin);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+  .chip small{font:italic 400 15px var(--body);text-transform:none;letter-spacing:0;color:#cfe0d6;margin-left:4px}
+  .chip:hover{background:var(--gold);color:#2a1a14}
+  .else{margin:54px auto 0;max-width:760px;text-align:center;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:5px;padding:30px}
+  .else h3{font-size:24px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+
+  .season{margin-top:34px;border:2px solid var(--gold);background:var(--ivory);overflow-x:auto}
+  .sr{display:grid;grid-template-columns:210px repeat(12,1fr);min-width:780px;align-items:center;border-bottom:1px solid var(--gold)}
+  .sr:last-child{border:0}
+  .sr b{font:600 13px var(--cin);letter-spacing:.08em;text-transform:uppercase;padding:11px 14px;color:var(--maroon)}
+  .sr.h{background:var(--maroon);color:var(--gold)}
+  .sr.h span{font:600 10.5px var(--cin);letter-spacing:.12em;text-align:center;padding:9px 0}
+  .sr i{display:grid;place-items:center;font-style:normal;height:34px}
+  .sr i svg{width:22px;height:22px}
+  .c1::after{content:"";width:10px;height:10px;border:2px solid var(--gold2);border-radius:50%}
+  .c0::after{content:"";width:3px;height:3px;border-radius:50%;background:#d8c59a}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:40px;text-align:center}
+  .step .n{display:grid;place-items:center;width:70px;height:70px;margin:0 auto 12px;position:relative;isolation:isolate;font:700 26px var(--cin);font-style:normal;color:var(--gold);line-height:1}
+  .step .n::before{content:"";position:absolute;inset:9px;border:2px solid var(--gold);transform:rotate(45deg);z-index:-1}
+  .step b{display:block;font:600 18px var(--cin);letter-spacing:.1em;text-transform:uppercase;margin-top:20px}
+  .step p{color:#cfe0d6;font-size:18px}
+
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+  .rule{border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:4px;padding:22px 20px;margin:4px}
+  .rule .n{display:inline-block;font:700 24px var(--cin);font-style:normal;color:var(--gold)}
+  .rule b{display:block;font:600 16px var(--cin);letter-spacing:.08em;text-transform:uppercase;margin:4px 0 6px}
+  .rule span{color:#d6e4dc;font-size:18px}
+
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:36px;text-align:center}
+  .ci{padding:26px 20px;border:1px solid var(--gold2);outline:1px solid var(--gold);outline-offset:-7px;background:var(--ivory)}
+  .ci .ico svg{width:64px;height:64px}
+  .ci b{display:block;font:600 16px var(--cin);letter-spacing:.1em;text-transform:uppercase;margin:8px 0 6px;color:var(--maroon)}
+  .ci p{color:var(--mut);font-size:18px}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:34px}
+  .note img{aspect-ratio:3/2;object-fit:cover;width:100%;border:2px solid var(--gold);margin-bottom:10px}
+  .note small{font:600 11px var(--cin);letter-spacing:.2em;color:var(--saffron);text-transform:uppercase}
+  .note b{display:block;font:600 17px/1.25 var(--cin);letter-spacing:.04em}
+
+  .faq{max-width:820px;margin:26px auto 0}
+  details{border-bottom:1px solid var(--gold);padding:16px 0}
+  summary{font:600 17px var(--cin);letter-spacing:.06em;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px}
+  summary::after{content:"✿";color:var(--saffron);transition:.3s}
+  details[open] summary::after{transform:rotate(90deg)}
+  details p{color:var(--mut);margin-top:6px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+  .cbox{text-align:center;padding:40px;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:6px;background:var(--teal2);color:var(--ivory)}
+  .cbox .num{display:block;font:700 clamp(30px,3.6vw,46px) var(--cin);letter-spacing:.04em;margin:10px 0 4px;color:var(--gold)}
+  .cbox .ctas{display:flex;gap:14px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+  form{display:grid;gap:14px}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:3px;font:600 11px var(--cin);letter-spacing:.2em;text-transform:uppercase;color:var(--maroon)}
+  form input,form select,form textarea{background:var(--ivory);border:1px solid var(--gold2);padding:10px;font:19px var(--body);color:var(--ink)}
+
+  footer{padding:36px 0 50px;text-align:center;background:var(--teal2);color:#cfe0d6;font-size:16px;border-top:3px double var(--gold)}
+
+  @media(max-width:900px){
+    body::before{inset:6px}
+    nav ul,nav .tel{display:none}
+    .wrap{padding:0 26px}
+    .hero .wrap,.sgrid,.birds,.steps,.rules,.crew,.notes,.contact,form .two{grid-template-columns:1fr}
+    .dc{grid-template-columns:1fr;text-align:center}.dc .ph{max-width:200px;margin:0 auto}.dc dl div{justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg width="34" height="34" viewBox="0 0 60 60" id="lotuslogo"></svg>We Rove</a>
+  <ul><li><a href="#safari">Safari</a></li><li><a href="#birding">Birding</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#ethics">How we travel</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="tel" data-tel>☎ <span data-site="phone"></span></a>
+  <a class="btn g" data-wa style="padding:9px 20px">WhatsApp</a>
+</div></nav>
+
+<header class="hero teal"><div class="wrap">
+  <div>
+    <span class="tag">Safari &amp; birding · India</span>
+    <h1>A journey to the royal forests.</h1>
+    <p>Tiger safaris across India's great reserves, and birding in the Himalayan foothills, planned in small groups by people who keep going back.</p>
+    <div class="ctas"><a class="btn g" data-wa>Plan on WhatsApp</a><a class="btn" data-tel>Call us</a></div>
+  </div>
+  <div class="scene">
+    <div class="arch"><img src="img/bengal-tiger.webp" alt="Bengal tiger"></div>
+    <svg class="frame" viewBox="0 0 100 130" preserveAspectRatio="none"><path d="M0 130V62A12 12 0 0 1 8 44A12 12 0 0 1 20 28A12 12 0 0 1 36 14A14 14 0 0 1 50 0A14 14 0 0 1 64 14A12 12 0 0 1 80 28A12 12 0 0 1 92 44A12 12 0 0 1 100 62V130Z"/></svg>
+    <div class="cy l" id="cy1"></div><div class="cy r" id="cy2"></div>
+    <svg class="pond" id="pond" viewBox="0 0 400 60" preserveAspectRatio="none"></svg>
+  </div>
+</div></header>
+
+<section id="safari"><div class="wrap">
+  <h2>Where travellers ask us to go</h2>
+  <div class="orn" id="orn1"></div>
+  <p class="lead">Tiger safaris come first. These are the reserves we're asked about most, and every trip is planned around your dates and group.</p>
+  <div class="sgrid" id="safari-grid"></div>
+</div></section>
+
+<section id="birding" class="teal"><div class="wrap">
+  <h2>And for the birders</h2>
+  <div class="orn" id="orn2"></div>
+  <p class="lead">Quiet dawn walks in oak and pine with birders who find birds by ear first, and never use playback. Beginners are very welcome.</p>
+  <div class="birds" id="bird-grid"></div>
+  <div class="places" id="birding-places"></div>
+  <div class="else"><h3>Somewhere else in mind?</h3><p style="color:#cfe0d6;margin-bottom:16px">If it's wild and in India, ask us. Kaziranga, the Sundarbans, Bandhavgarh, Latpanchar...</p><a class="btn g" data-wa="Hi We Rove, I'd like a trip to:">Ask on WhatsApp</a></div>
+</div></section>
+
+<section id="seasons" class="cream2"><div class="wrap">
+  <h2 style="color:var(--maroon)">When the forest opens</h2>
+  <div class="orn" id="orn3"></div>
+  <p class="lead">Reserves rest through the monsoon. Tigers show best in the dry heat; foothill birds peak in winter. Dates are approximate.</p>
+  <div class="season" id="season"></div>
+  <p style="margin-top:10px;font-size:16px;color:var(--mut);font-style:italic">Lotus = best · ring = open · dot = closed or off-season</p>
+</div></section>
+
+<section class="mar" id="how"><div class="wrap" style="text-align:center">
+  <h2>How it works</h2>
+  <div class="orn" id="orn4"></div>
+  <div class="steps" id="steps"></div>
+</div></section>
+
+<section id="ethics" class="teal"><div class="wrap">
+  <h2>How we travel</h2>
+  <div class="orn" id="orn5"></div>
+  <p class="lead">"Leave life alone and undisturbed, and it will flourish like you never could imagine."</p>
+  <div class="rules" id="rules" style="--c:var(--ink)"></div>
+</div></section>
+
+<section class="cream2"><div class="wrap">
+  <h2 style="color:var(--maroon)">A small crew</h2>
+  <div class="orn" id="orn6"></div>
+  <p class="lead">It started on a Republic Day in Corbett. The same few of us plan every trip and go on most of them. No names, just what each of us does.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section data-blog><div class="wrap">
+  <h2 style="color:var(--maroon)">From the journal</h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" class="cream2"><div class="wrap">
+  <h2 style="color:var(--maroon)">Before you go</h2>
+  <div class="orn" id="orn7"></div>
+  <div class="faq" id="faqs"></div>
+</div></section>
+
+<section class="teal"><div class="wrap contact">
+  <div class="cbox">
+    <span class="tag">Book a trip</span>
+    <h2 style="font-size:28px;margin-top:6px;color:var(--ivory)">One call is usually enough.</h2>
+    <a class="num" data-tel data-site="phone"></a>
+    <a data-mail data-site="email" style="color:#cfe0d6"></a>
+    <div class="ctas"><a class="btn g" data-wa>WhatsApp</a><a class="btn" data-tel>Call now</a></div>
+  </div>
+  <form data-enquiry style="color:var(--ink)">
+    <div class="two"><label style="color:var(--gold)">Name<input name="name"></label><label style="color:var(--gold)">Travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label style="color:var(--gold)">Trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label style="color:var(--gold)">Where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label style="color:var(--gold)">When<input name="when" placeholder="e.g. April 2027"></label>
+    <label style="color:var(--gold)">Anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn g" style="cursor:pointer;justify-content:center">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<footer>© We Rove · Safari &amp; birding trips in India · <a href="https://www.instagram.com/werove.in/">Instagram</a> · Terms · Privacy</footer>
+
+<script src="shared.js"></script>
+<script src="trad.js"></script>
+<script>
+  const LOTUS=(c='#d4a13b',s='#6f1d2a')=>`<svg viewBox="0 0 60 60"><g fill="${c}" stroke="${s}" stroke-width="1.6" stroke-linejoin="round"><path d="M30 12C37 20 37 32 30 42C23 32 23 20 30 12Z"/><path d="M30 42C20 40 12 32 10 22C20 22 28 28 30 42Z"/><path d="M30 42C40 40 48 32 50 22C40 22 32 28 30 42Z"/><path d="M30 44C18 46 8 42 4 34C14 32 24 36 30 44Z" opacity=".85"/><path d="M30 44C42 46 52 42 56 34C46 32 36 36 30 44Z" opacity=".85"/></g></svg>`;
+  document.getElementById('lotuslogo').outerHTML=LOTUS('#d4a13b','#0b3a3a').replace('<svg','<svg width="34" height="34"');
+  for(let i=1;i<=7;i++){const e=document.getElementById('orn'+i);if(e)e.innerHTML=LOTUS()}
+  const CY=`<svg viewBox="0 0 40 160"><path d="M20 4C30 30 34 70 28 120L20 156L12 120C6 70 10 30 20 4Z" fill="#1d6b4a" stroke="#d4a13b" stroke-width="2"/><path d="M20 20V150M20 50L12 70M20 50L28 70M20 84L11 104M20 84L29 104" stroke="#d4a13b" stroke-width="1.6" fill="none" opacity=".7"/></svg>`;
+  document.getElementById('cy1').innerHTML=CY;document.getElementById('cy2').innerHTML=CY;
+  let pw='';for(let i=0;i<6;i++){pw+=`<path d="M0 ${14+i*9}q25 -8 50 0t50 0t50 0t50 0t50 0t50 0t50 0t50 0" fill="none" stroke="#d4a13b" stroke-width="1.4" opacity="${.9-i*.12}"/>`}
+  document.getElementById('pond').innerHTML=pw;
+  const ICO=[`<svg viewBox="0 0 64 64" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linejoin="round"><path d="M6 52L26 18l10 16 8-10 14 28Z" fill="#0f4c4c"/><circle cx="48" cy="14" r="7" fill="#d4a13b"/></svg>`,
+    `<svg viewBox="0 0 64 64" fill="none" stroke="#a8791f" stroke-width="2.4"><circle cx="20" cy="38" r="11" fill="#20346b"/><circle cx="44" cy="38" r="11" fill="#20346b"/><path d="M29 33h6M13 29l3-9h8l1 7M51 29l-3-9h-8l-1 7"/></svg>`,
+    `<svg viewBox="0 0 64 64" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linejoin="round"><path d="M8 18l16-6 16 6 16-6v38l-16 6-16-6-16 6Z" fill="#6f1d2a"/><path d="M24 12v38M40 18v38"/></svg>`];
+  TRAD.mount({crewIcons:ICO,numerals:['I','II','III','IV','V','VI'],mark:{2:LOTUS('#d4a13b','#6f1d2a'),1:'',0:''}});
+</script>
+<script src="ambient.js"></script>
+</body>
+</html>

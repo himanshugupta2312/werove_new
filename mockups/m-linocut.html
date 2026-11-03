@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Rove — Safari & Birding Trips in India (Mockup M · Linocut)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#efe6d2;--paper2:#e6dbc2;--ink:#201c18;--red:#d64e26;--teal:#247888;--gold:#e0962a;--mut:#5f564b;
+    --slab:'Alfa Slab One',Georgia,serif;--sans:'Work Sans',system-ui,sans-serif;--mono:'Space Mono',monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans);overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--slab);font-weight:400;line-height:1;letter-spacing:.005em}
+  h2{font-size:clamp(38px,5.2vw,68px);margin:10px 0 14px}
+  .tag{font:700 12px var(--mono);letter-spacing:.2em;text-transform:uppercase}
+  .tag.r{color:var(--red)}
+  .rough{filter:url(#rough)}
+  section{padding:88px 0;position:relative}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font:700 14px var(--mono);letter-spacing:.1em;text-transform:uppercase;border:3px solid var(--ink);background:var(--paper);box-shadow:5px 5px 0 var(--ink);transition:.12s}
+  .btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+  .btn.r{background:var(--red);color:var(--paper)}
+  .btn.k{background:var(--ink);color:var(--paper);box-shadow:5px 5px 0 var(--red)}
+  .muted{color:var(--mut)}
+
+  /* duotone treatment: any photo becomes a one-colour print */
+  .duo{position:relative;background:var(--c,var(--red));overflow:hidden}
+  .duo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.25) brightness(1.7);mix-blend-mode:multiply}
+
+  .top{background:var(--ink);color:var(--paper);font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;overflow:hidden;white-space:nowrap;padding:8px 0}
+  .top div{display:inline-block;padding-left:100%;animation:tick 40s linear infinite}
+  @keyframes tick{to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){.top div{animation:none;padding-left:24px}}
+
+  nav{border-bottom:4px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--paper)}
+  nav .wrap{display:flex;align-items:center;gap:28px;height:74px}
+  .logo{display:flex;align-items:center;gap:10px;font:400 28px var(--slab)}
+  nav ul{display:flex;gap:24px;list-style:none;font:700 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-right:auto}
+  nav ul a:hover{color:var(--red)}
+  nav .call{font:700 14px var(--mono);letter-spacing:.06em}
+
+  .hero{padding:56px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  .hero h1{font-size:clamp(54px,7.4vw,112px);margin:16px 0 22px}
+  .hero h1 span{color:var(--red)}
+  .hero p{font-size:20px;color:var(--mut);max-width:480px;margin-bottom:30px}
+  .hero .ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .plate{position:relative;border:4px solid var(--ink);background:var(--paper);box-shadow:12px 12px 0 var(--ink);transform:rotate(1.4deg)}
+  .plate img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .plate figcaption{border-top:4px solid var(--ink);padding:10px 16px;display:flex;justify-content:space-between;font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+  .sticker{position:absolute;left:-26px;top:-26px;width:104px;height:104px;border-radius:50%;background:var(--gold);border:4px solid var(--ink);display:grid;place-items:center;text-align:center;font:400 15px/1.1 var(--slab);transform:rotate(-12deg);z-index:2}
+
+  /* safari */
+  .big{background:var(--ink);color:var(--paper);border-block:4px solid var(--ink)}
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:44px}
+  .sc{display:grid;grid-template-columns:44% 1fr;border:4px solid var(--ink);background:var(--paper);color:var(--ink);box-shadow:8px 8px 0 var(--red);transition:.15s}
+  .sc:hover{transform:translate(4px,4px);box-shadow:4px 4px 0 var(--red)}
+  .sc .duo{min-height:100%;border-right:4px solid var(--ink)}
+  .sc .in{padding:22px 22px 24px}
+  .sc .no{font:400 48px/1 var(--slab);color:var(--red)}
+  .sc h3{font-size:30px;margin:6px 0 2px}
+  .sc .reg{font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .sc p{font-size:15px;color:var(--mut);margin:10px 0}
+  .sc .meta{font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;border-top:3px dashed var(--ink);padding-top:10px}
+  .both{display:inline-block;margin-left:8px;border:2px solid var(--teal);color:var(--teal);font:700 10px var(--mono);letter-spacing:.1em;padding:1px 6px;vertical-align:5px}
+
+  /* birding */
+  .birds{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+  .bp{border:4px solid var(--ink);background:var(--paper);box-shadow:7px 7px 0 var(--teal)}
+  .bp img{width:100%;aspect-ratio:3/4;object-fit:cover}
+  .bp div{border-top:4px solid var(--ink);padding:12px 16px}
+  .bp b{display:block;font:400 22px var(--slab)}
+  .bp i{font:400 12px var(--mono);color:var(--mut)}
+  .bchips{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .bchips a{border:3px solid var(--ink);padding:10px 16px;font:700 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--paper)}
+  .bchips a:hover{background:var(--gold)}
+
+  .else{margin-top:60px;border:4px dashed var(--ink);padding:34px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--gold)}
+  .else h3{font-size:34px}
+
+  /* seasons */
+  .sz{margin-top:30px;border:4px solid var(--ink);background:var(--paper2);overflow-x:auto}
+  .zr{display:grid;grid-template-columns:200px repeat(12,1fr);min-width:780px;align-items:stretch;border-bottom:2px solid var(--ink)}
+  .zr:last-child{border:0}
+  .zr b{font:400 17px var(--slab);padding:12px 14px;border-right:2px solid var(--ink)}
+  .zr.h{background:var(--ink);color:var(--paper)}
+  .zr.h span{font:700 11px var(--mono);letter-spacing:.1em;text-align:center;padding:10px 0}
+  .zr.h b{border-color:#555}
+  .zr i{border-right:1px solid rgba(32,28,24,.25)}
+  .z2{background:var(--red)}
+  .z1{background:repeating-linear-gradient(135deg,var(--gold) 0 3px,transparent 3px 8px)}
+
+  /* ethics */
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border:3px solid var(--paper)}
+  .rules div{padding:26px;border:1.5px solid var(--paper)}
+  .rules b{display:block;font:400 24px var(--slab);color:var(--gold);margin-bottom:8px}
+  .rules span{font-size:15px;color:#d9d0bd}
+
+  .crew{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+  .crew>div{border:4px solid var(--ink);padding:24px;background:var(--paper)}
+  .crew .n{font:400 56px/1 var(--slab);color:var(--teal)}
+  .crew b{display:block;font:400 24px var(--slab);margin:6px 0}
+  .crew p{font-size:15px;color:var(--mut)}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px}
+  .notes .duo{aspect-ratio:3/2;border:4px solid var(--ink)}
+  .notes small{display:block;font:700 12px var(--mono);letter-spacing:.14em;color:var(--red);text-transform:uppercase;margin:12px 0 4px}
+  .notes b{font:400 22px/1.15 var(--slab)}
+
+  .faq details{border-bottom:3px solid var(--ink);padding:16px 0}
+  .faq summary{font:400 24px var(--slab);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  .faq summary::after{content:"+";color:var(--red)}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{color:var(--mut);margin-top:8px}
+
+  .contact{background:var(--red);color:var(--paper);border-block:4px solid var(--ink)}
+  .contact .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
+  .contact h2{color:var(--paper)}
+  .contact .num{display:block;font:400 clamp(40px,6.4vw,84px)/1 var(--slab);margin:16px 0 8px;color:var(--ink)}
+  .contact .ctas{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap}
+  .contact .btn{border-color:var(--ink)}
+  form{background:var(--paper);color:var(--ink);border:4px solid var(--ink);box-shadow:9px 9px 0 var(--ink);padding:26px;display:grid;gap:14px}
+  form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:grid;gap:4px;font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+  form input,form select,form textarea{border:3px solid var(--ink);background:var(--paper2);padding:10px;font:16px var(--sans);color:var(--ink)}
+
+  footer{padding:36px 0;font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media(max-width:900px){
+    nav ul{display:none}
+    .hero .wrap,.sgrid,.birds,.rules,.crew,.notes,.contact .grid{grid-template-columns:1fr}
+    .sc{grid-template-columns:1fr}.sc .duo{height:200px;border-right:0;border-bottom:4px solid var(--ink)}
+    .plate{transform:none}.sticker{left:-6px}
+    form .two{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter></svg>
+
+<div class="top"><div>Safari ✦ Birding ✦ Small groups ✦ Call or WhatsApp to plan ✦ Safari ✦ Birding ✦ Small groups ✦ Call or WhatsApp to plan ✦</div></div>
+<nav><div class="wrap">
+  <a class="logo rough" href="#"><svg width="36" height="36" viewBox="0 0 100 100"><g transform="rotate(30 50 50)"><path d="M50 3C59 8 68 22 69 40 70 58 63 71 52 78L50 79 48 78C41 70 36 57 37 41 38 23 44 9 50 3Z" fill="#d64e26" stroke="#201c18" stroke-width="3"/><path d="M50 8V98" stroke="#201c18" stroke-width="5" stroke-linecap="round"/></g></svg>We Rove</a>
+  <ul><li><a href="#safari">Safari</a></li><li><a href="#birding">Birding</a></li><li><a href="#seasons">Seasons</a></li><li><a href="#ethics">How we travel</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="call" data-tel>☎ <span data-site="phone"></span></a>
+  <a class="btn r" data-wa style="padding:9px 16px">WhatsApp</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="tag r">Tiger safaris · Birding · India</span>
+    <h1 class="rough">Tracks at dawn.<br><span>Calls at dusk.</span></h1>
+    <p>Small-group tiger safaris across India's reserves, and birding in the Himalayan foothills. Planned by people who keep going back.</p>
+    <div class="ctas"><a class="btn r" data-wa>Plan on WhatsApp</a><a class="btn" data-tel>Call us</a></div>
+  </div>
+  <figure class="plate">
+    <div class="sticker rough">Printed<br>by hand<br>✦</div>
+    <img src="img/lino-tiger.webp" alt="Tiger, block print">
+    <figcaption><span>Panthera tigris</span><span>Plate I</span></figcaption>
+  </figure>
+</div></header>
+
+<section class="big" id="safari"><div class="wrap">
+  <span class="tag" style="color:var(--gold)">Safari first</span>
+  <h2 class="rough">Where people ask us to <span style="color:var(--gold)">track tigers</span></h2>
+  <p style="color:#cfc6b2;max-width:620px">The reserves we're asked about most. Every trip is built around your dates and group.</p>
+  <div class="sgrid" id="sgrid" data-stamp></div>
+</div></section>
+
+<section id="birding"><div class="wrap">
+  <span class="tag r">And for the birders</span>
+  <h2 class="rough">Foothill birding, <span style="color:var(--teal)">by ear first</span></h2>
+  <p class="muted" style="max-width:620px">Quiet dawn walks in oak and pine with birders who find birds by call, and never use playback. Beginners welcome.</p>
+  <div class="birds" data-stamp>
+    <figure class="bp"><img src="img/lino-flycatcher.webp" alt=""><div><b>Verditer Flycatcher</b><i>Eumyias thalassinus</i></div></figure>
+    <figure class="bp"><img src="img/lino-rosefinch.webp" alt=""><div><b>Pink-browed Rosefinch</b><i>Carpodacus rodochroa</i></div></figure>
+    <figure class="bp"><img src="img/lino-pitta.webp" alt=""><div><b>Indian Pitta</b><i>Pitta brachyura</i></div></figure>
+  </div>
+  <div class="bchips" id="bchips"></div>
+  <div class="else">
+    <div><span class="tag">Somewhere else in mind?</span><h3 class="rough">If it's wild and in India, ask us.</h3></div>
+    <a class="btn k" data-wa="Hi We Rove, I'd like a trip to:">Ask on WhatsApp</a>
+  </div>
+</div></section>
+
+<section id="seasons" style="padding-top:20px"><div class="wrap">
+  <span class="tag r">When to go</span>
+  <h2 class="rough">The year, in <span style="color:var(--red)">ink</span></h2>
+  <p class="muted">Most reserves rest through the monsoon. Tigers show best in the dry heat; foothill birds peak in winter. Dates are approximate.</p>
+  <div class="sz" id="sz"></div>
+  <p class="tag" style="margin-top:12px">■ Best &nbsp; ▨ Open &nbsp; □ Closed or off</p>
+</div></section>
+
+<section class="big" id="ethics"><div class="wrap">
+  <span class="tag" style="color:var(--gold)">How we travel</span>
+  <h2 class="rough">Leave life alone.<br><span style="color:var(--gold)">It will flourish.</span></h2>
+  <div class="rules" id="rules"></div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="tag r">Who guides you</span>
+  <h2 class="rough">A small crew</h2>
+  <p class="muted" style="max-width:620px">It started on a Republic Day in Corbett. The same few of us plan every trip and go on most of them. No names, just what each of us does.</p>
+  <div class="crew" id="crew"></div>
+</div></section>
+
+<section data-blog style="padding-top:20px"><div class="wrap">
+  <span class="tag r">Field notes</span><h2 class="rough">From the journal</h2>
+  <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="faq" class="faq" style="padding-top:20px"><div class="wrap" style="max-width:860px">
+  <span class="tag r">Questions</span><h2 class="rough">Before you go</h2>
+  <div id="faqs" style="margin-top:14px"></div>
+</div></section>
+
+<section class="contact"><div class="wrap grid">
+  <div>
+    <span class="tag" style="color:var(--ink)">Book a trip</span>
+    <h2 class="rough">One call is usually enough.</h2>
+    <a class="num rough" data-tel data-site="phone"></a>
+    <a data-mail data-site="email" style="font:700 15px var(--mono)"></a>
+    <div class="ctas"><a class="btn k" data-wa>WhatsApp</a><a class="btn" data-tel>Call now</a></div>
+  </div>
+  <form data-enquiry>
+    <div class="two"><label>Name<input name="name"></label><label>Travellers<input name="people" type="number" value="2"></label></div>
+    <div class="two"><label>Trip<select name="type"><option>Safari</option><option>Birding</option><option>Both</option></select></label><label>Where<select name="dest" class="destsel"><option>Not sure yet</option></select></label></div>
+    <label>When<input name="when" placeholder="e.g. April 2027"></label>
+    <label>Anything else<textarea name="notes" rows="2"></textarea></label>
+    <button class="btn r" style="cursor:pointer;justify-content:center">Send on WhatsApp →</button>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>© We Rove · Safari & birding in India</span><span><a data-mail data-site="email"></a> · <a href="https://www.instagram.com/werove.in/">Instagram</a></span><span>Terms · Privacy</span></div></footer>
+
+<script src="shared.js"></script>
+<script>
+  const COL=['var(--red)','var(--teal)','var(--gold)','var(--red)'];
+  const safari=DESTS.filter(d=>d.type.includes('safari')), birding=DESTS.filter(d=>d.type.includes('birding'));
+  document.getElementById('sgrid').innerHTML=safari.map((d,i)=>`<a class="sc" href="#"><div class="duo" style="--c:${COL[i%4]}"><img src="img/${d.slug}.webp" alt=""></div>
+    <div class="in"><div class="no">0${i+1}</div><h3>${d.name}${d.type.includes('birding')?'<span class="both">+ BIRDING</span>':''}</h3><div class="reg">${d.region}</div>
+    <p>${d.blurb}</p><div class="meta">Best ${d.best} · ${d.reach}</div></div></a>`).join('');
+  document.getElementById('bchips').innerHTML=birding.map(d=>`<a href="#">${d.name} · best ${d.best}</a>`).join('');
+  document.getElementById('sz').innerHTML=`<div class="zr h"><b></b>${MONTHS.map(m=>`<span>${m.toUpperCase()}</span>`).join('')}</div>`+
+    DESTS.map(d=>`<div class="zr"><b>${d.name}</b>${[...d.m].map(c=>`<i class="z${c}"></i>`).join('')}</div>`).join('');
+  document.getElementById('rules').innerHTML=ETHICS.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
+  document.getElementById('crew').innerHTML=CREW.map(([a,b],i)=>`<div><div class="n">${i+1}</div><b>${a}</b><p>${b}</p></div>`).join('');
+  document.getElementById('notes').innerHTML=NOTES.map(([c,t,img])=>`<a href="#"><div class="duo" style="--c:${COL[(c.length)%3]}"><img src="img/${img}.webp" alt=""></div><small>${c}</small><b>${t}</b></a>`).join('');
+  document.getElementById('faqs').innerHTML=FAQ.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('');
+  document.querySelectorAll('.destsel').forEach(s=>s.innerHTML+=DESTS.map(d=>`<option>${d.name}</option>`).join('')+'<option>Elsewhere</option>');
+</script>
+<script src="ambient.js" data-always data-fx="stamp"></script>
+</body>
+</html>

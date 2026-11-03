@@ -1,0 +1,241 @@
+[
+  {
+    "slug": "tadoba",
+    "name": "Tadoba-Andhari",
+    "short": "Tadoba",
+    "region": "Maharashtra",
+    "tags": [
+      "tiger",
+      "leopard",
+      "sloth-bear",
+      "birding"
+    ],
+    "cover": "tadoba-tigress-with-cubs",
+    "coords": [
+      79.4,
+      20.25
+    ],
+    "side": "r",
+    "summary": "Maharashtra's oldest and largest tiger reserve: teak forest, lakes, and some of India's most reliable tiger sightings.",
+    "see": [
+      "Tiger",
+      "Leopard",
+      "Sloth bear",
+      "Dhole",
+      "Gaur"
+    ],
+    "best": "Mar – May",
+    "reach": "Nagpur airport, ~3 hrs",
+    "verify": [
+      "see",
+      "best",
+      "reach"
+    ]
+  },
+  {
+    "slug": "pench",
+    "name": "Pench",
+    "short": "Pench",
+    "region": "Madhya Pradesh",
+    "tags": [
+      "tiger",
+      "leopard",
+      "sloth-bear",
+      "birding"
+    ],
+    "cover": "pench-tiger-1",
+    "coords": [
+      79.3,
+      21.7
+    ],
+    "side": "l",
+    "summary": "The teak-and-bamboo forest behind The Jungle Book, along the Pench river. Quieter than the big-name parks.",
+    "see": [
+      "Tiger",
+      "Leopard",
+      "Sloth bear",
+      "Dhole",
+      "Gaur",
+      "Golden jackal"
+    ],
+    "best": "Feb – May",
+    "reach": "Nagpur airport, ~2.5 hrs",
+    "verify": [
+      "see",
+      "best",
+      "reach"
+    ]
+  },
+  {
+    "slug": "ranthambore",
+    "name": "Ranthambore",
+    "short": "Ranthambore",
+    "region": "Rajasthan",
+    "tags": [
+      "tiger",
+      "leopard",
+      "sloth-bear",
+      "birding"
+    ],
+    "cover": null,
+    "coords": [
+      76.5,
+      26.0
+    ],
+    "side": "l",
+    "summary": "Tigers among the ruins of a 10th-century fort, with lakes, crocodiles and dry deciduous forest.",
+    "see": [
+      "Tiger",
+      "Leopard",
+      "Sloth bear",
+      "Mugger crocodile"
+    ],
+    "best": "Mar – May",
+    "reach": "Sawai Madhopur rail, 20 min",
+    "verify": [
+      "see",
+      "best",
+      "reach",
+      "photos"
+    ]
+  },
+  {
+    "slug": "corbett",
+    "name": "Jim Corbett",
+    "short": "Corbett",
+    "region": "Uttarakhand",
+    "tags": [
+      "tiger",
+      "leopard",
+      "sloth-bear",
+      "birding"
+    ],
+    "cover": "corbett-jeep-and-elephant",
+    "coords": [
+      78.9,
+      29.5
+    ],
+    "side": "l",
+    "summary": "India's first national park. Tigers and elephants in the grasslands, and 550+ bird species along the Ramganga and Kosi.",
+    "see": [
+      "Tiger",
+      "Leopard",
+      "Sloth bear",
+      "Elephant"
+    ],
+    "best": "Nov – May",
+    "reach": "Delhi, ~6 hrs by road",
+    "verify": [
+      "see",
+      "best",
+      "reach",
+      "summary"
+    ]
+  },
+  {
+    "slug": "sattal",
+    "name": "Sattal",
+    "short": "Sattal",
+    "region": "Uttarakhand",
+    "tags": [
+      "birding"
+    ],
+    "cover": "sattal-red-billed-leiothrix",
+    "coords": [
+      79.57,
+      29.35
+    ],
+    "side": "r",
+    "summary": "Seven connected lakes in oak and pine forest, one of north India's classic birding sites.",
+    "see": [],
+    "best": "Oct – Apr",
+    "reach": "Kathgodam rail, ~1.5 hrs",
+    "verify": [
+      "best",
+      "reach",
+      "summary"
+    ]
+  },
+  {
+    "slug": "dharamshala",
+    "name": "Dharamshala & around",
+    "short": "Dharamshala",
+    "region": "Himachal Pradesh",
+    "tags": [
+      "birding"
+    ],
+    "cover": "dharamshala-eurasian-wren",
+    "coords": [
+      76.32,
+      32.2
+    ],
+    "side": "r",
+    "summary": "The Dhauladhar foothills, with 300+ species from the Kangra valley floor up to Kareri lake.",
+    "see": [],
+    "best": "Oct – Apr",
+    "reach": "Gaggal airport, ~30 min",
+    "verify": [
+      "best",
+      "reach",
+      "summary"
+    ]
+  },
+  {
+    "slug": "bor",
+    "name": "Bor Tiger Reserve",
+    "short": "Bor",
+    "region": "Maharashtra",
+    "tags": [
+      "tiger",
+      "leopard",
+      "sloth-bear",
+      "birding"
+    ],
+    "cover": "bor-leopard",
+    "coords": [
+      78.8,
+      20.95
+    ],
+    "side": "l",
+    "summary": "A small, quiet tiger reserve in Maharashtra's Wardha district, with tigers, leopards and sloth bears, and good birding too.",
+    "see": [
+      "Tiger",
+      "Leopard",
+      "Sloth bear"
+    ],
+    "best": null,
+    "reach": null,
+    "verify": [
+      "summary",
+      "best",
+      "reach",
+      "coords"
+    ]
+  },
+  {
+    "slug": "chakki-mod",
+    "name": "Chakki Mod",
+    "short": "Chakki Mod",
+    "region": "Himachal Pradesh",
+    "tags": [
+      "birding"
+    ],
+    "cover": "chakki-mod-white-crested-laughingthrush",
+    "coords": [
+      75.85,
+      32.2
+    ],
+    "side": "l",
+    "summary": "A birding spot in the Himachal foothills, where we have photographed the Himalayan bluetail, Himalayan griffon, southern nutcracker and white-capped bunting.",
+    "see": [],
+    "best": "Winter (Dec – Mar)",
+    "reach": null,
+    "verify": [
+      "summary",
+      "best",
+      "reach",
+      "coords",
+      "region"
+    ]
+  }
+]

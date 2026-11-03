@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site, content, destinations, photoUrl, waLink } from '../../lib/data.js';
+import { ICON } from '../../components/Icons.js';
+
+export function getStaticPaths() {
+  return destinations.map((d) => ({ params: { slug: d.slug }, props: { d } }));
+}
+const { d } = Astro.props;
+const { wildlife } = content;
+const others = destinations.filter((x) => x.slug !== d.slug);
+const heroImg = d.cover ? photoUrl(d.cover, d.cover.xl ? 'xl' : 'lg') : d.coverUrl;
+const desc = `${d.summary} Safari and birding trips to ${d.name}, ${d.region}, planned by We Rove. Call or WhatsApp to plan your trip.`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristDestination',
+  name: d.name,
+  description: d.summary,
+  url: `${site.url}/destinations/${d.slug}`,
+  containedInPlace: { '@type': 'AdministrativeArea', name: d.region },
+  image: d.cover ? `${site.url}${photoUrl(d.cover, 'lg')}` : undefined,
+  touristType: d.tags.map((t) => wildlife[t].label),
+};
+const facts = [
+  ['Look for', d.mammals.join(', ')],
+  ['Birds we have photographed here', d.birds.join(', ')],
+  ['Best time', d.best],
+  ['Getting there', d.reach],
+  ['State', d.region],
+].filter(([, v]) => v);
+---
+<Base title={`${d.name}: safari & birding trips`} description={desc} path={`/destinations/${d.slug}`} jsonLd={jsonLd} image={d.cover ? photoUrl(d.cover, 'lg') : '/og.jpg'}>
+  <header class="dhero">
+    <img src={heroImg} alt={d.cover ? d.cover.alt : `${d.name}, photos coming soon`} fetchpriority="high" />
+    <div class="in wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#where">Where we rove</a> / <span>{d.short}</span></nav>
+      <div class="chips">{d.tags.map((t) => <span class="chip" style={`color:#fff;border-color:rgba(255,255,255,.7)`}>{wildlife[t].label}</span>)}</div>
+      <h1>{d.name}</h1>
+      <p class="reg">{d.region}</p>
+      <div class="ctas">
+        <a class="btn w" href={waLink(`Hi We Rove, I'd like a trip to ${d.name}.`)} target="_blank" rel="noopener"><span class="btn-ic" set:html={ICON.wa} />Plan {d.short} on WhatsApp</a>
+        <a class="btn o" href={`tel:+${site.phoneRaw}`}>Call us</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="dbody">
+    <div class="wrap dgrid">
+      <div>
+        <h2 class="h2s">About {d.short}</h2>
+        <p class="dsum">{d.summary}</p>
+        <p class="muted">Trips here are planned around your dates and group. Tell us when you'd like to go and what you hope to see, and we'll send an itinerary with a clear price.</p>
+        <div class="ctas2">
+          <a class="btn p" href={waLink(`Hi We Rove, I'd like a trip to ${d.name}.`)} target="_blank" rel="noopener">Get an itinerary</a>
+          <a class="btn o" href="/#faq">Read the FAQ</a>
+        </div>
+      </div>
+      <dl class="facts">
+        {facts.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}
+      </dl>
+    </div>
+  </section>
+
+  <section class="dgal">
+    <div class="wrap">
+      <h2 class="h2s">Photos from {d.short}</h2>
+      {d.hasPhotos ? (
+        <div class="gal">
+          {d.photos.map((p) => (
+            <button type="button" class="gitem" data-full={photoUrl(p, 'lg')} data-cap={`${p.title} · ${p.placeName}`}>
+              <img src={photoUrl(p, 'md')} alt={p.alt} loading="lazy" width={800} height={Math.round(800 * p.h / p.w)} />
+              <span>{p.title}</span>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div class="soon"><img src={d.coverUrl} alt={`${d.name}, photos coming soon`} loading="lazy" /><p>Photos coming soon. Ask us about {d.short} on WhatsApp in the meantime.</p></div>
+      )}
+      <p class="credit muted">{site.credit}</p>
+    </div>
+  </section>
+
+  <section class="dmore">
+    <div class="wrap">
+      <h2 class="h2s">Other places we rove</h2>
+      <div class="dcards">
+        {others.map((o) => (
+          <a class="dc2" href={`/destinations/${o.slug}`}>
+            <img src={o.coverMd} alt="" loading="lazy" />
+            <b>{o.name}</b><span>{o.region}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <dialog id="lightbox" aria-label="Photo"><button type="button" class="lbx" aria-label="Close">×</button><img alt="" /><p></p></dialog>
+  <script is:inline>
+    (function () {
+      var dlg = document.getElementById('lightbox'); if (!dlg) return;
+      var img = dlg.querySelector('img'), cap = dlg.querySelector('p');
+      document.querySelectorAll('.gitem').forEach(function (b) {
+        b.addEventListener('click', function () { img.src = b.dataset.full; img.alt = b.dataset.cap; cap.textContent = b.dataset.cap; dlg.showModal(); });
+      });
+      dlg.addEventListener('click', function () { dlg.close(); });
+    })();
+  </script>
+</Base>

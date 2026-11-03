@@ -1,0 +1,200 @@
+{
+  "wildlife": {
+    "tiger": {
+      "label": "Tiger",
+      "color": "#d9774b"
+    },
+    "birding": {
+      "label": "Birding",
+      "color": "#3f8a86"
+    },
+    "leopard": {
+      "label": "Leopard",
+      "color": "#c9972e"
+    },
+    "sloth-bear": {
+      "label": "Sloth bear",
+      "color": "#8a6a50"
+    },
+    "cheetah": {
+      "label": "Cheetah",
+      "color": "#b8742a"
+    },
+    "rhino": {
+      "label": "Rhino",
+      "color": "#7a6aa8"
+    },
+    "elephant": {
+      "label": "Elephant",
+      "color": "#6b7a8f"
+    }
+  },
+  "ghosts": [
+    {
+      "name": "Kaziranga",
+      "coords": [
+        93.4,
+        26.6
+      ],
+      "side": "bt",
+      "note": "One-horned rhinos, tigers, elephants and rich birdlife."
+    },
+    {
+      "name": "Sundarbans",
+      "coords": [
+        88.9,
+        21.95
+      ],
+      "side": "r",
+      "note": "Mangrove tiger country, explored by boat, with plenty of birds."
+    },
+    {
+      "name": "Bandhavgarh",
+      "coords": [
+        81.03,
+        23.7
+      ],
+      "side": "r",
+      "note": "Dense tiger country, also good for birding."
+    },
+    {
+      "name": "Latpanchar",
+      "coords": [
+        88.35,
+        26.9
+      ],
+      "side": "l",
+      "note": "Himalayan foothill birding."
+    },
+    {
+      "name": "Lakshadweep",
+      "coords": [
+        72.75,
+        10.6
+      ],
+      "side": "r",
+      "note": "A coral island group in the Arabian Sea.",
+      "hot": true
+    },
+    {
+      "name": "Andaman & Nicobar",
+      "coords": [
+        92.9,
+        11.9
+      ],
+      "side": "l",
+      "note": "Island groups in the Bay of Bengal, with forests, reefs and island birdlife.",
+      "hot": true
+    }
+  ],
+  "hero": [
+    {
+      "photo": "tadoba-tigress-with-cubs",
+      "caption": "Tigress with cubs · Tadoba"
+    },
+    {
+      "photo": "pench-tiger-2",
+      "caption": "Tiger · Pench"
+    },
+    {
+      "photo": "bor-leopard",
+      "caption": "Leopard · Bor Tiger Reserve"
+    },
+    {
+      "photo": "pench-malabar-pied-hornbill",
+      "caption": "Malabar pied hornbill · Pench"
+    },
+    {
+      "photo": "bor-sloth-bear",
+      "caption": "Sloth bear · Bor Tiger Reserve"
+    },
+    {
+      "photo": "sattal-red-billed-leiothrix",
+      "caption": "Red-billed leiothrix · Sattal"
+    }
+  ],
+  "sightings": [
+    "pench-malabar-pied-hornbill",
+    "chakki-mod-himalayan-bluetail",
+    "sattal-common-kingfisher",
+    "dharamshala-white-browed-shrike-babbler",
+    "sattal-red-billed-leiothrix",
+    "corbett-asian-barred-owlet",
+    "chakki-mod-himalayan-griffon",
+    "dharamshala-mountain-weasel",
+    "sattal-black-throated-bushtit",
+    "pench-gray-headed-fish-eagle",
+    "dharamshala-eurasian-wren",
+    "chakki-mod-white-capped-bunting",
+    "pench-golden-jackal",
+    "chakki-mod-southern-nutcracker"
+  ],
+  "ethics": [
+    [
+      "No playback. Ever.",
+      "We don't play recorded calls to pull birds out. It stresses them, especially when they're breeding."
+    ],
+    [
+      "Distance over closeness",
+      "We keep back from nests, roosts and animals, and we don't chase anything that moves off."
+    ],
+    [
+      "No baiting, no flash",
+      "We don't feed wildlife for a photo, and we don't use flash on birds or at night."
+    ],
+    [
+      "Small groups, local hands",
+      "Small groups only. We work with local naturalists, drivers and homestays."
+    ],
+    [
+      "We carry it out",
+      "Every wrapper and bottle comes back with us."
+    ],
+    [
+      "Season-aware",
+      "We don't push into forests during closures or wander off-route into sensitive areas."
+    ]
+  ],
+  "faq": [
+    [
+      "How much does a trip cost?",
+      "It depends on the park, the number of safaris, the stay and the group size. You get an all-in price before you pay anything."
+    ],
+    [
+      "Can you guarantee a tiger sighting?",
+      "No one honestly can. We maximise your chances with the right season, zones and number of drives."
+    ],
+    [
+      "Do I need experience for birding?",
+      "Not at all. We pace walks for beginners. Serious birders can send us their target species."
+    ],
+    [
+      "When should I book?",
+      "Safaris sell out in peak season, in both summer and winter, so we recommend booking as soon as you know your dates. As a rule of thumb, book 2–3 months ahead. Birding trips are more flexible, but earlier is still better."
+    ],
+    [
+      "What's included, and what's not?",
+      "In general, we include pick-up and drop between the nearest airport, railway or bus station and the location, food, lodging, and safaris with guides. Some guests only want lodging, a guide and food, and we can do that too. Not included: extra food and drinks, tips, and flights or travel to the location. We can arrange travel for you, but the price will be higher. Anything not listed as included is excluded, and we confirm everything in writing with your itinerary."
+    ],
+    [
+      "How big can the group be?",
+      "For safaris we recommend groups in multiples of four. A jeep can seat up to six guests, but that can be a tight fit, so four is the comfortable number. For birding, up to six is a good size. We can take larger groups, but we may split them into smaller ones, so everyone gets better coverage and the wildlife is disturbed less."
+    ],
+    [
+      "What ID do I need?",
+      "Every guest needs a valid photo ID for safari permits: Aadhaar, passport, driving licence or a similar government ID. International guests need their passport."
+    ],
+    [
+      "Can kids and senior travellers join?",
+      "Yes. If a trip may be hard for a particular age group, we'll tell you honestly, and we can make special arrangements for any age. Children must travel with their parents or guardians."
+    ],
+    [
+      "How do payments work, and what if I need to cancel?",
+      "To confirm a trip we take an advance by bank transfer or UPI, and the balance before travel. The details are flexible and can be discussed on a call. Our refund terms are in the [Cancellation & refund policy](/cancellation)."
+    ],
+    [
+      "How do I book?",
+      "Call or WhatsApp us on {{phone}}. Tell us where and when, and we'll send an itinerary with a clear price."
+    ]
+  ]
+}
