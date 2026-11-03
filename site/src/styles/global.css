@@ -363,3 +363,15 @@ html{overflow-x:clip}
   .mpin.on span{left:50%;right:auto;top:auto;bottom:calc(100% + 8px);transform:translateX(-50%);z-index:5}
 }
 @media(max-width:420px){.finder{grid-template-columns:minmax(0,1fr)}}
+
+/* zoomable map */
+.mapview{position:relative;overflow:hidden;border-radius:12px;--z:1}
+.mapin{transform-origin:0 0}
+.mapcard .india{shape-rendering:geometricPrecision}
+.mapview.zoomed{cursor:grab;touch-action:none}
+.mapview.zoomed:active{cursor:grabbing}
+.mpin{scale:calc(1 / var(--z,1))}
+.mzoom{position:absolute;top:8px;right:8px;z-index:6;display:flex;flex-direction:column;gap:4px}
+.mzoom button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 20px/1 var(--body);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.mzoom button:hover{background:var(--soft)}
+.mapcard .india{stroke-width:calc(2.2 / var(--z,1))}

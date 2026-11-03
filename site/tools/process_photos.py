@@ -26,18 +26,18 @@ PLACES = {  # folder name -> (slug, display name)
     'Bor Tiger Reserve': ('bor', 'Bor Tiger Reserve'),
     'Ranthambore': ('ranthambore', 'Ranthambore'),
 }
-# Files still carrying a camera name. title / kind / id. `confirm` = my guess, to be confirmed by you.
+# Files still carrying a camera name. title / kind / id. `confirm` = unconfirmed guess (all confirmed so far).
 UNNAMED = {
     ('tadoba', 'DSC_0122'): ('Tigress with cubs', 'mammal', 'tigress-with-cubs', False),
     ('pench', 'IMG_6301'): ('Tiger', 'mammal', 'tiger-1', False),
     ('pench', 'IMG_6309'): ('Tiger by the water', 'mammal', 'tiger-2', False),
     ('pench', 'IMG_6465'): ('Tiger resting', 'mammal', 'tiger-3', False),
     ('corbett', 'IMG_7993'): ('Safari jeep and elephant', 'scene', 'jeep-and-elephant', False),
-    ('sattal', 'IMG_6348'): ('Verditer Flycatcher', 'bird', 'verditer-flycatcher', True),
-    ('dharamshala', '_M9A2845'): ('Pink-browed Rosefinch', 'bird', 'pink-browed-rosefinch', True),
-    ('dharamshala', '_M9A4923'): ('Verditer Flycatcher', 'bird', 'verditer-flycatcher', True),
-    ('chakki-mod', '_M9A2035'): ('Red-billed Leiothrix', 'bird', 'red-billed-leiothrix', True),
-    ('chakki-mod', '_M9A2367'): ('White-crested Laughingthrush', 'bird', 'white-crested-laughingthrush', True),
+    ('sattal', 'IMG_6348'): ('Verditer Flycatcher', 'bird', 'verditer-flycatcher', False),
+    ('dharamshala', '_M9A2845'): ('Pink-browed Rosefinch', 'bird', 'pink-browed-rosefinch', False),
+    ('dharamshala', '_M9A4923'): ('Verditer Flycatcher', 'bird', 'verditer-flycatcher', False),
+    ('chakki-mod', '_M9A2035'): ('Red-billed Leiothrix', 'bird', 'red-billed-leiothrix', False),
+    ('chakki-mod', '_M9A2367'): ('White-crested Laughingthrush', 'bird', 'white-crested-laughingthrush', False),
     ('bor', '_M9A0443'): ('Leopard', 'mammal', 'leopard', False),
     ('bor', '_M9A0531'): ('Sloth Bear', 'mammal', 'sloth-bear', False),
 }

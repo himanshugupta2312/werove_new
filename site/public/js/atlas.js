@@ -24,7 +24,7 @@
       '<div class="im"><img src="' + d.img + '" alt="' + (d.hasPhotos ? d.name : d.name + ', photos coming soon') + '"></div>' +
       '<div class="chips">' + d.tags.map(function (t) { return '<span class="chip" style="color:' + tagColor(t) + '">' + tagLabel(t) + '</span>'; }).join('') + '</div>' +
       '<h3>' + d.name + '</h3><div class="reg">' + d.region + '</div><p class="muted">' + d.summary + '</p>' +
-      '<dl>' + row('Look for', d.see.join(', ')) + row('Birds', d.birds.join(', ')) + row('Best time', d.best) + row('Getting there', d.reach) + '</dl>' +
+      '<dl>' + row('Look for', d.see.join(', ')) + row('Birds', d.birds.join(', ')) + row('Tigers', d.tigers) + row('Best time', d.best) + row('Getting there', d.reach) + '</dl>' +
       '<div class="pbtns"><a class="btn p" href="/destinations/' + d.slug + '">See ' + d.short + ' →</a>' +
       '<a class="btn w" target="_blank" rel="noopener" href="' + wa("Hi We Rove, I'd like a trip to " + d.name + '.') + '">WhatsApp us</a>' +
       '<button type="button" class="btn o" id="shareb">Share</button></div><div class="toast" id="toast"></div>';
@@ -37,12 +37,53 @@
 
   card.addEventListener('click', function (e) { var p = e.target.closest('.mpin'); if (p) show(p.dataset.s); });
 
-  var filters = document.getElementById('mfilters');
-  if (filters) filters.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    filters.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
-    document.querySelectorAll('.mpin:not(.g)').forEach(function (p) { p.classList.toggle('dim', b.dataset.f !== 'all' && p.dataset.tags.split(' ').indexOf(b.dataset.f) < 0); });
-  });
+
+  // Zoom and pan: +/- buttons, double-click or double-tap, Ctrl + scroll, and drag to pan once zoomed in.
+  var view = document.getElementById('mapview'), inner = document.getElementById('mapin');
+  if (view && inner) {
+    var z = 1, tx = 0, ty = 0, MAX = 5, drag = null, moved = false;
+    var apply = function () {
+      var w = view.clientWidth, h = view.clientHeight;
+      tx = Math.min(0, Math.max(w - w * z, tx)); ty = Math.min(0, Math.max(h - h * z, ty));
+      inner.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')';
+      view.style.setProperty('--z', z); view.classList.toggle('zoomed', z > 1);
+    };
+    var zoomTo = function (nz, cx, cy) {                      // keep the point under (cx, cy) fixed
+      nz = Math.min(MAX, Math.max(1, nz));
+      var k = nz / z; tx = cx - (cx - tx) * k; ty = cy - (cy - ty) * k; z = nz; apply();
+    };
+    var centre = function () { return [view.clientWidth / 2, view.clientHeight / 2]; };
+    view.parentNode.querySelector('.mzoom').addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return; var c = centre();
+      if (b.dataset.z === 'in') zoomTo(z * 1.6, c[0], c[1]);
+      else if (b.dataset.z === 'out') zoomTo(z / 1.6, c[0], c[1]);
+      else { z = 1; tx = ty = 0; apply(); }
+    });
+    view.addEventListener('wheel', function (e) {
+      if (!e.ctrlKey && !e.metaKey) return;                    // plain scrolling still scrolls the page
+      e.preventDefault(); var r = view.getBoundingClientRect();
+      zoomTo(z * (e.deltaY < 0 ? 1.2 : 1 / 1.2), e.clientX - r.left, e.clientY - r.top);
+    }, { passive: false });
+    view.addEventListener('dblclick', function (e) {
+      if (e.target.closest('.mpin') || e.target.closest('.mzoom')) return;
+      var r = view.getBoundingClientRect();
+      if (z > 1.01) { z = 1; tx = ty = 0; apply(); } else zoomTo(2.4, e.clientX - r.left, e.clientY - r.top);
+    });
+    view.addEventListener('pointerdown', function (e) {
+      if (z <= 1 || e.target.closest('.mzoom')) return;
+      drag = { x: e.clientX, y: e.clientY, tx: tx, ty: ty }; moved = false;
+    });
+    addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (!moved && Math.abs(dx) + Math.abs(dy) < 5) return;
+      moved = true; tx = drag.tx + dx; ty = drag.ty + dy; apply();
+    });
+    addEventListener('pointerup', function () { drag = null; });
+    view.addEventListener('click', function (e) { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+    addEventListener('resize', apply);
+    apply();
+  }
 
   // ?place=pench (or ?place=Lakshadweep) opens that place
   var want = new URLSearchParams(location.search).get('place'), key = 'tadoba';

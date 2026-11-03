@@ -3,23 +3,23 @@ layout: ../layouts/Legal.astro
 title: "Terms & Conditions"
 description: "The terms that apply to trips and services arranged by We Rove."
 path: "/terms"
-draft: true
+draft: false
 ---
 
 # Terms & Conditions
 
-**Last updated:** [date]
+**Last updated:** 3 November 2026
 
 ## 1. About these terms
-These terms apply to every trip and service arranged by **We Rove** ("we", "us"), [legal name / proprietorship / company name], [registration or GST number if you want to show it]. By booking with us you agree to them. If anything in your written itinerary differs from these terms, the itinerary wins for that trip.
+These terms apply to every trip and service arranged by **We Rove** ("we", "us"). By booking with us you agree to them. If anything in your written itinerary differs from these terms, the itinerary wins for that trip.
 
 ## 2. Booking
 - We send you an itinerary and price in writing (WhatsApp or email) before you pay anything.
 - A trip is **confirmed** when we confirm it in writing **and** we have received your advance.
-- Prices are in Indian rupees [and include / exclude GST as stated in your quote].
+- Prices are in Indian rupees and include all applicable taxes.
 
 ## 3. Payments
-- We take an advance by **bank transfer or UPI**. The balance is paid before travel, on the date we agree with you. Details are flexible and can be discussed on a call.
+- We take an advance of **25%** by **bank transfer or UPI**. The balance is due **30 days** before the trip. This can change for a specific itinerary, so please talk to us. Details are always confirmed in writing.
 - To avoid fraud, we only ever share our bank or UPI details directly, by phone or WhatsApp from **+91 96543 43996**. Please confirm on a call if anything looks unusual.
 
 ## 4. What's included, and what's not
@@ -58,10 +58,10 @@ We arrange lodging, vehicles, permits and guides with local partners and the for
 We may photograph our trips. We will not publish photos in which a guest can be identified without their permission. When you photograph wildlife, please do it in line with our field rules.
 
 ## 13. Complaints
-If something goes wrong, tell us as soon as you can, ideally during the trip, so we can fix it. Write to **info@werove.in** within [15] days of the trip if you'd like us to look into it afterwards.
+If something goes wrong, tell us as soon as you can, ideally during the trip, so we can fix it. Write to **info@werove.in** within 15 days of the trip if you'd like us to look into it afterwards.
 
 ## 14. Governing law
-These terms are governed by the laws of India. Any dispute will be handled by the courts at **[city]**.
+These terms are governed by the laws of India. Any dispute will be handled by the courts that have jurisdiction.
 
 ## 15. Changes to these terms
 We may update these terms. The version on our website on the day you book applies to your trip.

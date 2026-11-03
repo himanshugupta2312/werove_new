@@ -11,7 +11,6 @@ const pct = ([lon, lat]) => {
   const [x, y] = INDIA.project(lon, lat);
   return [((x / INDIA.w) * 100).toFixed(2), ((y / INDIA.h) * 100).toFixed(2)];
 };
-const present = Object.keys(wildlife).filter((t) => destinations.some((d) => d.tags.includes(t)));
 const pins = destinations.map((d) => ({
   ...d, pos: pct(d.coords),
   c: wildlife[d.tags[0]].color, c2: d.tags[0] !== 'birding' && d.tags.includes('birding') ? wildlife.birding.color : 'var(--card)',
@@ -27,7 +26,7 @@ const atlasData = {
   wildlife, ghosts: ghosts.map((g) => ({ name: g.name, note: g.note })),
   destinations: destinations.map((d) => ({
     slug: d.slug, name: d.name, short: d.short, region: d.region, tags: d.tags, summary: d.summary,
-    see: d.mammals, birds: d.birds, best: d.best, reach: d.reach, img: d.coverMd, hasPhotos: d.hasPhotos,
+    see: d.mammals, tigers: d.tigers, birds: d.birds, best: d.best, reach: d.reach, img: d.coverMd, hasPhotos: d.hasPhotos,
   })),
 };
 
@@ -104,13 +103,10 @@ const jsonLd = {
         <h2>Where do we <em>rove?</em></h2>
         <p class="muted">Tiger country on your mind, or a birding haven? We have it all for you. Just tap a pin to know more about the locations.</p>
       </div>
-      <div class="tabs mfilters" id="mfilters">
-        <button type="button" class="on" data-f="all">All</button>
-        {present.map((t) => <button type="button" data-f={t}>{wildlife[t].label}</button>)}
-      </div>
       <div class="atlas">
         <div class="mapcard" id="mapcard">
-          <div class="mapin">
+          <div class="mapview" id="mapview">
+          <div class="mapin" id="mapin">
             <svg class="india" viewBox={`0 0 ${INDIA.w} ${INDIA.h}`} role="img" aria-label="Map of India showing the places we travel to">
               <path id="indiapath" pathLength="1" d={INDIA.d} /><path class="isl" d={INDIA.dots} />
             </svg>
@@ -122,6 +118,8 @@ const jsonLd = {
               <button type="button" class={`mpin g ${g.hot ? 'hot ' : ''}${g.side}`} data-s={`g:${g.name}`} data-tags=""
                 style={`left:${g.pos[0]}%;top:${g.pos[1]}%`} aria-label={`${g.name}, ask us`}><i></i><span>{g.name}</span></button>
             ))}
+          </div>
+          <div class="mzoom" role="group" aria-label="Zoom the map"><button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">&minus;</button><button type="button" data-z="reset" aria-label="Reset the map">&#8634;</button></div>
           </div>
           <div class="mlegend">
             {legend.map((l) => <span><i style={`background:${l.color}${l.ring ? `;box-shadow:0 0 0 2px var(--card),0 0 0 4px ${wildlife.birding.color}` : ''}`}></i>{l.label}</span>)}

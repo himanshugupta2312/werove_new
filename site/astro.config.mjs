@@ -6,5 +6,5 @@ export default defineConfig({
   site: 'https://www.werove.in',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
-  integrations: [sitemap({ filter: (p) => !/\/(terms|privacy|cancellation)\/?$/.test(p) || process.env.PUBLISH_LEGAL === '1' })],
+  integrations: [sitemap()],
 });
