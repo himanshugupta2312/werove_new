@@ -28,7 +28,7 @@ PLACES = {  # folder name -> (slug, display name)
 }
 # Files still carrying a camera name. title / kind / id. `confirm` = unconfirmed guess (all confirmed so far).
 UNNAMED = {
-    ('tadoba', 'DSC_0122'): ('Tigress with cubs', 'mammal', 'tigress-with-cubs', False),
+    ('tadoba', 'DSC_0122'): ('Tiger with cubs', 'mammal', 'tigress-with-cubs', False),
     ('pench', 'IMG_6301'): ('Tiger', 'mammal', 'tiger-1', False),
     ('pench', 'IMG_6309'): ('Tiger by the water', 'mammal', 'tiger-2', False),
     ('pench', 'IMG_6465'): ('Tiger resting', 'mammal', 'tiger-3', False),
